@@ -4,7 +4,7 @@ Working notes for whoever continues the guide. The full plan and research live o
 
 ## Status (2026-11-22)
 
-Phase 5 is done (2026-11-22): learner rights proven with a learner-only account, steps 1–9 rehearsed live and timed as a learner (project **UiBank AS / UIBAS**), every page fixed against what really happened, 21 screenshots added. Next is phase 6 (publish to `main`). Still unverified: Delegate and `uip` on a real learner laptop (see below).
+Phase 5 is done (2026-11-22): learner rights proven with a learner-only account, steps 1–9 rehearsed live and timed as a learner (project **UiBank AS / UIBAS**), every page fixed against what really happened, 21 screenshots added. Phase 6 done the same day: phase 5 gaps fixed, `main` pushed, repo description set, deploy workflow green (`gh-pages` exists). Pages itself is not switched on yet (Settings → Pages → `gh-pages`). Still unverified: Delegate and `uip` on a real learner laptop.
 
 ## Phase 5 rehearsal results (2026-11-22)
 
@@ -140,3 +140,4 @@ Decisions taken in phase 3 (Victor: ask only for critical things):
 | 2026-11-22 | 3 – write | All pages and the include written; integration, completeness critic and fix passes; 4 cropped screenshots added, 14 images removed; strict build and grep gates pass. One local commit, nothing pushed. |
 | 2026-11-22 | 4 – review | Build, link, external link and grep checks; 3 reviews (38 findings, all confirmed by skeptics, all fixed); neutral Delegate model hint; mermaid init fix; rendered check at desktop and phone width. One local commit, nothing pushed. |
 | 2026-11-22 | 5 – rehearsal | Learner out of Automation Developers; minimum rights proven (SubFolders.View added via the ATB Workshop Learner folder role); steps 1–9 rehearsed and timed as a learner; all pages fixed to match; 21 screenshots; REHEARSE comments removed; agenda times; reference PDF regenerated. One local commit, nothing pushed. |
+| 2026-11-22 | 6 – publish | Gaps fixed (step 2 chat route; behaviour verification finding and Trainer Demo backup run; Viewer role; 3 more screenshots). Pushed to `main`, description set, deploy workflow green. Pages not switched on. |
