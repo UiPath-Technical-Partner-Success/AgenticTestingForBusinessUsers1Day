@@ -43,7 +43,7 @@
 
 **Autopilot chat** is a conversation panel inside your project. Open a project, then select the **Autopilot** icon in the top bar. You ask in plain language, and chat answers from your real project data. It can search your project, build charts, and make changes for you, such as adding labels or creating a test set. It has two modes: **Edit**, which asks before each action, and **Agent**, which acts without asking. Today you stay in **Edit** mode. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/about-autopilot-chat" target="_blank">About Autopilot chat</a> and <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/search-test-manager-project" target="_blank">Search Test Manager project</a>.
 
-<!-- IMG: Autopilot chat panel open in a Test Manager project, Edit mode visible in the input box. Crop the user initials in the top bar and any project prefix that names a person. -->
+![Autopilot chat panel open inside a Test Manager project, in Edit mode](../assets/images/atb-01-autopilot-panel.jpg)
 
 !!! warning "Check what chat tells you"
     Chat is fast, but it can be wrong. Compare its counts with the **Execution** page, and its how-to answers with the docs. The panel says it too: "Autopilot can make mistakes."

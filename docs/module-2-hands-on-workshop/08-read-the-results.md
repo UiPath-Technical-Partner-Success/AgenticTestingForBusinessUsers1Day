@@ -30,12 +30,12 @@ You ran the over-65 test case three ways and the regression set once. Now read t
 
     ✅ **TOTAL COVERAGE** – the share of requirements that have at least one test case. Your project has one requirement with test cases, so it shows 100%.
 
-    ✅ **AUTOMATION RATE** – how many of your test cases are automated and how many are manual. Only the 3 you linked in step 6 are automated, so most of the project is still manual.
+    ✅ **AUTOMATION RATE** – how many of your test cases are automated and how many are manual. Only the 3 you linked in step 6 are automated, so most of the project is still manual – for example "70% only manual | 30% automated".
 
 !!! warning "100% coverage doesn't mean ready"
     **TOTAL COVERAGE** counts test cases that *exist*, not test cases that *passed*. Your requirement is 100% covered, yet one of its acceptance criteria fails. Never report coverage as readiness.
 
-<!-- IMG: Dashboard – Results Overview with today's runs (Daily), TOTAL COVERAGE and AUTOMATION RATE tiles. Learner project, no names in the header. -->
+![Dashboard with Results Overview for today's runs and the TOTAL COVERAGE and AUTOMATION RATE tiles](../assets/images/atb-08-dashboard.jpg)
 
 ??? info "For your admin: more reporting"
     Two things you won't see today. The **Open Defects** tile appears only when the project is connected to a defect tracker such as Jira. Trend dashboards across projects need the Insights service. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/test-manager-dashboard-reports" target="_blank">Dashboard reports</a>.
@@ -64,9 +64,7 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
         How many requirements are fully, partially, or not tested?
         ```
 
-        Chat uses its **Autopilot Chart** tool: a pie chart and a table with your one requirement, **Submit Loan Request**. It shows as **Fully tested** or **Partially tested** – the test cases you generated in step 3 are linked but most haven't run yet. It's a built-in tool, so there's nothing to approve. Read what chat adds under the chart: "tested" means the linked test cases ran, not that every scenario is covered.
-
-        <!-- REHEARSE: record the label on a learner project after steps 3–7 in phase 5 -->
+        Chat uses its **Autopilot Chart** tool: a pie chart and a table – **Fully tested** 0, **Partially tested** 1, **Not tested** 0. Your one requirement, **Submit Loan Request**, is **Partially tested**: the test cases you generated in step 3 are linked, but most haven't run yet. It's a built-in tool, so there's nothing to approve, and it takes under a minute. Read what chat adds under the chart: "tested" means the linked test cases ran, not that every scenario is covered.
 
     2. **Failures by requirement**
 
@@ -74,9 +72,7 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
         Show a chart of failed test cases grouped by requirement.
         ```
 
-        Keep the word **chart** in the prompt. Without it, chat searches and gives you a list instead. Your **Submit Over-65 Request** should be among the failures under **Submit Loan Request**. Other failures may come from the imported history. If chat gives a list or a table instead of a chart, that's fine – check the content.
-
-        <!-- REHEARSE: verified only without the word "chart" (chat used Autopilot Search and gave a list). Record the answer with "chart" in phase 5. -->
+        Keep the word **chart** in the prompt. Without it, chat searches and gives you a list instead. Chat draws a bar chart and a table with the **count** of failed test cases per requirement: **Submit Loan Request** with 1 failed test case. There's nothing to approve. The chart doesn't name the test case: click the suggestion under the answer, **Show the failed test case for** your requirement key, to see that it's **Submit Over-65 Request**.
 
     3. **Your regression set as a table**
 
@@ -84,11 +80,9 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
         List the test cases in Release 2.4 - Loan regression in a table with their labels and their result in the latest execution of that set.
         ```
 
-        Chat reads your project with several Test Manager tools, so in Edit mode you select **Accept** a few times. You should get 3 rows, each with the label **release-2.4**: Submit Standard Loan Request and Submit Underage Request **Passed**, Submit Over-65 Request **Failed**.
+        Chat reads the test set, the test cases, the execution, the logs and the labels of each test case, so in Edit mode you select **Accept** about 7 times. It takes about 1–2 minutes. You should get 3 rows, each with the label **release-2.4**: Submit Standard Loan Request and Submit Underage Request **Passed**, Submit Over-65 Request **Failed**, and a summary: 2 passed, 1 failed, 0 not run.
 
-        <!-- REHEARSE: replaces the "distribution by label" chart prompt, which failed to chart. Not yet run live – record tools, approvals and answer in phase 5. -->
-
-<!-- IMG: Autopilot chat – coverage pie chart with the Fully tested / Partially tested / Not tested table. Learner project, header initials cropped. -->
+![Autopilot chat coverage chart with the Fully tested, Partially tested and Not tested table](../assets/images/atb-08-coverage-chart.jpg)
 
 !!! warning "Check the AI's numbers"
     Chat can miscount. Before you put a number in front of a release manager, compare it with **Execution**. The footer of the chat says it too: "Autopilot can make mistakes. Please double check the responses."
@@ -103,14 +97,14 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
 
     No row ticked? **From last day** works too: it picks up everything you ran today. Don't use the longer periods to reach the imported history – it's too old to be included.
 
-4. You see "Report generation is in progress". Open the **Reports** tab. The report is usually ready in under a minute. No report after 2–3 minutes? Ask your trainer for the reference Insights report and carry on.
+4. You see "Report generation is in progress", and the page switches to the **Reports** tab by itself, with the status **Processing**. The report is usually ready in under a minute. No report after 2–3 minutes? Ask your trainer for the reference Insights report and carry on.
 5. Open the report and read its sections: **Overview**, **Top Failing Tests**, **Common Errors**, **Error Patterns** and **Recommendations**.
 
-    Under **Common Errors** you should read something like "The application did not reject an applicant over 65 as expected…".
+    Under **Common Errors** you should read something like "The application for an applicant over 65 was accepted instead of rejected…".
 
 6. Select the download icon (tooltip **Download**). You get a `.docx` file with a long, random-looking name. Rename it, for example `UiBank-Execution-Insights.docx`, and share it with the developers – it's triage input, not release evidence.
 
-<!-- IMG: Execution → Functional with the Generate Report ▾ menu open (From selection / From last day …), and the Reports tab with the Download icon. Learner project, header initials cropped. -->
+![Execution page with the Generate Report menu open](../assets/images/atb-08-generate-report-menu.jpg)
 
 !!! info "Insights is for triage, not for the release decision"
     The report explains failure patterns. It doesn't tell you whether to ship. Its **Recommendations** are written for developers (unit tests, logging, and so on): pass them on, but don't treat them as your verdict. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/test-result-analysis" target="_blank">Test result analysis</a>.
@@ -124,7 +118,7 @@ The execution PDF is the plain, factual record of the run: no AI, just results. 
 
     Use the icon on the *execution* page. The icon on the **Execution** list exports every execution to Excel.
 
-3. Save the file (`<PROJECT>-TestResults-<date>.pdf`) next to your Insights report.
+3. Save the file (`<PREFIX>-TestResults-<date>_<time>.pdf`, with your project prefix) next to your Insights report.
 
 Open it and check:
 
@@ -134,12 +128,12 @@ Open it and check:
 
 ✅ **Requirements** – Submit Loan Request with its test cases and their results
 
-<!-- IMG: execution page with the download icon menu open (Download Excel / Download Pdf). Learner project, header initials cropped. -->
+![Execution page with the download menu open, showing Download Excel and Download Pdf](../assets/images/atb-08-download-pdf-menu.jpg)
 
 ## Check it
 
 !!! success "Check it"
-    ✅ Chat's answer to the failures prompt shows **Submit Over-65 Request** among the failures under **Submit Loan Request**.
+    ✅ Chat's failures chart shows 1 failed test case under **Submit Loan Request**, and the suggestion names it: **Submit Over-65 Request**.
 
     ✅ The Execution Insights `.docx` and the execution PDF are saved on your computer.
 

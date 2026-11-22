@@ -50,7 +50,7 @@ So far, chat mostly read your project. In this step it **changes** it for the fi
 
     More: <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/about-autopilot-chat" target="_blank">About Autopilot chat</a>.
 
-<!-- IMG: Autopilot Chat settings → MCP Servers → From your organization → Test Manager MCP server, as a learner. Crop the header (no initials). -->
+![Autopilot chat settings, MCP Servers, with Test Manager MCP server under From your organization](../assets/images/atb-07-mcp-servers.jpg)
 
 ## Label the test cases and build the set
 
@@ -65,9 +65,9 @@ A **label** is a tag on a test case, such as `release-2.4`. A **test set** is a 
         Add the label release-2.4 to these test cases: Submit Standard Loan Request, Submit Underage Request and Submit Over-65 Request.
         ```
 
-        Chat asks to run `Bulk_add_labels`, then a read tool (`GetAllObjectLabelsByObjectId`) once per test case. Select **Accept** each time – about 4 clicks, about 1 minute. It answers with a table of the three test cases and their labels.
+        Chat may first read the test cases (`Get_test_cases`), then asks to run `Bulk_add_labels`. It may also read the labels back (`GetAllObjectLabelsByObjectId`) once per test case. Select **Accept** each time – about 2–4 clicks, under a minute. It answers with the three test cases it labelled.
 
-        <!-- IMG: chat tool card for Bulk_add_labels in Edit mode – tool name, "via MCP server: testmanager", Reject / Accept. Crop the header (no initials). -->
+        ![Chat tool card for Bulk_add_labels, via MCP server testmanager, with Reject and Accept](../assets/images/atb-07-bulk-add-labels-card.jpg)
 
     2. Then paste:
 
@@ -75,7 +75,7 @@ A **label** is a tag on a test case, such as `release-2.4`. A **test set** is a 
         Create a test set called 'Release 2.4 - Loan regression' and assign all test cases with the label release-2.4.
         ```
 
-        Chat asks to run `Create_test_set`, `Assign_test_cases_to_test_set` and `Get_test_cases` – about 3 clicks, about 1 minute. It confirms the set and its three test cases.
+        Chat first finds the test cases with **Autopilot Search** (no card), then asks to run `Create_test_set` and `Assign_test_cases_to_test_set` – about 2–3 clicks, under a minute. It confirms the set and its three test cases.
 
     3. Type the set name with a plain hyphen, as shown: later prompts look for it by name.
 
@@ -107,13 +107,13 @@ Tell Test Manager where and on which robot the set runs. You do this once per te
 
 1. Open **Test Sets** → **Release 2.4 - Loan regression** → **Test Cases** tab, and select **Configure Automation**.
 2. **Execution folder** shows **Default (ATB - Agentic Testing Workshop)**, the shared folder you set as Default Folder in step 1. Leave it.
-3. **Runtime type** defaults to **Cloud - VM Testing**. **Change it to Cloud - Serverless Testing.** The panel then says "Serverless executions are limited to 15 minutes." – the set needs about one.
+3. **Runtime type** may be empty or show **Cloud - VM Testing**. Either way, **pick Cloud - Serverless Testing.** The panel then says "Serverless executions are limited to 15 minutes." – the set needs about one.
 
-    !!! warning "Why not the default?"
+    !!! warning "Why not Cloud - VM Testing?"
         **Cloud - VM Testing** is the shared robot that runs everyone's Run autonomously (Preview) tests from step 4. Your set would wait in its queue. **Cloud - Serverless Testing** starts fresh cloud robots for each run and doesn't wait behind the Run autonomously queue.
 
 4. Leave **Robot account** on **Any User/Robot account** and **Machine template** on **Any machine template**.
-5. Under **Automation packages**, select **Autoselect packages**. It adds **UiBank.BusinessTests - 1.0.0**.
+5. Under **Automation packages**, select **Autoselect packages**. It adds **UiBank.BusinessTests - 1.0**.
 6. Select **Save**. Test Manager confirms with **Automation details for testset saved successfully!**
 
 ![Configure Automation with Cloud - Serverless Testing, Any User/Robot account, Any machine template and the UiBank.BusinessTests package](../assets/images/atb-07-configure-automation-serverless.jpg)
@@ -133,7 +133,7 @@ With the standard Test Manager tools, chat can't start a run, so you use the but
 
     ![Execute menu on a test set with Automated selected](../assets/images/TM%20Test%20Set%20Execute%20Automated.png)
 
-2. Nothing pops up. Go to **Execution**: the run appears as **Automated - Release 2.4 - Loan regression -** followed by the date and a number.
+2. The execution page opens, with the message **Started Execution for Release 2.4 - Loan regression**. In **Execution**, the run is listed as **Automated - Release 2.4 - Loan regression -** followed by the date and a number.
 3. Wait about 45 seconds, plus a short queue if the whole class runs at once. Refresh until the header says **Finished**.
 
 !!! success "Check it"
@@ -143,7 +143,7 @@ With the standard Test Manager tools, chat can't start a run, so you use the but
 
     ✅ Open the failed **Submit Over-65 Request** result. Its log shows a failed verification: the test expected UiBank's rejection ("Sorry…") and UiBank answered "Congrats!". That is an **assertion** – UiBank gave the wrong answer – not a robot error.
 
-    <!-- IMG: Execution "Automated - Release 2.4 - Loan regression - <date>" – Finished, 2 passed / 1 failed / 0 not executed, three rows (Over-65 Failed). Crop the header and the Machine/Robot columns (no initials, no account names). -->
+    ![Regression execution, Finished, with 2 passed, 1 failed and Submit Over-65 Request Failed](../assets/images/atb-07-regression-execution.jpg)
 
 !!! warning "Failed is not always UiBank's fault"
     A robot problem also shows as **Failed**. If the log says something like **Failed to start browser**, or all three failed, it's the robot, not UiBank: tell your trainer. See [Troubleshooting](../module-3-troubleshooting-and-next-steps/02-troubleshooting.md#runs).
@@ -163,7 +163,7 @@ A failed test doesn't always mean a broken app: the test itself can expect the w
         For the latest execution of Release 2.4 - Loan regression: give me the totals passed, failed and none. For each failed test case, compare its test data and expected result with the acceptance criteria of the Submit Loan Request requirement. Say whether UiBank breaks the requirement (UiBank defect) or the test expects the wrong result (test defect), and quote the criterion.
         ```
 
-    2. Accept each tool card: chat reads the test set, the requirement, the execution, the failed log, the test steps and the parameters. About 7 clicks, about 2 minutes.
+    2. Accept each tool card: chat reads the test set, the requirement, the execution, the failed log and the test steps. About 5 clicks, 1–2 minutes.
     3. Compare its answer with **Execution**. Chat can miscount, so the page is the truth.
 
 !!! success "Check it"
@@ -174,6 +174,8 @@ A failed test doesn't always mean a broken app: the test itself can expect the w
     ✅ The success rate is passed out of passed + failed: 2 / (2 + 1) = **66.7%**. You decide go or no-go in step 9 – on the defect, not on this number.
 
     Chat calls it a test defect? Ask it to check the test case against the over-65 criterion again, and tell your trainer.
+
+    Chat may add a "possible secondary issue": the automation checks for "Sorry", while the criterion says "Not approved due to age." That's a fair point to discuss with the class. It doesn't change the verdict: UiBank approved an applicant it must reject.
 
 ??? tip "Optional: a second opinion with Autopilot Search"
     Ask chat:
@@ -199,12 +201,10 @@ A failed test doesn't always mean a broken app: the test itself can expect the w
     1. On the test set, select **Execute** ▾ → **Create Schedule**.
     2. Fill in **Schedule** (a name, for example `Release 2.4 - weekday morning`). **Test Sets** is already filled in.
     3. Pick a **Schedule Type**:
-        - **Recurrence** → daily at 06:00, or
+        - **Recurrence** → set **Repeat** to **Daily** (the default is Hourly), or
         - **Advanced** → paste the cron expression `0 0 6 ? * MON-FRI` (06:00, Monday to Friday).
-    4. Set **Start Date**, the time and your **Time zone** (the default is UTC), and save.
-    5. **Deactivate it right away**, so it doesn't run every day after the workshop: go to **Execution** → **Schedules**, open the schedule's **More Options** (⋮) and select **Deactivate**. Can't find Deactivate? Delete the schedule from the same menu, or tell your trainer.
-
-    <!-- REHEARSE: save a Recurrence schedule and Deactivate it – HANDOFF item 8 -->
+    4. Set **Start Date** to **tomorrow** with the calendar icon (you can't type in the field), set the time to 06:00, and check the **Time zone** (the default is UTC). A start time earlier than now gives "Start time must be later than the current time". Select **Save**.
+    5. **De-activate it right away**, so it doesn't run every day after the workshop: go to **Execution** → **Schedules**. Your schedule shows **Active** and its next run. Open its **⋮** menu, select **De-activate**, then **Confirm** in the **Change active status of test set schedule** dialog. The schedule now shows **Inactive**.
 
     See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/creating-schedules" target="_blank">Creating schedules</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/deactivating-schedules" target="_blank">Deactivating schedules</a>.
 

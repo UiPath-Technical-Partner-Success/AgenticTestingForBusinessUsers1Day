@@ -36,7 +36,7 @@ UiBank has a defect. An applicant aged 66 gets *Congrats! You've been approved�
 !!! info "Preview"
     Labels and behavior may change. Your tenant may show slightly different labels.
 
-1. Go to **Test Cases**. On the **Submit Over-65 Request** row, select **⋮** → **Execute Autonomously**.
+1. Go to **Test Cases**. On the **Submit Over-65 Request** row, select **⋮** → **Execute Autonomously**. Or open the test case and select **Execute ▾** → **Autonomously**.
 
     You can also open the test case, go to the **Manual Steps** tab and select **Run Autonomously** in the right-hand panel:
 
@@ -45,7 +45,12 @@ UiBank has a defect. An applicant aged 66 gets *Congrats! You've been approved�
 2. The **Run test autonomously** (Preview) panel opens. Its banner says the feature is only for web-based UI tests. That's fine: UiBank is a web app.
 3. On the first screen:
 
-    ✅ **Url**: type `https://uibank.uipath.com/loans/apply`. It isn't filled in from the test case, and you can't go on without it.
+    ✅ **Url**: `https://uibank.uipath.com`, the UiBank home page. Your generated test case starts on the home page, so don't use the loan form's address. You can't go on without it.
+
+    - Field empty? Type `https://uibank.uipath.com`.
+    - Field already filled? Check that it shows exactly `https://uibank.uipath.com`. If not, clear the field first (select all, then delete), then type it. Typing into a filled field adds your text to the old address, and the run fails.
+
+    The Url you type here is saved into the test case's **Manual Steps** → **URL** field and pre-filled next time. You can also set it once there.
 
     ✅ **Model**: keep the one marked **Recommended**.
 
@@ -71,10 +76,14 @@ UiBank has a defect. An applicant aged 66 gets *Congrats! You've been approved�
 
 5. The panel shows its progress and ends with *Autonomous test execution job triggered.* You can close the panel now.
 
+    In **Execution**, the run is named **Submit Over-65 Request -** followed by the date and time, and its type is **Autonomous**.
+
 !!! note "Waiting is normal"
     The shared robot runs one test at a time, about 6 minutes each. The first run of the day can also wait several minutes while the cloud machine starts. With the whole class in the queue, your run may finish only after lunch. Leave it and carry on: you read its result in [5. Compare the Runs](05-compare-the-runs.md).
 
     If the panel shows an error, tell your trainer.
+
+    A run that ends after about a minute, with step 1 **Failed**, didn't reach the age decision – it's not a UiBank defect. Check the test case's **Manual Steps** → **URL** field for a broken address and fix it. If **Behaviour verification** on step 1 says *"Verification could not be completed (HttpRequestException)"*, it was a service error. Either way, ask your trainer before you start another run – each run costs App Test Platform Units – and use the trainer's completed run in step 5.
 
 Run autonomously uses App Test Platform Units from the tenant, not your personal AI allowance. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/running-autonomous-test-execution" target="_blank">Running Autonomous Test Execution</a>.
 
@@ -82,37 +91,40 @@ Run autonomously uses App Test Platform Units from the tenant, not your personal
 
 You run the steps in UiBank and record each result in the **manual execution assistant**, Test Manager's window for manual runs. This is the core UAT skill: a person checks the app and leaves evidence.
 
-1. Go to **Test Cases**. On the **Submit Over-65 Request** row, select **⋮** → **Execute Manually** (Test Cloud only).
+1. Go to **Test Cases** and open **Submit Over-65 Request**. Select **Execute ▾** → **Manually** (Test Cloud only).
+
+    You can also select **⋮** → **Execute Manually** on its row in **Test Cases**. The list sorts by **Last Modified**, so the row can move: check the name before you click.
 
     This starts a run of this one test case, with no test set.
 
-    !!! tip "No Execute Manually in the ⋮ menu, or the window misbehaves?"
+    !!! tip "No Execute Manually, or the window misbehaves?"
         Create a test set with only **Submit Over-65 Request**, then on the set select **Execute** → **Manually**.
 
-    <!-- IMG: Test Cases list with the ⋮ menu open on the over-65 row, showing Execute Manually and Execute Autonomously (no user initials in the header) -->
+    ![Test Cases list with the row menu open, showing Execute Manually and Execute Autonomously](../assets/images/atb-04-row-menu-execute.jpg)
 
     !!! info "Allow pop-ups for Test Manager"
         The manual execution assistant opens in a new window. If nothing opens, allow pop-ups for Test Manager in your browser, then select **Execute Manually** again.
 
 2. Open <a href="https://uibank.uipath.com" target="_blank">UiBank</a> in another window, next to the assistant.
 3. If the test case has a precondition, the state the app must be in before the test, set up UiBank as it says.
-4. Do each step in UiBank, then select **Set Passed** or **Set Failed** in the assistant. To pass several steps in a row, select **Set Passed Until Here**.
+4. Do each step in UiBank, then select **Set Passed** or **Set Failed** in the assistant. To pass several steps in a row, select **Set Passed Till Here**.
 5. At the step that checks the decision, UiBank shows *Congrats! You've been approved…* for your 66-year-old applicant. Your test case expects a rejection. Select **Set Failed** and add a comment, for example:
 
     ```text
     UiBank approved a 66-year-old applicant. The requirement says applicants over 65 must be rejected.
     ```
 
-6. Add evidence to the failed step: a screenshot of UiBank's approval page. The assistant's step menu (**More options**) offers ways to capture the screen or upload an attachment.
+6. Add evidence to the failed step: a screenshot of UiBank's approval page. Open the step's **⋮** menu and select **Capture screen**, or **Upload attachment** for a file. **Add image from clipboard** stays greyed out until you copy an image. The attachment shows as an image icon under your comment.
 
-    !!! tip "No capture option?"
-        If you don't see a way to capture the screen, take a screenshot with your computer's own tool and upload it as an attachment. If you can't attach a file either, describe what you saw in the comment. If capturing switches you to another tab, switch back to the assistant yourself.
+    !!! tip "Capture doesn't work?"
+        Take a screenshot with your computer's own tool and select **Upload attachment**. If you can't attach a file either, describe what you saw in the comment. If capturing switches you to another tab, switch back to the assistant yourself.
 
-    <!-- IMG: manual execution assistant with the decision step set to Failed, the tester comment and the screenshot attached (phase 5: confirm the Capture screen / Upload attachment labels) -->
+    ![Manual execution assistant with the decision step set to Failed, a tester comment and a screenshot attached](../assets/images/atb-04-manual-assistant-failed.jpg)
 
-7. If the test case has a postcondition, check it in UiBank and select **Condition Met**. Then select **Next**, and **Done** to finish.
+7. The postcondition box has a **Condition met** checkbox, ticked by default. The postcondition says the loan is rejected, but UiBank approved it: untick **Condition met**. Then select **Done**. There's no **Next**: the window closes by itself.
 
-    <!-- REHEARSE: confirm the Condition Met / Next / Done labels in the manual-window rehearsal (open item 4) -->
+    !!! warning "Always finish with Done"
+        If you close the window without **Done**, the run stays **Running** in **Execution**.
 
 !!! info "Made a mistake?"
     A run started without a test set can't be run again. Start a new **Execute Manually** instead. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/executing-test-cases-without-a-test-set" target="_blank">Executing test cases without a test set</a>.
@@ -180,7 +192,7 @@ Use the **QA / Testing** session you set up in [Prerequisites](../module-0-prere
 
     ✅ The Delegate run shows **Failed**, with a result for each step and a Delegate trace attached to the steps. Delegate names it **Delegate-** followed by the test case name and the date. The final screenshot is on your Desktop.
 
-    ✅ Your robot run is listed. It's fine if it hasn't finished yet. Can't find it? Ask your trainer, who can see the queue.
+    ✅ Your robot run is listed as **Submit Over-65 Request -** followed by the date and time, with the type **Autonomous**. It's fine if it hasn't finished yet. Can't find it? Ask your trainer, who can see the queue.
 
 <!-- IMG: Execution list with the manual run and the Delegate run of Submit Over-65 Request, both Failed (no executor names visible) -->
 

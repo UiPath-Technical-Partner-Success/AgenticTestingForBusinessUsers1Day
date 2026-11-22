@@ -40,7 +40,7 @@ You start from a ready-made **UiBank** project: one requirement, six test cases,
 4. Clear **Include automation information for test cases** (it's checked by default). Leave **Import governance information** and **Import project configuration** cleared.
 5. Select **Import**, then **OK** when the upload completes.
 
-<!-- IMG: Import project dialog with the three fields replaced (Name "UiBank AS", Prefix "UIBAS", business description) and "Include automation information for test cases" cleared – no personal names in the tenant header -->
+![Import project dialog with a new name, prefix and description, and Include automation information for test cases cleared](../assets/images/atb-01-import-project.jpg)
 
 !!! warning "Important"
     ✅ Clear **Include automation information for test cases** before you select **Import**.
@@ -59,9 +59,9 @@ To run tests on robots later today, Test Manager needs to know which **Orchestra
 !!! example "It's your turn now!"
     1. In your project, go to **Project Settings** and open the **Automation** tab.
     2. Set **Default Folder** to the folder your trainer gives you: in this workshop, **ATB - Agentic Testing Workshop**. Type part of its name to filter the list.
-    3. Click **Save**.
+    3. Click **Save**. A message confirms **Folder updated successfully**.
 
-<!-- IMG: Project Settings → Automation tab with Default Folder = ATB - Agentic Testing Workshop (crop the tenant header and initials) -->
+![Project Settings, Automation tab, with Default Folder set to the workshop folder](../assets/images/atb-01-default-folder.jpg)
 
 !!! failure "Skipped this step?"
     Robot runs fail with `HTTP 400: Please assign folder to project level before executing testcases.`
@@ -83,7 +83,7 @@ To run tests on robots later today, Test Manager needs to know which **Orchestra
 
     If it shows **Agent**, switch it to **Edit**.
 
-<!-- IMG: Autopilot panel open inside a project, mode selector set to Edit, footer "Autopilot can make mistakes. Please double check the responses." visible (crop the breadcrumb project key and the user initials) -->
+![Autopilot panel open inside a project, with the mode selector set to Edit](../assets/images/atb-01-autopilot-panel.jpg)
 
 !!! warning "Edit mode asks for every action – reads included"
     In **Edit** mode, Autopilot shows a card for each action it takes in Test Manager – the action's name, "via MCP server: testmanager", and **Reject** / **Accept** – even when it only *reads* your project. One question can ask for 5 or more approvals. Read each card, then select **Accept**. It's slower, but you always see what Autopilot does on your behalf. Searches and charts run without a card.
@@ -116,7 +116,7 @@ Autopilot answers from what it knows, without a tool card. **Don't take the answ
 Give me an overview of this project: the requirements and how many test cases each has, the test sets, and the latest executions.
 ```
 
-Autopilot asks you to approve about 5 read actions, one at a time – for example **Get_requirements**, **Get_test_sets**, **Get_test_executions**, **Get_assigned_test_case_ids_for_requirement** and **Get_test_cases**. Select **Accept** on each. The answer takes about 1–2 minutes.
+Autopilot asks you to approve about 5 read actions, one at a time – for example **Get_requirements**, **Get_test_sets**, **Get_test_executions**, **Get_assigned_test_case_ids_for_requirement** and **Get_test_cases**. Select **Accept** on each. The answer takes about 1–2 minutes. It may list only the newest executions, but it states the total: 17.
 
 ### 3 – A coverage gap search
 
@@ -124,7 +124,7 @@ Autopilot asks you to approve about 5 read actions, one at a time – for exampl
 Find all test cases not linked to any requirement.
 ```
 
-This uses **Autopilot Search**, so there's no card to approve. A test case without a requirement is a gap: nobody can say which business rule it proves.
+This starts with **Autopilot Search**, which runs without a card. Chat may then ask you to approve one read, **Get_test_cases**, to double-check the result. Select **Accept**. A test case without a requirement is a gap: nobody can say which business rule it proves.
 
 !!! success "Check it"
     Compare Autopilot's answers with the left navigation of your project:

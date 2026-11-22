@@ -83,9 +83,9 @@ This path needs only your browser. Open your project, click **Autopilot** (the s
         Write a go/no-go summary of the latest execution of Release 2.4 - Loan regression for a release manager: scope, totals, success rate as passed out of passed plus failed, each failure with the acceptance criterion it breaks, and a GO or NO-GO recommendation based on UiBank defects only.
         ```
 
-    2. Chat only *reads* your project for this: it uses Test Manager tools such as **Get_test_executions** and **Get_test_case_logs_by_test_execution**. These are the same MCP tools you met in [step 7](07-build-and-run-the-regression-set.md#what-mcp-means-for-you) – this time read-only. In Edit mode you select **Accept** for each one – about 6 times. It takes about 2 minutes.
+    2. Chat only *reads* your project for this: it uses Test Manager tools such as **Get_test_executions** and **Get_test_case_logs_by_test_execution**. These are the same MCP tools you met in [step 7](07-build-and-run-the-regression-set.md#what-mcp-means-for-you) – this time read-only. In Edit mode you select **Accept** for each one – about 4–6 times. It takes about 1–2 minutes.
 
-<!-- IMG: Autopilot chat – go/no-go summary answer with NO-GO, totals and the quoted over-65 criterion. Learner project, header initials cropped. -->
+![Autopilot chat go/no-go summary with NO-GO, the totals and the quoted over-65 criterion](../assets/images/atb-09-go-no-go-answer.jpg)
 
 !!! info "What you should get"
     ✅ **NO-GO**, because one UiBank acceptance criterion fails: a real application defect, not a flaky test or an environment problem.
@@ -95,6 +95,8 @@ This path needs only your browser. Open your project, click **Autopilot** (the s
     ✅ The over-65 criterion quoted from the requirement: applicants over 65 must be rejected.
 
     ✅ A release condition: fix the over-65 rule, then re-run the set and get 3 out of 3.
+
+    ✅ Chat may add a **Coverage caveat**: only 3 test cases cover the requirement. Keep it in your decision as a note.
 
     Chat recommends GO? Ask it to check Submit Over-65 Request against the over-65 criterion again. Chat can be wrong: the decision is yours.
 
@@ -119,6 +121,7 @@ Criterion broken:  [the acceptance criterion, quoted from the requirement]
 
 Evidence:          [execution PDF file name; screenshots or Delegate report, if any]
 Test defects:      [failures caused by the test itself, as follow-ups – or "none"]
+Notes:             [caveats, for example limited coverage – or "none"]
 
 Conditions to reach GO:
   1. [what must be fixed]
@@ -145,6 +148,7 @@ Conditions to reach GO:
     Evidence:          execution PDF from step 8; the same failure in the manual,
                        Delegate and autonomous runs of step 4
     Test defects:      none
+    Notes:             only 3 test cases in the regression set cover the requirement
 
     Conditions to reach GO:
       1. UiBank rejects applicants over 65.
@@ -193,26 +197,24 @@ Pick what fits your role. None of these is needed to finish the workshop.
     You own your project, so you can switch governance on yourself:
 
     1. **Project Settings** → **Governance** → **Enable governance**.
-    2. Set **Default governance state** to **Governed**, add yourself under **Default approvers**, and leave **Signing order** off. Select **Save**. You see "Governance settings updated successfully."
+    2. Set **Default governance state** to **Governed**, and add yourself under **Default approvers**: type your first name or the start of your email address. Your full name may find nothing, because the directory can list you differently. Leave **Signing order** off. Select **Save**. You see "Governance settings updated successfully."
 
     If you can't add yourself as an approver, or the sign icon doesn't appear on your row, ask your trainer to show the signed result in the Trainer Demo project instead.
-
-    <!-- REHEARSE: learner adding self as Default approver and signing – HANDOFF item 7 -->
 
     Didn't switch governance on before your regression run in step 7? Then its results aren't governed yet – govern the over-65 result now. Switched it on in step 7? The result is already governed: open it (item 1), then skip to item 3.
 
     !!! warning "Before you sign: your name and email appear in the signature"
-        The signature and the PDF show your name and email address, and the signed result stays on the shared workshop tenant. Don't share the signed PDF outside the class, and crop screenshots before you use them.
+        The signature and the PDF show your name and email address, and the signed result stays on the shared workshop tenant. Don't share the signed PDF outside the class, and crop screenshots before you use them. The test case's **Latest Results** grid shows your email under **Executed By** too: crop it as well.
 
     1. **Execution** → open your regression execution → open the **Submit Over-65 Request** result.
     2. Turn on the **Governed** toggle. **Approval status** shows **In work**.
-    3. Select the pencil next to the status → **In review**. From now on the result is locked: nobody can edit it until it's signed.
+    3. Select the pencil next to the status. In **Set approval status**, select **In review**. From now on the result is locked: nobody can edit it until it's signed.
     4. Open the **Governance** tab of the result. On your approver row, select the sign icon. In the **Sign test case** panel, fill in **Your role at time of signature**, for example `QA Manager`, add a comment if you like, and select **Sign**.
-    5. The status changes to **Signed**. Download the execution PDF again: it now has a **Governance** section with the signature.
+    5. The status changes to **Signed**, and your approver row shows **Signed** with your name. Download the execution PDF again: it now has a **Governance** section with the signature.
 
     In a real project, switch governance on *before* the run: new results are then governed from the start. Moving a result to **In review** locks it, so make any override or comment first. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance" target="_blank">Testing process governance</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance-for-test-case-logs" target="_blank">Governance for test results</a>.
 
-    <!-- IMG: Sign test case panel with "Your role at time of signature" – crop the signer's name and email. -->
+    ![Sign test case panel with Your role at time of signature and Add comments](../assets/images/atb-09-sign-test-case.jpg)
 
 ??? question "Discuss: when is an override OK?"
     Test Manager lets you **override** a result – for example, change a Failed result to Passed – with a mandatory comment. The override is visible on the result, so it works as a documented waiver (<a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/overriding-test-results" target="_blank">Overriding test results</a>).

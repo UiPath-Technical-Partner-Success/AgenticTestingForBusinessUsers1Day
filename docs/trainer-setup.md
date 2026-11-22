@@ -37,7 +37,7 @@ Complete this page **a few days before the workshop**, then run the [day-before 
 
 ## Users and licences
 
-✅ **Your trainer account:** your own account needs an **App Test Developer** licence, the **Project Creator** tenant role in Test Manager, **Folder Administrator** on the workshop folder, and tenant-level rights to publish packages (for example **Allow to be Automation Publisher** – check the label in the rehearsal). On your laptop, install UiPath Assistant signed in to the same tenant, and the UiPath Studio Web browser extension, for **Indicate target** and the Autopilot Recorder.
+✅ **Your trainer account:** your own account needs an **App Test Developer** licence, the **Project Creator** tenant role in Test Manager, **Folder Administrator** on the workshop folder, and tenant-level rights to publish packages: the tenant role **Allow to be Automation Publisher** plus a folder role that can publish, such as **Automation Publisher** (both labels confirmed on the rehearsal tenant). On your laptop, install UiPath Assistant signed in to the same tenant, and the UiPath Studio Web browser extension, for **Indicate target** and the Autopilot Recorder.
 
 ✅ Create a **group** for the learners, invite each learner to the organization, and add them to the group. Give rights and licences to the **group**, so late joiners get everything at once.
 
@@ -60,7 +60,7 @@ Complete this page **a few days before the workshop**, then run the [day-before 
 
 ![Access rule for a group: roles and settings](assets/images/OC%20Group%20access%20rules.png){ width="400" }
 
-*The screenshot comes from a developer workshop and shows broader roles. For this workshop, **Allow to be Automation User** is enough for what was tested – see the rights warning in [The shared folder](#the-shared-folder).*
+*The screenshot comes from a developer workshop and shows broader roles. For this workshop, **Allow to be Automation User** is enough – it carries **Packages – View**, which **Select Automation** needs to list the Tenant Package Feed. See [Proven minimum rights](#proven-minimum-rights).*
 
 !!! success "Check it"
     In **Admin → Licenses → Users**, each learner has **App Test Developer** (or **App Tester**), directly or through the group. No Autopilot icon for a learner inside a project? This row is the first thing to check.
@@ -99,22 +99,37 @@ All learners work in **one** Orchestrator folder. They do no Orchestrator work t
     !!! warning "Create it where learners get no inherited roles"
         Create the folder at the root, or under a parent folder where the learner group has no role. A folder under a parent where a learner group is **Folder Administrator** inherits that role, gives learners admin rights, and hides any rights problem until a real class.
 
-4. Open the folder → **Manage access** → **Assign account/group/external app**:
-    - the learner group (or each learner): folder role **Automation User**
+4. Create a custom folder role for learners: Orchestrator → **Tenant** → **Roles** (**Access → Roles**) → **Add role** → type **Folder**, name it for example *ATB Workshop Learner*, and grant only the **View** permission for subfolders (API name `SubFolders.View`; the role editor lists it under **Subfolders** or **Folders**, depending on the layout).
+5. Open the folder → **Manage access** → **Assign account/group/external app**:
+    - the learner group (or each learner): folder roles **Automation User** and your learner role from item 4
     - your trainer or admin group: **Folder Administrator**
 
     In the rehearsal, Test Manager's **Default Folder** picker listed the folder only after a **direct** folder assignment for the learner. A group assignment wasn't tested: check it with a learner account.
 
-5. Select **Check own permissions** and tick **View Inherited Users** to see the effective rights.
+6. Select **Check own permissions** and tick **View Inherited Users** to see the effective rights.
 
     ![Manage access tab of a folder, with the Robot Type column](assets/images/OC%20Settings%20Folder%20Admin.png)
 
-!!! warning "Learner minimum rights are not proven yet"
-    With only **Automation User** in this folder, the learner-like account could set the Default Folder, start Run autonomously (which uploads a package and creates a process in the folder), link the trainer's package with **Select Automation** from the **Tenant Package Feed**, run the regression set on serverless robots, and use the chat tools. But that account also had tenant-level admin roles through another group, so these rights are **re-checked in the rehearsal** with a learner-only account.
+### Proven minimum rights { #proven-minimum-rights }
 
-    If one of these fails for a learner-only account, add the missing folder permissions (process create or edit, package view) or tenant-level **Packages – View**, and note what you added. Fallback: you link the automation for the learners (step 6).
+Rehearsed on 2026-11-22 with a learner account that had no admin role anywhere:
 
-    To link for a learner, do it at their desk, in their browser and their project. Or ask them to add you as a project administrator in their project's user management (check the exact role label in the rehearsal).
+| Where | What the learner needs | Why |
+|---|---|---|
+| Licence | **App Test Developer** (or **App Tester**), direct or through the group | Autopilot, Autopilot chat, Delegate |
+| Tenant – Orchestrator | **Allow to be Automation User** (through the learner group) | **Packages – View** for **Select Automation** (Tenant Package Feed) |
+| Tenant – Test Manager | **Project Creator** (through the learner group) | Import and own a project (step 1) |
+| Workshop folder | **Automation User** + the learner role with subfolder **View** (items 4–5 above) | Default Folder, Run autonomously, serverless runs |
+
+With exactly these rights, all of these worked: Default Folder (save and reload), Run autonomously (package upload, process create, job – one run passed in 7 min 50 s), **Select Automation** and **Save** from the Tenant Package Feed, the serverless regression set (2/1/0), the chat write tools **Bulk_add_labels**, **Create_test_set** and **Assign_test_cases_to_test_set**, Execution Insights, the PDF download, a deactivated schedule, and governance with the learner as their own approver.
+
+!!! warning "Without the subfolder View permission"
+    With **Automation User** alone, the Default Folder picker lists the workshop folder and **Save** works, but **Project Settings** then shows the toast **Folder does not exist.** and the **Default Folder** field is blank after a reload. Add the learner role from item 4 and reload – no change in the learner's project is needed.
+
+!!! warning "Suggestion buttons in step 2 fail for learners"
+    In **Quality enhancements**, **Add to Requirement** and the suggestion status drop-down returned a rights error for the learner ("You do not have the necessary rights to access this application.", with a **Click here to logout** button), also with the old admin group restored for a test. Editing the requirement text works. Step 2 tells learners to copy the suggestion title into the description themselves. If you find the role that allows it on your tenant, note it here.
+
+To link an automation for a learner (step 6 fallback), do it at their desk, in their browser and their project. Or ask them to add you in their project's **Project Settings → Manage Access → Assign users/groups** with the **Test Manager Administrator** project role (project role labels seen: **Project Owner**, **Test Manager**, **Viewer**, **Test Manager Administrator**).
 
 ??? note "Fallback: one folder per learner"
     If one shared folder doesn't suit your tenant, create one folder per learner, and add the robot account and both machines to each folder. It costs about 4 minutes of setup per learner.
@@ -164,7 +179,7 @@ Run autonomously and Autonomous Exploration run in the machine's default browser
 
     ![Manage Machines in Folder button](assets/images/OC%20Manage%20machine.png)
 
-No remote desktop session, browser extension setting or **Allow in Incognito** change was needed on the standard image: Run autonomously and Exploration both worked as delivered. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/running-unattended-automations-using-cloud-robots-vm" target="_blank">Running unattended automations using cloud robots – VM</a>.
+No remote desktop session, browser extension setting or **Allow in Incognito** change was needed on the standard image: Run autonomously and Exploration both worked as delivered. Autopilot drove **Edge** on the VM. The robot log warns that the VM screen resolution **1024x768** is below the recommended 1920x1080 and "ScreenPlay executions may be less accurate": if runs misread the page, raise the resolution as the warning's docs link describes. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/running-unattended-automations-using-cloud-robots-vm" target="_blank">Running unattended automations using cloud robots – VM</a>.
 
 !!! warning "Capacity: plan the queue before lunch"
     Measured with 1 VM and 1 runtime on **Balanced**:
@@ -190,8 +205,8 @@ No remote desktop session, browser extension setting or **Allow in Incognito** c
 
 Serverless jobs are limited to 15 minutes; the 3-test regression set takes under a minute. Studio Web Tests projects are cross-platform, so they run on serverless robots. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/executing-unattended-automations-with-serverless-robots" target="_blank">Executing unattended automations with serverless robots</a>.
 
-!!! warning "Configure Automation defaults to the VM pool"
-    With both machines in the folder, a test set's **Configure Automation** panel preselects **Cloud - VM Testing**. Step 7 tells learners in bold to pick **Cloud - Serverless Testing**. A learner who misses it sends the regression run to the VM queue: cancel and run again.
+!!! warning "Configure Automation may default to the VM pool"
+    With both machines in the folder, a test set's **Configure Automation** panel preselected **Cloud - VM Testing** in one rehearsal and showed an empty **Runtime type** in another. Step 7 tells learners in bold to pick **Cloud - Serverless Testing** either way. A learner who misses it sends the regression run to the VM queue: cancel and run again.
 
 ### Robot-side errors
 
@@ -210,7 +225,7 @@ The Trainer Demo project is your own UiBank project. It holds the published auto
 
 1. Import the workshop `.tmh` (step 1 of the learner guide) under a name and prefix of your own, for example *ATB Trainer Demo*. Set **Project Settings → Automation → Default Folder** to the workshop folder.
 2. Add a manual test case **Submit Over-65 Request** with the same data as the automation (amount **50000**, term **3** years, income **90000**, age **66**). Expected result: rejected with "Not approved due to age." Link it to **Submit Loan Request**. Learners create the same test case, with the same data, in step 3.
-3. Give the learner group read-only access to this project: in the project's user management, assign the group a **Viewer** project role. Step 5 sends learners here to read your completed over-65 run. The exact role label is confirmed in the rehearsal – see <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
+3. Give the learner group read-only access to this project: **Project Settings → Manage Access → Assign users/groups**, pick the group, and assign the **Viewer** project role (the label shown in Manage Access). Step 5 sends learners here to read your completed over-65 run. Without it, learners don't see the project at all – the rehearsal learner lost sight of it once its admin group was removed – so show the run on the projector instead. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
 
 ### Build the package in Studio Web
 
@@ -288,9 +303,14 @@ Keep these ready in the Trainer Demo project, so any step can fall back to them:
 
 The first Run autonomously in a folder uploads a test package and creates the process `UiPathTestCloudAutonomousTestExecution`; the first Exploration creates `UiPathTestCloudAutonomousExploration`. Do these runs the day before, so the first class runs don't also start a cold VM.
 
-1. **Run autonomously ×3** from the Trainer Demo project – Submit Over-65 Request (the step 5 backup), Submit Standard Loan Request and Submit Underage Request: test case ⋮ → **Execute Autonomously** → **Url\*** `https://uibank.uipath.com/loans/apply`, keep the recommended **Model**, **Next** → **Runtime type** **Cloud - VM Testing**, **Robot account** **Any User/Robot account** → **Run**. Note the time per run and the App Test Platform Units used.
+1. **Run autonomously ×3** from the Trainer Demo project – Submit Over-65 Request (the step 5 backup), Submit Standard Loan Request and Submit Underage Request: test case ⋮ → **Execute Autonomously** → **Url\*** `https://uibank.uipath.com` (the test cases start on the UiBank home page), keep the recommended **Model**, **Next** → **Runtime type** **Cloud - VM Testing**, **Robot account** **Any User/Robot account** → **Run**. Note the time per run and the App Test Platform Units used.
+
+    The panel saves the Url into the test case's **Manual Steps → URL** field and pre-fills it next time. Typing into a pre-filled field appends to it: in the rehearsal that produced `…/loans/applyhttps://…`, and the next runs ended after step 1 with "Verification could not be completed (HttpRequestException)". Clear the field before you type, or set the URL once in **Manual Steps**.
 2. **Autonomous Exploration ×1:** requirement **Submit Loan Request** → **+ Autonomous Exploration**. A 10-minute time-box finished in 11 minutes and covered about **one** scenario. For the step 5 demo, use the narrow charter prompt ("only the over-65 rule"), or a 20–30 minute pre-run you show as the result.
-3. Keep the completed runs and the report as backups. Check that Autopilot marked the over-65 age step **Failed** – that is the result learners compare in step 5, and it wasn't verified before this guide was written.
+3. Keep the completed runs and the report as backups. Check that Autopilot reached the over-65 age step and marked it **Failed** – that is the result learners compare in step 5, and no rehearsal run has shown it yet.
+
+!!! warning "Run autonomously stopped after step 1 in a new learner project"
+    In the rehearsal, five autonomous runs of the learner's generated **Submit Over-65 Request** (project UIBAS, created after the learner's admin group was removed) each ended in about 40 seconds: step 1 **Failed**, steps 2–13 **None**, and **Behaviour verification** said "Verification could not be completed (HttpRequestException)". The robot log showed step 1 itself succeeded. Fixing the URL and rewording step 1 as an action didn't help. In the same hour, two runs of an older project's test case (imported before the rights change) ran normally – 6 to 8 minutes, Passed. Cause unknown. The day before the class, start one Run autonomously **as a learner, in a freshly imported learner project**. If it stops after step 1 the same way, plan Run autonomously as a trainer demo from the Trainer Demo project and tell learners to skip item 1 of step 4.
 
 ## Send learners the prerequisites
 
@@ -344,31 +364,33 @@ The first Run autonomously in a folder uploads a test package and creates the pr
 
 ✅ **Imported results show the original tester's name** under **Executed By**. Crop it from any screenshot you share.
 
-✅ **Chat Edit mode asks Accept / Reject for every tool call**, reads included: about 5 clicks for the overview prompt and 7 for the triage prompt. The learner pages warn about it.
+✅ **Chat Edit mode asks Accept / Reject for every tool call**, reads included: about 5 clicks for the overview prompt, 5–7 for the triage prompt and 7 for the step 8 table prompt. The learner pages warn about it.
 
 ✅ **No chat tool starts, schedules or stops runs, or creates Execution Insights** with the standard Test Manager tools. Learners use the buttons for those.
 
 ## Suggested agenda
 
-Measured times come from one learner on a quiet tenant; allow more with a full class.
+The **Rehearsal** column is the clock time of one scripted learner pass on a quiet tenant on 2026-11-22 (no reading, no discussion, no Delegate). A real learner reads, types and discusses: plan about 2–3 times that. The blocks below include that, plus about 25% buffer for 15 learners sharing the tenant, the chat service and one VM pool.
 
-| Time | Block | Page | Timing notes |
-|---|---|---|---|
-| 09:00–09:20 | Welcome: the release question, three roles, three helpers. **Learners start the import now** | Home, step 1 | import about 4 min (3–15 on a busy tenant) |
-| 09:20–09:45 | Introduction and Delegate check | Introduction, Prerequisites | check under 1 min |
-| 09:45–10:10 | 1. Default Folder, meet Autopilot chat | 1 | each chat answer 20 s to 1.5 min |
-| 10:10–10:40 | 2. Evaluate the requirement | 2 | about 5 min, plus discussion |
-| 10:40–10:55 | Break | | |
-| 10:55–11:25 | 3. Generate test cases, including Submit Over-65 Request | 3 | about 4 min; optional Excel import about 5 min |
-| 11:25–12:20 | 4. **Start Run autonomously first**, then Execute Manually and Delegate | 4 | each autonomous run about 6 min in the queue |
-| 12:20–13:05 | Lunch – the VM pool works through the queue. Watch **Orchestrator → Jobs** | | 15 runs need about 3 VMs |
-| 13:05–13:35 | 5. Compare the runs; your Autonomous Exploration demo | 5 | Exploration 11 min for a 10-min time-box |
-| 13:35–14:10 | 6. Studio Web demo, then learners link 3 test cases | 6 | |
-| 14:10–14:45 | 7. Build the set with chat, run on serverless, triage | 7 | run under 1 min; triage prompt about 2 min |
-| 14:45–15:00 | Break | | |
-| 15:00–15:40 | 8. Read the results | 8 | Insights report under 1 min |
-| 15:40–16:25 | 9. Go or no-go | 9 | chat summary about 2 min |
-| 16:25–17:00 | Wrap-up and feedback | You did it! | |
+| Time | Block | Page | Rehearsal (one learner) | Notes for 15 learners |
+|---|---|---|---|---|
+| 09:00–09:20 | Welcome: the release question, three roles, three helpers. **Learners start the import now** | Home, step 1 | import 2.5 min | 3–15 min on a busy tenant |
+| 09:20–09:45 | Introduction and Delegate check | Introduction, Prerequisites | – | Delegate check under 1 min per learner |
+| 09:45–10:10 | 1. Default Folder, meet Autopilot chat | 1 | 8 min (3 prompts: 20 s, 1.5 min with 5 approvals, 45 s) | chat answers slow down with the whole class |
+| 10:10–10:40 | 2. Evaluate the requirement | 2 | 3 min (evaluation 1 min) | plus the suggestion workaround and discussion |
+| 10:40–10:55 | Break | | | |
+| 10:55–11:25 | 3. Generate test cases, including Submit Over-65 Request | 3 | 4 min (generation 1 min) | optional Excel import about 5 min |
+| 11:25–12:20 | 4. **Start Run autonomously first**, then Execute Manually and Delegate | 4 | 7 min (robot started in 1.5 min; manual run 2 min) | Delegate about 10 min (not rehearsed here) |
+| 12:20–13:05 | Lunch – the VM pool works through the queue. Watch **Orchestrator → Jobs** | | one robot run 8 min, first one waited 4.5 min for the VM | 15 runs need about 3 VMs |
+| 13:05–13:35 | 5. Compare the runs; your Autonomous Exploration demo | 5 | 5 min reading | Exploration 11 min for a 10-min time-box |
+| 13:35–14:10 | 6. Studio Web demo, then learners link 3 test cases | 6 | 4 min for the 3 links | demo about 15 min |
+| 14:10–14:45 | 7. Build the set with chat, run on serverless, triage | 7 | 7 min (chat 1.5 min, configure 1 min, run 40 s, triage 1.5 min); optional schedule 3 min | serverless runs from several learners at once not measured |
+| 14:45–15:00 | Break | | | |
+| 15:00–15:40 | 8. Read the results | 8 | 6 min (3 prompts 3.5 min, Insights under 1 min, PDF) | |
+| 15:40–16:25 | 9. Go or no-go | 9 | Path B 1 min; governance 3 min | Path A (Delegate) about 6 min, not rehearsed here |
+| 16:25–17:00 | Wrap-up and feedback | You did it! | | |
+
+Total scripted learner time in the rehearsal: about 55 minutes of hands-on work for steps 1–9, against about 5 hours of hands-on blocks in the agenda. The rest is reading, discussion, demos, the robot queue and the Delegate parts.
 
 !!! tip "4-hour version"
     Steps 1, 2 and 3; step 4 with Execute Manually and Delegate only; the linking part of step 6 (learners link 3 test cases – skip the Studio Web demo); steps 7, 8 (charts and Insights) and 9. Run autonomously and Exploration are demos from the Trainer Demo project.
@@ -406,7 +428,7 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 ✅ **UiBank still has the defect:** apply for a loan at <a href="https://uibank.uipath.com" target="_blank">UiBank</a> with age **66**. It must show "Congrats! You've been approved…". If UiBank now rejects it, there is no UiBank defect for the NO-GO: use **Submit High-Volume Request** as the failing test instead, and tell learners. Keep the reference go/no-go report at hand to show what the NO-GO looked like with the over-65 defect.
 
 ??? note "If UiBank fixed the over-65 defect"
-    This switch was not re-run on the tenant – check it in the rehearsal if you need it.
+    An untested emergency path: this switch was not run on the tenant (UiBank still had the over-65 defect on 2026-11-22). Try it on the Trainer Demo project before you hand it to learners.
 
     1. Learners edit steps 6, 8 and 11 of their own **Submit High-Volume Request** to 150000, 500000 and "Verify 'Congrats! You've been approved…'" – the same data as your automation.
     2. In step 6, they link **Submit High-Volume Request** instead of **Submit Over-65 Request**.
@@ -421,7 +443,7 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 
 ✅ **Pre-warm** done: 3 Run autonomously runs and 1 Exploration, timed.
 
-✅ **Learner-like account pass** (an account with only the learner group's rights): Default Folder picker shows the folder; the chat prompts of steps 1, 7, 8 and 9 give the expected answers; **Select Automation** lists `UiBank.BusinessTests`; the serverless run gives 2/1/0; **Generate Report → From selection** works; the learner can open your completed over-65 run in the Trainer Demo project; usage pool left.
+✅ **Learner-like account pass** (an account with only the learner group's rights): Default Folder picker shows the folder, and after **Save** and a reload the field still shows it (no "Folder does not exist." toast); the chat prompts of steps 1, 7, 8 and 9 give the expected answers; **Select Automation** lists `UiBank.BusinessTests`; the serverless run gives 2/1/0; **Generate Report → From selection** works; one **Run autonomously** from a freshly imported learner project reaches the age step (see the warning under Pre-warm); the learner can open your completed over-65 run in the Trainer Demo project; usage pool left.
 
 ✅ **Screenshots:** if labels changed since the guide was written, note them and tell learners at the start.
 

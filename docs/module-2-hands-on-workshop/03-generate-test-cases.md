@@ -50,12 +50,12 @@
 
         Why "Select, Type, Get Text…"? Steps written as one clear action each are easier for everyone who runs them later today: you, Delegate and a robot.
 
-    3. Keep the recommended model.
-    4. Select **Generate tests**. Autopilot takes about 2 minutes. You can close the panel while it works.
+    3. Keep the default model.
+    4. Select **Generate tests**. Autopilot takes about a minute. You can close the panel while it works.
 
 5. Under **Latest activity**, select **Generated test cases** to see the proposals.
 
-    <!-- IMG: requirement page, Latest activity with "Generated test cases" highlighted (crop the "by <name>" lines) -->
+    ![Generated test cases proposals for Submit Loan Request](../assets/images/atb-03-generated-test-cases.jpg)
 
 See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/manual-test-generation" target="_blank">Generate tests for requirement</a>.
 
@@ -78,7 +78,9 @@ Autopilot drafts; you approve. Treat each proposal like a test case from a new t
     !!! tip "Check approvals over $100,000"
         The requirement says loans over $100,000 are approved when the income is more than 3x the amount – but UiBank never approves a loan over $100,000. A proposal that expects such an approval would fail as a second UiBank defect. That's a real finding, but not today's story: leave it out.
 
-2. Tick at least 3 proposals, including the over-65 one, and select **Create tests**. With more proposals, the list can span more than one page.
+2. Tick at least 3 proposals, including the over-65 one. When you tick the first box, a line **N selected / Deselect all** appears above the list and pushes it down. Check that your ticks are on the right rows, then select **Create tests**. With more proposals, the list can span more than one page.
+
+    The message **Test cases created and linked to the requirement.** confirms it.
 
     In production, a second reviewer can sign off generated test cases with Testing Process Governance – you'll see it as an option in step 9.
 
@@ -93,7 +95,7 @@ One of your new test cases submits a loan request for an applicant **over 65** �
 3. Open its manual steps. The age step uses an age over 65 (66–70), and the last expected result is a **rejection** – not "Congrats! You've been approved…".
 4. Check that it uses amount 50000, term 3 and income 90000 – the same data as the trainer's automated test. With an amount over $100,000, UiBank rejects the loan for the amount, and you won't see the age defect. Edit the steps if needed.
 
-<!-- IMG: the Submit Over-65 Request test case with its manual steps, age 66 and an expected rejection (no names in the header) -->
+![The Submit Over-65 Request test case with its manual steps, age 66 and an expected rejection](../assets/images/atb-03-over-65-manual-steps.jpg)
 
 !!! warning "No over-65 test case?"
     Generate again with only this instruction, or create it yourself: **Test Cases** → create a test case named `Submit Over-65 Request`, link it to **Submit Loan Request**, and add the steps of a loan application with amount `50000`, term `3`, income `90000` and age `66` that expects a rejection. Ask your trainer if you're stuck – you need this test case for the rest of the day.

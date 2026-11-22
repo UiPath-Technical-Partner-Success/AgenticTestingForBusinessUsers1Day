@@ -17,7 +17,7 @@ Vague or incomplete requirements lead to gaps in testing. **Evaluate quality**, 
 ## Evaluate the requirement with Autopilot
 
 1. Open **Requirements** → **Submit Loan Request**.
-2. On the requirement page, select **+ Evaluate quality**. (The other buttons there – **+ Autonomous Exploration**, **+ Optimize coverage** and **Assign test case** – come later.)
+2. On the requirement page, select **+ Evaluate quality**, next to the **Description** heading. (The buttons at the top of the page – **+ Autonomous Exploration**, **+ Optimize coverage** and **Assign test case** – come later.)
 3. In **Provide additional context → Add documents**, select these project documents (marked **P**), so Autopilot checks the requirement against their rules:
 
     ✅ **UiBank Security Guidelines.pdf** – input validation rules for the form fields
@@ -31,7 +31,7 @@ Vague or incomplete requirements lead to gaps in testing. **Evaluate quality**, 
     ??? tip "Where do these documents come from?"
         They're the project's attachments, under **Dashboard → Attachments**. Anyone on the project can add documents there, and Autopilot can read them.
 
-        <!-- IMG: Dashboard → Attachments tab of the learner's project showing the UiBank documents (crop "Added by" names and the tenant name) -->
+        ![Dashboard, Attachments tab, with the UiBank documents](../assets/images/atb-02-dashboard-attachments.jpg)
 
 4. On the next screen:
     1. **Select a prompt**: choose **Multifaceted Audit**.
@@ -39,12 +39,12 @@ Vague or incomplete requirements lead to gaps in testing. **Evaluate quality**, 
         ??? info "Editing prompts and adding your own"
             The built-in prompts are editable, and you can add custom prompts of your own – for example your team's checklist for requirements. Manage them in the **Prompt Library**, under **Project Settings**.
 
-    2. Keep the recommended model.
-    3. Select **Evaluate quality**. Autopilot takes a minute or so. You can close the panel while it works.
+    2. Keep the default model.
+    3. Select **Evaluate quality**. The panel says **Evaluating quality** and that you can close it. Autopilot takes about a minute, and you're notified when it's done.
 
-5. Under **Latest activity**, on the right of the requirement, select **Quality enhancements** to see the suggestions. If you kept the panel open, it shows them as soon as Autopilot finishes.
+5. Under **Latest activity**, on the right of the requirement, select **Quality enhancements**. The **Enhancement suggestions** panel opens with the list, each with the status **To do**. If you kept the panel open, it shows them as soon as Autopilot finishes.
 
-    <!-- IMG: requirement page with the + Evaluate quality button and "Quality enhancements" under Latest activity highlighted (crop the "by <name>" line under the link) -->
+    ![Requirement page with + Evaluate quality next to Description and Quality enhancements under Latest activity](../assets/images/atb-02-requirement-quality-enhancements.jpg)
 
 See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/requirement-evaluation" target="_blank">Requirement evaluation</a>.
 
@@ -55,6 +55,15 @@ A suggestion tells you *what's missing*. Your job as the analyst is to replace i
 1. Expand each suggestion. Select **Add to Requirement** for the ones you agree with. Its status changes from **To do** to **In work**, and its title and suggestion appear at the end of the description.
 
     **Add to Requirement** closes the panel: reopen **Quality enhancements** for the next one.
+
+    !!! warning "Read this before you click Add to Requirement"
+        With workshop rights, **Add to Requirement** and the status drop-down may open a page that says *"You do not have the necessary rights to access this application."* with a **Click here to logout** button.
+
+        ✅ Don't click **Click here to logout**. Press the browser **Back** button, or open the requirement again.
+
+        ✅ Then do it by hand: copy the suggestion's title into the requirement description yourself, and write the rule under it (item 3 below).
+
+        ✅ Skip the status drop-down (item 4). Your requirement text is what counts.
 
 2. Pick 1–2 suggestions about outcomes or messages, such as boundaries, rejection rules or the result page: you'll replace them with UiBank's exact text.
 3. Edit the requirement. Under each added title, replace the suggestion with the rule itself, using the exact text UiBank shows. Your changes save when you click outside the description.
@@ -71,7 +80,7 @@ A suggestion tells you *what's missing*. Your job as the analyst is to replace i
         Reject with "You must be at least 18 years old for a loan and the loan must not exceed 100k."
         ```
 
-4. Set the status of each suggestion you used to **Done**, from its status drop-down.
+4. Set the status of each suggestion you used to **Done**, from its status drop-down. If you saw the rights page in item 1, skip this.
 
 !!! success "Check it"
     ✅ Each title you added has a rule under it, not the suggestion.

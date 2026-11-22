@@ -20,25 +20,23 @@ Over lunch, the shared robot worked through the queue. Now you read what Autopil
 
 1. Go to **Execution** and open the run of **Submit Over-65 Request** that you started with **Run autonomously** in [step 4](04-run-the-test-three-ways.md#1-start-the-robot-first-preview).
 
-    Robot runs show the type **Manual**, the same as your own run. Skip the run whose name starts with **Delegate-** and the one with your own comment. The robot's run has a **Tester comment** that Autopilot wrote and a screenshot under every step.
+    The robot's run shows the type **Autonomous**, and its name is **Submit Over-65 Request -** followed by the date and time. Skip the run whose name starts with **Delegate-** and the one with your own comment. The robot's run has a **Tester comment** that Autopilot wrote and a screenshot under every step.
 
     ??? tip "Not finished yet?"
         If your run is still waiting or running, don't start another one. Your trainer has a completed robot run of **Submit Over-65 Request** in the trainer's demo project: read that one instead, on your screen or on the projector. Come back to yours at the end of the day.
 
-        If your run ended with an error before it reached the age decision, the problem is the robot, not UiBank. Tell your trainer and use the trainer's run.
+        If your run ended with an error before it reached the age decision, the problem is the robot or the service, not UiBank. A typical sign: the run took about a minute, step 1 is **Failed**, the other steps show **None**, and expanding step 1 may show *"Verification could not be completed (HttpRequestException)"* under **Behaviour verification**. Check the test case's **Manual Steps** → **URL** field for a broken address (it must be exactly `https://uibank.uipath.com`) and fix it. Ask your trainer before you start another run – each run costs App Test Platform Units – and use the trainer's run.
 
-2. On the **Logs** tab, each step shows its result, the description and expected behaviour from your test case, a **Tester comment** that Autopilot wrote, and an attachment.
-3. Expand a step:
+2. The result page has the tabs **Logs**, **Robot Logs**, **Execution details** and **Affected requirements**. On the **Logs** tab, each step shows its result, the description and expected behaviour from your test case, a **Tester comment** that Autopilot wrote, and an attachment.
+3. Expand a step (**Show execution trace**):
 
     ✅ **Sub-steps** – what Autopilot did in the browser, with a screenshot of each action. You can zoom in or download it.
 
     ✅ **Behaviour verification** – how Autopilot checked the expected behaviour, and what it found.
 
-4. Open the **Robot Logs** tab. This is the execution log: it first lists the setup (package, process, robot), then Autopilot's reasoning for each step – how it found a field, what it typed, and how it compared the result with what you expected.
+4. Open the **Robot Logs** tab. This is the execution log, with the columns **Level**, **Time**, **Message** and **Info**. It first lists the setup (package, process, robot), then Autopilot's reasoning for each step – how it found a field, what it typed, and how it compared the result with what you expected. The robot works in Microsoft Edge.
 
-    <!-- REHEARSE: confirm the execution log is on the Robot Logs tab -->
-
-5. Find the age decision step. Autopilot should mark it **Failed**: UiBank showed *Congrats! You've been approved…* where your test case expects a rejection.
+5. Find the age decision step. When Autopilot reaches it, UiBank shows *Congrats! You've been approved…* where your test case expects a rejection, so the step should be **Failed**. If the run stopped before it, read the trainer's run instead (see the box above).
 
 <!-- IMG: autonomous execution, Logs tab with the decision step expanded (Sub-steps screenshot of the UiBank approval page + Behaviour verification), no executor names -->
 
@@ -62,8 +60,8 @@ Copy this table into your notes and fill in the last row. The other rows are alr
 
 The table's main point: the same test case gave the same verdict three times. The defect is in UiBank, not in the tester.
 
-!!! info "Robot runs look like manual runs in reports"
-    A run started with Run autonomously shows the type **Manual**. Keep this in mind in [8. Read the Results](08-read-the-results.md): your manual numbers mix people's runs and Autopilot's runs.
+!!! info "Robot runs have their own type in reports"
+    A run started with Run autonomously shows the type **Autonomous**, not **Manual**. Keep this in mind in [8. Read the Results](08-read-the-results.md): autonomous runs are counted separately from people's manual runs.
 
 Cost details: Delegate and Autopilot chat use your monthly AI usage allowance, see <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-usage-pool-for-testing" target="_blank">Autopilot usage pool for testing</a>. Run autonomously uses the tenant's App Test Platform Units, see <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/autonomous-test-execution" target="_blank">Autonomous Test Execution</a>.
 

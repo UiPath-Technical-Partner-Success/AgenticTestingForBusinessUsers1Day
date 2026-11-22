@@ -4,9 +4,29 @@ Working notes for whoever continues the guide. The full plan and research live o
 
 ## Status (2026-11-22)
 
-Phase 4 is done (2026-11-22): strict build, internal link and anchor check (0 broken), external link check (every docs.uipath.com URL is in the official sitemaps) and grep gates pass; three independent reviews ran, every finding went through a skeptic, and one fix pass applied the confirmed ones. Rendered check done at desktop and phone width (Home, Prerequisites, steps 4, 7, 8, Trainer Setup). Next is phase 5 (timed rehearsal on the tenant).
+Phase 5 is done (2026-11-22): learner rights proven with a learner-only account, steps 1–9 rehearsed live and timed as a learner (project **UiBank AS / UIBAS**), every page fixed against what really happened, 21 screenshots added. Next is phase 6 (publish to `main`). Still unverified: Delegate and `uip` on a real learner laptop (see below).
 
-Phase 3 recap: every page written by 7 parallel writers, one integration pass, one completeness critic (18 gaps) and one fix pass.
+## Phase 5 rehearsal results (2026-11-22)
+
+Scripted learner pass on staging Playground with the learner test account (personal Chrome profile), after removing it from Automation Developers. Full log: side-session notes folder, `phase-5-fixes-log.md` and `phase-5-timelog.txt` (outside the repo); rights evidence in `../findings/verification.md` → "Phase 5 – learner rights".
+
+| Step | Rehearsal time (one learner, no reading) | Result |
+|---|---|---|
+| 1 | 8 min (import 2.5 min) | all checks pass; prompt 3 may ask for one Get_test_cases approval |
+| 2 | 3 min net (evaluation 1 min) | **Add to Requirement / status = 403 for learners** (rights page) – workaround written; requirement edit works |
+| 3 | 4 min (generation 1 min) | Submit Over-65 Request generated with the right name and data |
+| 4 | 7 min | Run autonomously starts (type **Autonomous**, not Manual); Execute Manually labels confirmed (Set Passed Till Here, Upload attachment, Capture screen, Condition met, Done); Delegate not run (by design) |
+| 5 | 5 min reading | Robot Logs tab confirmed; over-65 robot runs ended after step 1 – see "Run autonomously over-65" below |
+| 6 | 4 min (3 links) | search box matches test case names only – Package filter documented |
+| 7 | 7 min core + 3 min schedule | 2/1/0 in 40 s; chat write tools work; triage = UiBank defect |
+| 8 | 6 min | coverage = **Partially tested**; failures chart = count per requirement; table prompt works; Insights + PDF |
+| 9 | 1 min (Path B) + 3 min governance | NO-GO with criterion and release condition; learner self-approval and Sign work |
+
+Agenda in `trainer-setup.md` now shows these times and the planning factor for 15 learners.
+
+**Rights (proven):** licence App Test Developer; tenant **Allow to be Automation User** and TM **Project Creator** through the learner group; workshop folder **Automation User** + a folder role with subfolder **View** (`SubFolders.View`) – without it the Default Folder shows "Folder does not exist." after a reload. Written into Trainer Setup → Proven minimum rights.
+
+**Run autonomously over-65:** four runs of UIBAS:10. Run 1 (Url `/loans/apply`) and runs 2–3 ended in about a minute with step 1 Failed and "Verification could not be completed (HttpRequestException)". Cause found: the panel saves its Url into the test case's **Manual Steps → URL** field and pre-fills it; typing into the pre-filled field appended (`…/loans/applyhttps://…`). Guide now uses `https://uibank.uipath.com` and says to clear the field first. A control run of ATBL:2 (URL pre-filled correctly) ran normally. Runs 4 (clean URL) and 5 (step 1 reworded as "Open the UiBank home page") still ended after step 1 with the same error, while two ATBL:2 runs in the same hour passed (6–8 min). So it is not the URL or the step wording; it reproduces 5/5 in the new learner project UIBAS. **Cause unknown** – the age-step result of Run autonomously is still **unverified**. Step 5 says "should be Failed" with the trainer-run fallback; Trainer Setup has a warning and a day-before smoke check from a freshly imported learner project.
 
 ## Phase 4 review summary (2026-11-22)
 
@@ -29,19 +49,19 @@ Main changes:
 - **Prerequisites:** neutral Delegate model hint (no model name), Adaptive with an optional Smart mode / Smart approvals, pop-up click path, Orchestrator explained.
 - **Rendered fix:** dropped the custom `mermaid-init.js`, which threw a console error on the Prerequisites diagram. Material's built-in Mermaid support renders it with the local `mermaid.min.js`.
 
-## Phase 5 must check live (added in phase 4)
+## Phase 5 live checks – status (2026-11-22)
 
-On top of the 12 open items below:
-1. The Delegate **Smart mode** / **Smart approvals** label (Prerequisites step 6). Recapture `Delegate model selector.png` without a model name if possible.
-2. The manual execution assistant's postcondition control (**Condition Met**, step 4 item 7).
-3. The **Robot Logs** tab name for the autonomous run (step 5).
-4. Step 8 coverage chart: **Fully** or **Partially tested** after a real learner run; the failures prompt answer (list or table).
-5. Studio Web Publish: **For me / Shared** choice and the default Location on the class tenant.
-6. Trainer publisher role label and the Test Manager project administrator role label (Trainer Setup, rights warning).
-7. **Max number of VMs** really parallelises Run autonomously (replaces open item 11's runtime question); serverless capacity with several learners running the set at once.
-8. Find obsolete tests under **Assign test case** on the requirement page (More Prompts).
-9. The "If UiBank fixed the over-65 defect" High-Volume switch box: rehearse it, or keep it as an untested emergency path.
-Remove each hedge or `<!-- REHEARSE -->` comment once confirmed.
+| # | Item (from phase 4) | Status |
+|---|---|---|
+| 1 | Delegate **Smart mode / Smart approvals** label; recapture `Delegate model selector.png` | **not checked** – Delegate not installed on this Mac by design; laptop check |
+| 2 | Manual assistant postcondition control | **confirmed**: checkbox **Condition met** (ticked by default) + **Done**, no Next; window closes itself |
+| 3 | **Robot Logs** tab | **confirmed** (tabs Logs / Robot Logs / Execution details / Affected requirements) |
+| 4 | Step 8 coverage label and failures answer | **confirmed**: **Partially tested 1**; failures chart = bar chart + count per requirement |
+| 5 | Studio Web Publish **For me / Shared**, default Location | from phase 1 (trainer): **For me / Shared**, Location default **Orchestrator Autopilot Feed**; not re-run (trainer demo only) |
+| 6 | Trainer publisher role and TM project admin role labels | **confirmed** on the tenant: **Allow to be Automation Publisher** (tenant), **Automation Publisher** (folder); project roles **Project Owner / Test Manager / Viewer / Test Manager Administrator** |
+| 7 | **Max number of VMs** parallelism; serverless capacity with several learners | **not tested** – needs a pool change that costs Platform Units (not allowed); one VM runtime queued runs one after another as expected. Serverless parallel runs not measured |
+| 8 | Find obsolete tests location | **confirmed**: under both **+ Optimize coverage** and **Assign test case ▾** |
+| 9 | "If UiBank fixed the over-65 defect" switch | **kept as an untested emergency path** (UiBank still has the defect) |
 
 ## Page map
 
@@ -70,39 +90,32 @@ Remove each hedge or `<!-- REHEARSE -->` comment once confirmed.
 - Removed: `Attachments in TM.png`, `TM Quality enhancements.png`, `TM Generated test cases.png` (showed a personal name) and 11 unreferenced leftovers (`OC Enterprise setup`, `OC Machine more actions`, `OC Manage access user`, `OC Runtime App Testing`, `OC Runtime Testing`, `TM Add Test Cases Static`, `TM Smoke Set Execution Result`, `TM Test Cases Studio Project`, `TM Test Set Configure Automation`, two hero robots). All are recoverable from commit `285b56b`.
 - `UAT Scripts/UiBank Regression Tests.xlsx` is linked from step 3.
 
-## Image placeholders to capture in phase 5 (26)
+## Images (phase 5)
 
-`grep -rn "<!-- IMG" docs` lists them with what to capture. Capture as the learner-like account, crop header initials, executor names and signer names/emails.
+21 screenshots captured as the learner account on 2026-11-22 (`docs/assets/images/atb-0x-*.jpg`), cropped and redacted (no names, emails, initials or tenant name; an agent viewed every image). The Introduction reuses `atb-01-autopilot-panel.jpg`.
 
-| Page | Placeholders |
-|---|---|
-| Trainer Setup | Edit Pool → VM & runtime details |
-| Introduction | Autopilot chat panel in Edit mode |
-| Step 1 | Import dialog with replaced fields; Project Settings → Automation → Default Folder; Autopilot panel in Edit mode with footer |
-| Step 2 | Dashboard → Attachments; requirement page with + Evaluate quality and Quality enhancements |
-| Step 3 | Generated test cases under Latest activity; Submit Over-65 Request manual steps |
-| Step 4 | ⋮ menu with Execute Manually / Execute Autonomously; manual execution assistant with Failed step; Execution list with manual + Delegate runs Failed |
-| Step 5 | Autonomous run Logs tab; Autonomous Exploration Scenarios tab |
-| Step 6 | Select Automation panel (Tenant Package Feed, incl. empty TestCase); Automation tab after Save; Test Cases list with Package Name |
-| Step 7 | MCP Servers → Test Manager MCP server; Bulk_add_labels tool card; regression execution 2/1/0 |
-| Step 8 | Dashboard Results Overview; coverage pie chart; Generate Report menu + Reports tab; Download Pdf menu |
-| Step 9 | Chat go/no-go answer; Sign test case panel |
+Still to capture (`grep -rn "<!-- IMG" docs`):
+- Trainer Setup: Edit Pool → VM & runtime details (needs the admin browser).
+- Step 4: Execution list with the manual and the Delegate run (needs a Delegate run on a laptop).
+- Step 5: Autonomous Exploration Scenarios tab (Trainer Demo project; learner can't see it).
+- Step 5: autonomous run, Logs tab with the decision step (no run reached it).
 
-## Open items (re-check in phase 4 review or phase 5 rehearsal)
+## Open items – status after phase 5
 
-Unverified on the tenant – written from docs or PR 1, marked in the text where it matters:
-1. **Learner minimum rights** (blocker 1) – the guide claims no minimum roles; Trainer Setup gives Automation User (direct folder assignment) and flags the re-check. Also untested: a **group** folder assignment showing the folder in the Default Folder picker.
-2. **Delegate + `uip` on a real laptop** (blocker 3) – install, `uip login`, "quit and reopen Assistant", `uip --version`, Mac extension path, Behavior preferences Tone/Depth labels, sign-in URL shape.
-3. **Over-65 Run autonomously result** – learner checks ran Standard / Underage / High-Volume only. Step 4 says it "should" mark the age step Failed; check the URL (`/loans/apply` vs home page). Create a Trainer Demo autonomous over-65 run as the step 5 fallback (Trainer Setup pre-warm now lists it).
-4. **Execute Manually window** (blocker 7) – capture / upload labels; a one-case test set fallback is in step 4.
-5. **Prompts not run live**: "Show a chart of failed test cases grouped by requirement." and the table prompt that replaces the by-label chart (two `<!-- REHEARSE -->` comments in step 8); all of More Prompts; the step 7 optional failed-logs tip; the Delegate repro prompt with `<PROJECT_PREFIX>`.
-6. **Learner read access to the Trainer Demo project** – Trainer Setup suggests a project **Viewer** role (label to confirm); projector fallback.
-7. **Governance as a learner** – self as Default approver, then toggle Governed on an existing log.
-8. **Schedule labels** – save and deactivate one learner schedule (Recurrence daily 06:00 and the Advanced cron).
-9. **Studio Web Publish default location** – the text avoids naming the default.
-10. **Reference execution PDF** lists only the Standard and Underage cases under the requirement (the trainer's over-65 case was not linked at run time) – link it and regenerate the PDF before using it as a backup.
-11. **Cloud VM capacity** – Trainer Setup now uses Max number of VMs as the lever (phase 4, per the Cloud Robots VM docs). Test that it parallelises before the class.
-12. The sample `.tmh` still pre-fills "UiBank Project / UIBWS" and a coding-agents description (blocker 9) – step 1 tells learners what to type; re-export a business `.tmh` later.
+1. **Learner minimum rights** – **proven** (Trainer Setup → Proven minimum rights). Still untested: a **group** folder assignment in the Default Folder picker (direct assignment used).
+2. **Delegate + `uip` on a real laptop** – **still unverified – to be verified on a learner laptop** (not installed on this Mac by design, to protect the trainer's own `labs` profile). Includes the Smart mode label and a new `Delegate model selector.png`.
+3. **Over-65 Run autonomously result** – **still unverified**: 5/5 runs in the learner project UIBAS stopped after step 1 ("Verification could not be completed (HttpRequestException)"); ATBL:2 passed twice. Worth raising with the Test Cloud team; day-before smoke check added. The Trainer Demo over-65 autonomous fallback run is not created yet (admin browser).
+4. **Execute Manually window** – **confirmed** (labels in step 4).
+5. **Prompts** – step 1, 7, 8 and 9 prompts run live and written to match. Not run: More Prompts, the step 7 optional failed-logs tip, the Delegate prompts.
+6. **Learner read access to the Trainer Demo project** – label **Viewer** confirmed in Manage Access lists, but **not assigned** (needs the admin's browser; the CLI can't write project permissions). Trainer Setup: assign Viewer or use the projector.
+7. **Governance as a learner** – **confirmed** (self-approver, Governed toggle, In review, Sign).
+8. **Schedule labels** – **confirmed** (Repeat Daily, start tomorrow, De-activate → Inactive; schedule left Inactive in UIBAS).
+9. **Studio Web Publish default location** – Orchestrator Autopilot Feed (phase 1); the text keeps "the default is not the one Test Manager reads".
+10. **Reference execution PDF** – **regenerated** 2026-11-22 from ATBT run 20261122.0852: the requirement section lists ATBT:1, :2 and ATBT:9 (Failed); no emails. Local only: `../findings/evidence/P5-reference-execution-report.pdf`.
+11. **Cloud VM capacity** – not tested (cost); see item 7 in the table above.
+12. The sample `.tmh` still pre-fills old values – unchanged; step 1 tells learners what to type.
+13. **New: step 2 suggestion buttons = 403 for learners** – Add to Requirement and the status drop-down; workaround in step 2 and Troubleshooting. Needs a tenant-level Test Manager role decision (Victor).
+14. **New: trainer UI tasks not done** (only the learner's personal Chrome profile was connected): a Trainer Demo Run autonomously of Submit Over-65 Request (day-before pre-warm), the Viewer role, the Edit Pool screenshot. One orphan execution "Trainer Demo - Over-65 autonomous - 20261122.0853" (Pending, Autonomous, created by a CLI test) sits in ATB Trainer Demo – delete it from the Execution list (deleting from the CLI was blocked).
 
 Decisions taken in phase 3 (Victor: ask only for critical things):
 - Prompt 1 kept as a "check the answer" moment, not replaced.
@@ -128,3 +141,4 @@ Decisions taken in phase 3 (Victor: ask only for critical things):
 | 2026-11-22 | 2 – scaffold | Site created from PR 1 `19079ac`: config retitled, 9-step nav, drafts + stubs, persona badge CSS, requirements file, deploy workflow, README, this file. Strict build passes. One local commit, nothing pushed. |
 | 2026-11-22 | 3 – write | All pages and the include written; integration, completeness critic and fix passes; 4 cropped screenshots added, 14 images removed; strict build and grep gates pass. One local commit, nothing pushed. |
 | 2026-11-22 | 4 – review | Build, link, external link and grep checks; 3 reviews (38 findings, all confirmed by skeptics, all fixed); neutral Delegate model hint; mermaid init fix; rendered check at desktop and phone width. One local commit, nothing pushed. |
+| 2026-11-22 | 5 – rehearsal | Learner out of Automation Developers; minimum rights proven (SubFolders.View added via the ATB Workshop Learner folder role); steps 1–9 rehearsed and timed as a learner; all pages fixed to match; 21 screenshots; REHEARSE comments removed; agenda times; reference PDF regenerated. One local commit, nothing pushed. |

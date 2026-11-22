@@ -93,14 +93,14 @@ Now you connect three test cases in **your** project to the trainer's automated 
     1. In your project, go to **Test Cases** and open **Submit Standard Loan Request**.
     2. Go to the **Automation** tab and select **Select Automation**.
     3. In the **Select Automation** panel, keep **Package Source** on **Tenant Package Feed**. The list shows **Test Case Name**, **Package**, **Source** and **Last Updated**.
-    4. Type `UiBank.BusinessTests` in the search box, or filter by **Package**, to shorten the list.
+    4. Shorten the list. The search box matches test case names only, so type the test case name, for example `Standard Loan` or `Over-65`. Typing `UiBank.BusinessTests` there gives **No results**. To filter by package instead, open the **Package** filter, tick **UiBank.BusinessTests** and select **Apply**.
     5. Select the row **Submit Standard Loan Request** whose **Package** is **UiBank.BusinessTests**, and select **Save**.
 
-        <!-- IMG: Select Automation panel as a learner – Package Source = Tenant Package Feed, the UiBank.BusinessTests rows (incl. the empty TestCase row), Save. No initials, no other trainers' package names visible. -->
+        ![Select Automation panel filtered by the UiBank.BusinessTests package](../assets/images/atb-06-select-automation-panel.jpg)
 
-    6. The **Automation** tab now shows **Package TestCase Name**, **Package Name** (**UiBank.BusinessTests**) and **Package Source** (**Tenant Package Feed**). The button has changed to **Update Automation**.
+    6. The message **Automation updated successfully!** confirms it. The **Automation** tab now shows **Package TestCase Name**, **Package Name** (**UiBank.BusinessTests**) and **Package Source** (**Tenant Package Feed**), with the buttons **Unlink** and **Update Automation**.
 
-        <!-- IMG: Automation tab after Save – Automation Assigned filled (Package TestCase Name, Package Name UiBank.BusinessTests, Package Source Tenant Package Feed) and the Update Automation button. Crop the header (no initials). -->
+        ![Automation tab after Save, with the package details and the Unlink and Update Automation buttons](../assets/images/atb-06-automation-tab-after-save.jpg)
 
     7. Repeat steps 1–6 for **Submit Underage Request** and for **Submit Over-65 Request**, each time picking the test of the same name.
 
@@ -118,7 +118,7 @@ Now you connect three test cases in **your** project to the trainer's automated 
 !!! success "Check it"
     In **Test Cases**, the **Package Name** column shows **UiBank.BusinessTests** for **Submit Standard Loan Request**, **Submit Underage Request** and **Submit Over-65 Request**. Your other test cases stay empty: they remain manual.
 
-    <!-- IMG: Test Cases list of a learner project – Package Name column filled with UiBank.BusinessTests for the 3 linked test cases, empty for the rest. No personal names in keys or columns. -->
+    ![Test Cases list with the Package Name column filled for the three linked test cases](../assets/images/atb-06-test-cases-package-name.jpg)
 
     Can't see the trainer's package, or **Save** fails? Tell your trainer: they can link the three test cases for you, so you can carry on with step 7.
 
