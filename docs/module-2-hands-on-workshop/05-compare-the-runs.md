@@ -116,7 +116,7 @@ These patterns usually cause trouble:
 4. While it runs, the trainer can pause and guide Autopilot with a typed hint.
 5. Then the trainer opens a run made earlier, because 10 minutes covers only about one scenario. The report has three tabs: **Scenarios**, **Robot logs** and **Documents**.
 
-<!-- IMG: Autonomous Exploration report, Scenarios tab with one Completed scenario and its finding (category, severity, steps to reproduce) -->
+![Autonomous Exploration report, Scenarios tab: one Completed scenario with a Medium finding, the others Incomplete](../assets/images/atb-05-exploration-scenarios.jpg)
 
 **What you look for in the report:**
 

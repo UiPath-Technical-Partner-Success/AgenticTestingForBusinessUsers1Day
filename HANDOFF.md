@@ -96,7 +96,7 @@ Main changes:
 
 Still to capture (`grep -rn "<!-- IMG" docs`):
 - Step 4: Execution list with the manual and the Delegate run (needs a Delegate run on a laptop).
-- Step 5: Autonomous Exploration Scenarios tab (Trainer Demo project; learner can't see it).
+
 
 ## Open items – status after phase 5
 
