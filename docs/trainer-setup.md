@@ -126,8 +126,8 @@ With exactly these rights, all of these worked: Default Folder (save and reload)
 !!! warning "Without the subfolder View permission"
     With **Automation User** alone, the Default Folder picker lists the workshop folder and **Save** works, but **Project Settings** then shows the toast **Folder does not exist.** and the **Default Folder** field is blank after a reload. Add the learner role from item 4 and reload – no change in the learner's project is needed.
 
-!!! warning "Suggestion buttons in step 2 fail for learners"
-    In **Quality enhancements**, **Add to Requirement** and the suggestion status drop-down returned a rights error for the learner ("You do not have the necessary rights to access this application.", with a **Click here to logout** button), also with the old admin group restored for a test. Editing the requirement text works. Step 2 tells learners to copy the suggestion title into the description themselves. If you find the role that allows it on your tenant, note it here.
+!!! warning "Button-made suggestions can't be applied by learners"
+    Suggestions created by the **+ Evaluate quality** button returned a rights error when the learner clicked **Add to Requirement** or changed a status ("You do not have the necessary rights to access this application.", with a **Click here to logout** button – `PATCH …/llmactivity` = 403), also with the old admin group restored for a test. Suggestions created through **Autopilot chat** (the same evaluation, via the chat prompt and its **Review** button) could be applied and their status changed, in the new and in the old learner project. Step 2 sends learners to the chat route when the error appears.
 
 To link an automation for a learner (step 6 fallback), do it at their desk, in their browser and their project. Or ask them to add you in their project's **Project Settings → Manage Access → Assign users/groups** with the **Test Manager Administrator** project role (project role labels seen: **Project Owner**, **Test Manager**, **Viewer**, **Test Manager Administrator**).
 
@@ -173,7 +173,7 @@ Run autonomously and Autonomous Exploration run in the machine's default browser
     | Runtime license | **Platform units (PLTUs)** – the page shows the monthly total |
     | Pool configurations | **Allow UiPath to manage Robot updates** on (required for a standard image) |
 
-    <!-- IMG: Edit Pool → VM & runtime details page (VM size, image, availability profile, runtime type Cloud - VM Testing), captured without the user's initials in the header -->
+    ![Edit Pool: VM & runtime details – VM size, Windows Desktop image, Max number of VMs, runtimes per machine and the Platform Units cost breakdown](assets/images/atb-trainer-edit-pool-vm-runtime.jpg)
 
 3. Open the workshop folder → **Machines** → **Manage Machines in Folder**, select the pool, and click **Update**.
 
@@ -307,10 +307,14 @@ The first Run autonomously in a folder uploads a test package and creates the pr
 
     The panel saves the Url into the test case's **Manual Steps → URL** field and pre-fills it next time. Typing into a pre-filled field appends to it: in the rehearsal that produced `…/loans/applyhttps://…`, and the next runs ended after step 1 with "Verification could not be completed (HttpRequestException)". Clear the field before you type, or set the URL once in **Manual Steps**.
 2. **Autonomous Exploration ×1:** requirement **Submit Loan Request** → **+ Autonomous Exploration**. A 10-minute time-box finished in 11 minutes and covered about **one** scenario. For the step 5 demo, use the narrow charter prompt ("only the over-65 rule"), or a 20–30 minute pre-run you show as the result.
-3. Keep the completed runs and the report as backups. Check that Autopilot reached the over-65 age step and marked it **Failed** – that is the result learners compare in step 5, and no rehearsal run has shown it yet.
+3. Keep the completed runs and the report as backups. Check that Autopilot reached the over-65 age step and marked it **Failed**, with a screenshot of the approval page – that is the result learners compare in step 5 (the rehearsal's Trainer Demo run showed exactly that; see the warning below).
 
-!!! warning "Run autonomously stopped after step 1 in a new learner project"
-    In the rehearsal, five autonomous runs of the learner's generated **Submit Over-65 Request** (project UIBAS, created after the learner's admin group was removed) each ended in about 40 seconds: step 1 **Failed**, steps 2–13 **None**, and **Behaviour verification** said "Verification could not be completed (HttpRequestException)". The robot log showed step 1 itself succeeded. Fixing the URL and rewording step 1 as an action didn't help. In the same hour, two runs of an older project's test case (imported before the rights change) ran normally – 6 to 8 minutes, Passed. Cause unknown. The day before the class, start one Run autonomously **as a learner, in a freshly imported learner project**. If it stops after step 1 the same way, plan Run autonomously as a trainer demo from the Trainer Demo project and tell learners to skip item 1 of step 4.
+!!! warning "Check that behaviour verification works on your tenant"
+    Run autonomously checks each step that has an **expected result** with a separate verification call. On the rehearsal tenant (staging, 2026-11-22) that call failed every time: **Behaviour verification** said "Verification could not be completed (HttpRequestException)", the step was marked **Failed**, and the run stopped there – about 40 seconds for a generated test case, at step 1. Steps without an expected result ran and passed. It happened for learner and admin runs alike, so it isn't a rights problem.
+
+    What we did for the Trainer Demo backup: **Submit Over-65 Request** (ATBT:9 on the rehearsal tenant) has expected results only on the last step. Autopilot then ran steps 1–10 (Passed) and marked the decision step **Failed**, with its comment "The result page displays the decision message: Congrats! You've been approved…" and a screenshot of the approval page – the evidence step 5 needs, even though the verification call itself still reported the error.
+
+    The day before the class, run one learner-generated test case autonomously. If its first step with an expected result fails with that error, plan Run autonomously as a trainer demo from your Trainer Demo backup, tell learners to skip item 1 of step 4, and report it to UiPath support with the execution link.
 
 ## Send learners the prerequisites
 
@@ -443,7 +447,7 @@ Total scripted learner time in the rehearsal: about 55 minutes of hands-on work 
 
 ✅ **Pre-warm** done: 3 Run autonomously runs and 1 Exploration, timed.
 
-✅ **Learner-like account pass** (an account with only the learner group's rights): Default Folder picker shows the folder, and after **Save** and a reload the field still shows it (no "Folder does not exist." toast); the chat prompts of steps 1, 7, 8 and 9 give the expected answers; **Select Automation** lists `UiBank.BusinessTests`; the serverless run gives 2/1/0; **Generate Report → From selection** works; one **Run autonomously** from a freshly imported learner project reaches the age step (see the warning under Pre-warm); the learner can open your completed over-65 run in the Trainer Demo project; usage pool left.
+✅ **Learner-like account pass** (an account with only the learner group's rights): Default Folder picker shows the folder, and after **Save** and a reload the field still shows it (no "Folder does not exist." toast); the chat prompts of steps 1, 7, 8 and 9 give the expected answers; **Select Automation** lists `UiBank.BusinessTests`; the serverless run gives 2/1/0; **Generate Report → From selection** works; one **Run autonomously** of a learner-generated test case gets past its first expected result (see the warning under Pre-warm); the learner can open your completed over-65 run in the Trainer Demo project; usage pool left.
 
 ✅ **Screenshots:** if labels changed since the guide was written, note them and tell learners at the start.
 

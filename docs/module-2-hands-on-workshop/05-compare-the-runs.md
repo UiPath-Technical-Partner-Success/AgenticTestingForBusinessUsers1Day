@@ -36,9 +36,9 @@ Over lunch, the shared robot worked through the queue. Now you read what Autopil
 
 4. Open the **Robot Logs** tab. This is the execution log, with the columns **Level**, **Time**, **Message** and **Info**. It first lists the setup (package, process, robot), then Autopilot's reasoning for each step – how it found a field, what it typed, and how it compared the result with what you expected. The robot works in Microsoft Edge.
 
-5. Find the age decision step. When Autopilot reaches it, UiBank shows *Congrats! You've been approved…* where your test case expects a rejection, so the step should be **Failed**. If the run stopped before it, read the trainer's run instead (see the box above).
+5. Find the age decision step. It's **Failed**: Autopilot's comment reads like *The result page displays the decision message: Congrats! You've been approved for a loan with UiBank!*, and the screenshot shows the approval page – where your test case expects a rejection. If the run stopped before it, read the trainer's run instead (see the box above).
 
-<!-- IMG: autonomous execution, Logs tab with the decision step expanded (Sub-steps screenshot of the UiBank approval page + Behaviour verification), no executor names -->
+![Autonomous run, Logs tab: steps 1–10 Passed, the decision step Failed, with Autopilot's check and its screenshot of the UiBank approval page](../assets/images/atb-05-autonomous-decision-step.jpg)
 
 !!! info "Preview"
     Run autonomously is a Preview feature. Labels and behavior may change. Your tenant may show slightly different labels.

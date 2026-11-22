@@ -26,7 +26,7 @@ Agenda in `trainer-setup.md` now shows these times and the planning factor for 1
 
 **Rights (proven):** licence App Test Developer; tenant **Allow to be Automation User** and TM **Project Creator** through the learner group; workshop folder **Automation User** + a folder role with subfolder **View** (`SubFolders.View`) – without it the Default Folder shows "Folder does not exist." after a reload. Written into Trainer Setup → Proven minimum rights.
 
-**Run autonomously over-65:** four runs of UIBAS:10. Run 1 (Url `/loans/apply`) and runs 2–3 ended in about a minute with step 1 Failed and "Verification could not be completed (HttpRequestException)". Cause found: the panel saves its Url into the test case's **Manual Steps → URL** field and pre-fills it; typing into the pre-filled field appended (`…/loans/applyhttps://…`). Guide now uses `https://uibank.uipath.com` and says to clear the field first. A control run of ATBL:2 (URL pre-filled correctly) ran normally. Runs 4 (clean URL) and 5 (step 1 reworded as "Open the UiBank home page") still ended after step 1 with the same error, while two ATBL:2 runs in the same hour passed (6–8 min). So it is not the URL or the step wording; it reproduces 5/5 in the new learner project UIBAS. **Cause unknown** – the age-step result of Run autonomously is still **unverified**. Step 5 says "should be Failed" with the trainer-run fallback; Trainer Setup has a warning and a day-before smoke check from a freshly imported learner project.
+**Run autonomously over-65:** four runs of UIBAS:10. Run 1 (Url `/loans/apply`) and runs 2–3 ended in about a minute with step 1 Failed and "Verification could not be completed (HttpRequestException)". Cause found: the panel saves its Url into the test case's **Manual Steps → URL** field and pre-fills it; typing into the pre-filled field appended (`…/loans/applyhttps://…`). Guide now uses `https://uibank.uipath.com` and says to clear the field first. A control run of ATBL:2 (URL pre-filled correctly) ran normally. Runs 4–6 (clean URL, step 1 reworded, pre/postcondition removed) failed the same way, while imported test cases (ATBL:2, UIBAS:2) ran 6–8 min and passed. **Cause found:** the imported cases have **no expected results**; every step that has one triggers the TM behaviour verification, which returned "Verification could not be completed (HttpRequestException)" on this staging tenant for learner and admin runs alike – a service issue, not rights, URL or wording. With expected results only on the decision step, the Trainer Demo run (ATBT:9) passed steps 1–10 and marked the decision step **Failed**, with Autopilot's comment "The result page displays the decision message: Congrats! You've been approved…" and the approval screenshot (`atb-05-autonomous-decision-step.jpg`). Trainer Setup now has a behaviour-verification check for the day before and this backup recipe.
 
 ## Phase 4 review summary (2026-11-22)
 
@@ -95,16 +95,14 @@ Main changes:
 21 screenshots captured as the learner account on 2026-11-22 (`docs/assets/images/atb-0x-*.jpg`), cropped and redacted (no names, emails, initials or tenant name; an agent viewed every image). The Introduction reuses `atb-01-autopilot-panel.jpg`.
 
 Still to capture (`grep -rn "<!-- IMG" docs`):
-- Trainer Setup: Edit Pool → VM & runtime details (needs the admin browser).
 - Step 4: Execution list with the manual and the Delegate run (needs a Delegate run on a laptop).
 - Step 5: Autonomous Exploration Scenarios tab (Trainer Demo project; learner can't see it).
-- Step 5: autonomous run, Logs tab with the decision step (no run reached it).
 
 ## Open items – status after phase 5
 
 1. **Learner minimum rights** – **proven** (Trainer Setup → Proven minimum rights). Still untested: a **group** folder assignment in the Default Folder picker (direct assignment used).
 2. **Delegate + `uip` on a real laptop** – **still unverified – to be verified on a learner laptop** (not installed on this Mac by design, to protect the trainer's own `labs` profile). Includes the Smart mode label and a new `Delegate model selector.png`.
-3. **Over-65 Run autonomously result** – **still unverified**: 5/5 runs in the learner project UIBAS stopped after step 1 ("Verification could not be completed (HttpRequestException)"); ATBL:2 passed twice. Worth raising with the Test Cloud team; day-before smoke check added. The Trainer Demo over-65 autonomous fallback run is not created yet (admin browser).
+3. **Over-65 Run autonomously result** – **answered**: the decision step is marked Failed with the approval screenshot (Trainer Demo run on 2026-11-22). Open: TM behaviour verification fails with HttpRequestException on staging for every step with an expected result – report to UiPath; Trainer Setup has the check and the backup recipe.
 4. **Execute Manually window** – **confirmed** (labels in step 4).
 5. **Prompts** – step 1, 7, 8 and 9 prompts run live and written to match. Not run: More Prompts, the step 7 optional failed-logs tip, the Delegate prompts.
 6. **Learner read access to the Trainer Demo project** – label **Viewer** confirmed in Manage Access lists, but **not assigned** (needs the admin's browser; the CLI can't write project permissions). Trainer Setup: assign Viewer or use the projector.
@@ -114,8 +112,8 @@ Still to capture (`grep -rn "<!-- IMG" docs`):
 10. **Reference execution PDF** – **regenerated** 2026-11-22 from ATBT run 20261122.0852: the requirement section lists ATBT:1, :2 and ATBT:9 (Failed); no emails. Local only: `../findings/evidence/P5-reference-execution-report.pdf`.
 11. **Cloud VM capacity** – not tested (cost); see item 7 in the table above.
 12. The sample `.tmh` still pre-fills old values – unchanged; step 1 tells learners what to type.
-13. **New: step 2 suggestion buttons = 403 for learners** – Add to Requirement and the status drop-down; workaround in step 2 and Troubleshooting. Needs a tenant-level Test Manager role decision (Victor).
-14. **New: trainer UI tasks not done** (only the learner's personal Chrome profile was connected): a Trainer Demo Run autonomously of Submit Over-65 Request (day-before pre-warm), the Viewer role, the Edit Pool screenshot. One orphan execution "Trainer Demo - Over-65 autonomous - 20261122.0853" (Pending, Autonomous, created by a CLI test) sits in ATB Trainer Demo – delete it from the Execution list (deleting from the CLI was blocked).
+13. **Step 2 suggestion buttons (403)** – **resolved by routing**: only suggestions made by the **+ Evaluate quality** button fail (`PATCH …/llmactivity` 403); suggestions made through Autopilot chat (prompt + **Review**) can be applied and their status changed, in UIBAS and ATBL (204, "Suggestion added to the requirement."). Step 2, Troubleshooting and Trainer Setup send learners to the chat route. No tenant role change made.
+14. **Trainer UI tasks** – done on 2026-11-22 with Victor's work browser: learner account given the **Viewer** project role on ATB Trainer Demo (project role list seen: Project Owner, Test Manager, Manual Tester, Test Designer, Test Executor, Viewer, Performance Tester, Test Governance Manager); orphan execution deleted; Edit Pool screenshot added (`atb-trainer-edit-pool-vm-runtime.jpg`); ATBT:9 got 11 manual steps (it had none) and a Trainer Demo Run autonomously ran (steps 1–10 Passed, decision step Failed with the approval screenshot) – it is the step 5 backup.
 
 Decisions taken in phase 3 (Victor: ask only for critical things):
 - Prompt 1 kept as a "check the answer" moment, not replaced.

@@ -57,13 +57,13 @@ A suggestion tells you *what's missing*. Your job as the analyst is to replace i
     **Add to Requirement** closes the panel: reopen **Quality enhancements** for the next one.
 
     !!! warning "Read this before you click Add to Requirement"
-        With workshop rights, **Add to Requirement** and the status drop-down may open a page that says *"You do not have the necessary rights to access this application."* with a **Click here to logout** button.
+        With workshop rights, suggestions made by the **+ Evaluate quality** button can't be applied: **Add to Requirement** and the status drop-down open a page that says *"You do not have the necessary rights to access this application."* with a **Click here to logout** button. Suggestions made through **Autopilot chat** work normally.
 
         ✅ Don't click **Click here to logout**. Press the browser **Back** button, or open the requirement again.
 
-        ✅ Then do it by hand: copy the suggestion's title into the requirement description yourself, and write the rule under it (item 3 below).
+        ✅ Then run the same evaluation in Autopilot chat – see [Evaluate in Autopilot chat](#evaluate-in-autopilot-chat) below – and select its **Review** link. In that list, **Add to Requirement** and the status drop-down work: carry on from here.
 
-        ✅ Skip the status drop-down (item 4). Your requirement text is what counts.
+        ✅ No time for chat? Copy the suggestion's title into the requirement description yourself, write the rule under it (item 3), and skip item 4.
 
 2. Pick 1–2 suggestions about outcomes or messages, such as boundaries, rejection rules or the result page: you'll replace them with UiBank's exact text.
 3. Edit the requirement. Under each added title, replace the suggestion with the rule itself, using the exact text UiBank shows. Your changes save when you click outside the description.
@@ -80,21 +80,23 @@ A suggestion tells you *what's missing*. Your job as the analyst is to replace i
         Reject with "You must be at least 18 years old for a loan and the loan must not exceed 100k."
         ```
 
-4. Set the status of each suggestion you used to **Done**, from its status drop-down. If you saw the rights page in item 1, skip this.
+4. Set the status of each suggestion you used to **Done**, from its status drop-down. Rights page again? You're in the button-made list: use the chat-made list from **Review**.
 
 !!! success "Check it"
     ✅ Each title you added has a rule under it, not the suggestion.
 
     ✅ Each rule names a boundary you could test (an age, an amount) and the exact message UiBank shows.
 
-??? example "Optional – the same request in Autopilot chat"
+### Evaluate in Autopilot chat { #evaluate-in-autopilot-chat }
+
+??? example "The same request in Autopilot chat – use it if Add to Requirement shows the rights page"
     Open the **Autopilot** panel (top bar, **Edit** mode) and type:
 
     ```text
     Evaluate the quality of the Submit Loan Request requirement and list the top 5 suggestions.
     ```
 
-    Autopilot shows one card, **Evaluate Requirement Quality**, with the requirement, documents, prompt and model it will use. Select **Accept**. After about 1–2 minutes it says how many suggestions it found, lists the top 5 and gives a **Review** link to the same **Quality enhancements** list. It doesn't change the requirement itself.
+    Autopilot asks you to approve **Get_requirements**, then shows the card **Evaluate Requirement Quality** with the requirement, documents, prompt and model it will use. Select **Accept** each time. After about a minute it says "Evaluated with 14 suggestions" (your number may differ), lists the top 5 and gives a **Review** button. **Review** opens the chat-made **Enhancement suggestions** list, where **Add to Requirement** works – you see "Suggestion added to the requirement." Chat doesn't change the requirement by itself.
 
     Same result, two ways in: the **+ Evaluate quality** button doesn't use your AI usage pool and lets you pick documents and a prompt; the chat version uses your AI usage pool but fits into a conversation – for example "…and tell me which suggestion matters most for the over-65 rule".
 
