@@ -1,153 +1,286 @@
-<!-- PHASE3: adapt per reuse-map §1 docs/trainer-setup.md + §5 Trainer; write per outline §5 Trainer Setup; verification.md (VM, folder, decisions). Copied from PR 1 (19079ac) trainer-setup.md as the starting draft. -->
-
 # Trainer Setup
 
-Complete this checklist **before the workshop**, ideally a few days ahead.
+Complete this page **a few days before the workshop**, then run the [day-before checklist](#day-before-checklist). It sets up one shared folder, two kinds of cloud robot, a Trainer Demo project with a published Studio Web package, and the backups you need if something fails in class.
+
+!!! note "Where these steps come from"
+    Every step below was done and checked on a Test Cloud tenant in November 2026, with one trainer account and one learner-like account. Use **your Test Cloud host** wherever the guide says `<host>`. Labels may differ slightly on your tenant, and **(Preview)** features may change.
+
+**What you build**
+
+| Object | Name used in the guide | Used in |
+|---|---|---|
+| Shared Orchestrator folder | **ATB - Agentic Testing Workshop** (plain hyphen) | every step (Default Folder, step 1) |
+| Robot account | one unattended robot account, for example *ATB Workshop Robot* | steps 4, 5, 7 |
+| Cloud Robot – VM pool | runtime type **Cloud - VM Testing** | steps 4 and 5 (Run autonomously, Autonomous Exploration) |
+| Cloud Robot – Serverless machine | runtime type **Cloud - Serverless Testing** | step 7 (regression set) |
+| Trainer Demo project | your own name and prefix, for example *ATB Trainer Demo* | demos and backups |
+| Studio Web Tests project and package | `UiBank.BusinessTests` | steps 6 and 7 |
 
 ## Organization and tenant
 
-✅ Create the workshop **tenant** in an organization.
+✅ **A Test Cloud organization on Unified Pricing.** Autopilot chat, its charts, Run autonomously, Autonomous Exploration, governance and running a test case without a test set need Test Manager on **Test Cloud**. They aren't available on Flex licensing.
 
-!!! info "Test Cloud only"
-    **Run autonomously** and **Autonomous Exploration** are only available in Test Cloud.
+✅ **Learners can join the organization.** Either the organization allows **external users** (learners sign in with their own accounts), or you invite learners with company accounts.
 
-✅ Make sure the tenant has **Test Manager** and **Orchestrator** enabled.
+✅ **Services:** the tenant has **Test Manager**, **Orchestrator** and **Studio Web** enabled.
 
-✅ Make sure an **AI Trust Layer policy that enables Autopilot** is active and deployed to the tenant, so **Autopilot for Testers** works in Test Manager and in Studio. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-agent-test-manager" target="_blank">Autopilot agent in Test Manager</a> and <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/enable-disable-functionality" target="_blank">Enabling/disabling Autopilot</a>.
+✅ **Licence plan:** open **Admin → Licenses** and check which plan the organization is on. It decides how much AI each learner gets (see [Licences and usage](#licences-and-usage)).
+
+✅ **AI Trust Layer policy:** in **Automation Ops → Governance**, an AI Trust Layer policy is active and deployed to the tenant, with **Feature Toggles → Enabling Test Manager features** set to **Yes**. **User License Management** is enabled for the organization. In **Admin → AI Trust Layer → Model hub**, check that no strict data-residency rule blocks the models Test Manager uses. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/about-autopilot-chat" target="_blank">About Autopilot chat</a> and <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/enable-disable-functionality" target="_blank">Enabling/disabling Autopilot</a>.
+
+✅ **Automation Ops Autopilot policy:** if your organization uses one, check that it doesn't block the Test Manager tools or MCP servers (it controls tools, MCP servers, security mode and models). Learners use the built-in **Test Manager MCP server** in step 7. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/architecture-and-data-flow" target="_blank">Architecture and data flow</a>.
+
+✅ **Automation Ops Assistant policy:** check that Delegate isn't switched off for learners, and that the approval mode isn't locked to a setting that blocks the exercises. See <a href="https://docs.uipath.com/automation-ops/automation-cloud/latest/user-guide/settings-for-assistant-policies" target="_blank">Settings for Assistant policies</a>.
 
 !!! success "Check it"
-    Open a requirement in Test Manager → **Optimize coverage**: **Evaluate quality** is available.
+    With a learner-like account: open any Test Manager project and check that the **Autopilot** icon is in the top bar (it isn't on the project list). Open a requirement → **+ Evaluate quality** is available.
 
-✅ Make sure learners can use **Delegate** in the organization: **Personal Automation** enabled and a **user license** for each learner. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/installation" target="_blank">Install and update</a>.
+## Users and licences
 
-## Users and group
+✅ Create a **group** for the learners, invite each learner to the organization, and add them to the group. Give rights and licences to the **group**, so late joiners get everything at once.
 
-✅ Create a **group** for the workshop.
+✅ **Licence:** allocate **App Test Developer** to the group (**Admin → Licenses**). **App Tester** is the minimum: it has Autopilot chat and Delegate, but can't build in Studio Web. Never use **Express User**. Autopilot chat in Test Manager isn't included with a **Pro** licence. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/user-licenses" target="_blank">User licenses</a>.
 
-✅ Invite each learner to the organization, and add them to the group.
-
-✅ Give permissions to the **group**, not to individual users, so late joiners get everything at once.
-
-## Licenses and runtimes
-
-Use the column for your organization type.
-
-| | Test Cloud organization | Automation Cloud organization |
-|---|---|---|
-| Learner user license | **App Test Developer - Named User** (App Tester can't create or publish Test Automation projects) | **Automation Developer - Named User** (includes Tester for Test Manager) |
-| Where to assign | Group | Group |
-| Robot runtime for the tenant | **App Test Robot**: at least one per learner machine | **Testing**: at least one per learner machine |
-| Run autonomously, Autonomous Exploration (step 4 tips) | Available | Not available |
-| Fallback robot (optional) | A **Cloud Robot - Serverless** machine in the learner's folder, with testing runtimes. The test set then runs on **Cloud - Serverless Testing**. Needs a Cross-platform project and an account in the folder that can run unattended jobs | Same |
-
-!!! info "Optional: Run autonomously and Autonomous Exploration"
-    To use Run autonomously and Autonomous Exploration in step 4, make sure a robot is available in each project's default folder. The robot machine must run Windows, and its UiPath browser extension must have **Allow in Incognito** turned on.
-
-## Test Manager
-
-✅ Give the group the **Project Creator** tenant role.
+✅ **Test Manager:** give the group the **Project Creator** tenant role, so each learner can import and own a project in step 1.
 
 !!! info "Tenant role, not a project role"
-    **Project Creator** is a **tenant** role. No Test Manager project role can create projects, so the **Test Manager** project role doesn't cover the step 1 import. In our rehearsal, the learner who imported the project could open **Project Settings** (Default Folder, step 1) and create custom fields (Test Tier, step 4) without extra grants.
+    **Project Creator** is a **tenant** role. No Test Manager project role can create projects. The learner who imports the project becomes its owner and can set the **Default Folder** and use governance without extra grants. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
 
-    See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
-
-!!! success "Check it"
-    With a test learner account in the group: import the `.tmh` (step 1), set **Default Folder** under **Project Settings** → **Automation**, then create the **Test Tier** custom field (step 4). All three work without extra grants.
-
-## Orchestrator
-
-!!! info "Recommended"
-    Do the Prerequisites folder and robot setup for each learner before the session, so learners don't need tenant-level rights.
-
-    The access rules below are the fallback, for when learners do the setup themselves. If learners edit their own user, they also need **Users – View** and **Users – Edit** at the tenant level.
-
-!!! tip "Orchestrator asks you to choose a layout?"
-    This page and Prerequisites use the **New layout** paths: **Tenant → Infrastructure → Machines**, **Tenant → Access → Access rules** (called *Manage access* in the current (classic) layout) and **Tenant → Access → Folder management** (called *Folders*). See the <a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/new-layout-navigation-map" target="_blank">New layout navigation map</a>.
-
-✅ At the **Tenant** level, go to **Access → Access rules** → **Assign access** → **Groups**, search for the group, and assign access rules to the group.
-
-✅ Under **Roles**, add **Allow to be Folder Administrator**, **Allow to be Automation Developer** and **Allow to be Automation Publisher**.
-
-✅ Under **Settings**, set:
+✅ **Orchestrator access rule for the group:** in Orchestrator, at the **Tenant** level, open **Manage access** (**Access → Access rules** in the new layout) → **Assign access** → **Groups**, pick the group, and:
 
 <div class="indent" markdown>
 
-✅ **UI Profile:** Standard
+✅ under **Roles**, add **Allow to be Automation User** (learners don't publish, so they don't need Automation Developer or Publisher)
 
-✅ **Personal automation setup:** Enable personal automation + Personal workspace
+✅ under **Settings**, set **Personal automation setup** to **Enable personal automation** (with or without Personal workspace). Delegate needs Personal Automation.
 
 </div>
 
-![Assign access rules for the group, with roles and settings](assets/images/OC%20Group%20access%20rules.png){ width="400" }
+![Access rule for a group: roles and settings](assets/images/OC%20Group%20access%20rules.png){ width="400" }
 
-### Robot for each learner
+*The screenshot comes from a developer workshop and shows broader roles. For this workshop, **Allow to be Automation User** is enough for what was tested – see the rights warning in [The shared folder](#the-shared-folder).*
 
-Each learner's tests run on a robot in their folder. The learner's own machine is the main path; Cloud - Serverless is a fallback you enable.
+!!! success "Check it"
+    In **Admin → Licenses → Users**, each learner has **App Test Developer** (or **App Tester**), directly or through the group. No Autopilot icon for a learner inside a project? This row is the first thing to check.
 
-=== "Your machine"
+### Licences and usage
 
-    Follow the Prerequisites *Trainer-led setup* for each learner: **App Testing** (or **Testing**) set to **1** on the learner's workspace machine, the machine in the learner's folder, and the learner listed in the folder with **Attended, Unattended**.
+| Item | What to check |
+|---|---|
+| **AI and Agentic usage pool** | Each chat turn and each Delegate task uses the learner's monthly pool. Autopilot buttons (Evaluate quality, Generate tests, Generate Report) don't. On an **Enterprise** plan, App Tester gets 7x the Basic pool and App Test Developer 20x. On **Basic** and trial plans, every licence except Express User gets the same Basic pool. When the pool is spent, Autopilot and Delegate pause: there is no fallback to paid units. Budget per learner: about 11 chat turns, plus 4–5 Delegate tasks. See <a href="https://docs.uipath.com/test-cloud/automation-cloud/latest/admin-guide/usage-pool-consumption-for-autopilot-delegate-and-cartographer" target="_blank">Usage pool consumption</a> |
+| **Top-ups** | Granting a top-up needs the **License Administrator** role and Platform Units in the organization's distribution. One pack = 50 Platform Units, and granted packs can't be returned. Option for a class: turn on **Automatic License Top-Up Grant** (Preview) in the AI Trust Layer policy. Bring your own model (BYOM) for Delegate, if your organization allows it, avoids the pool. See <a href="https://docs.uipath.com/test-cloud/automation-cloud/latest/admin-guide/granting-ai-and-agentic-usage-top-ups" target="_blank">Granting AI and agentic usage top-ups</a> |
+| **App Test Platform Units** | Run autonomously and Autonomous Exploration need an active App Test Platform Units bundle on the tenant. The docs publish no rate per run: note the balance before and after the pre-warm runs. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/autonomous-test-execution" target="_blank">Autonomous test execution</a> |
+| **Platform Units for robots** | The Cloud Robot – VM pool deducts Platform Units per month from the tenant balance; serverless robots are billed per minute. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/machine-sizes-and-costs" target="_blank">Machine sizes and costs</a> |
 
-    ✅ **Windows:** the learner's unattended credentials are their `whoami` user name and their Windows password (or Windows Hello PIN with **Smart Card**).
+??? note "Trainer FAQ: \"Do the buttons really cost nothing?\""
+    The learner pages cite only the testing usage-pool page, which says a capability called through its own button never uses the pool. A different page, *Autopilot for Everyone licensing*, describes the older Autopilot for Everyone meter (0.2 Platform Units per action after a monthly limit). If a sharp learner or admin finds it, that is the explanation. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-usage-pool-for-testing" target="_blank">Autopilot usage pool for testing</a>.
 
-    ✅ **macOS:** the robot runs in the learner's signed-in session. The Mac must stay signed in and unlocked, with Assistant signed in and connected.
+## The shared folder
 
-    ✅ **Both:** the UiPath extension is on in the browser profile the learner uses for the workshop. On a Mac, the robot opens the last-used Chrome profile, and a profile without the extension gives "Failed to start browser. New browser window did not appear."
+All learners work in **one** Orchestrator folder. They do no Orchestrator work themselves: they only pick this folder as their project's **Default Folder** in step 1.
 
-=== "Cloud - Serverless"
+!!! tip "Orchestrator asks you to choose a layout?"
+    This page uses the classic tab names (**Folders**, **Machines**, **Manage access**), with the new-layout name in brackets. See the <a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/new-layout-navigation-map" target="_blank">New layout navigation map</a>.
 
-    Use it when a learner's machine can't run the robot (locked-down laptop, robot not connecting).
+1. In Orchestrator, at the **Tenant** level, open **Folders** (**Access → Folder management**).
 
-    1. At the **Tenant** level, go to **Infrastructure → Machines**, select **Add machine → Cloud Robot - Serverless**, enter a name, check that **Cloud - Serverless Testing** is offered as a runtime type, and select **Provision**. Your tenant may show slightly different labels.
-    2. Open each learner's folder, go to **Machines** → **Manage Machines in Folder**, select the serverless machine, and click **Update**.
-    3. Tell the learner to create a **Cross-platform** project in step 5. Serverless robots run only background, cross-platform automations.
-    4. In step 7, the learner sets **Runtime type** to **Cloud - Serverless Testing**. The panel notes that serverless executions are limited to 15 minutes; one run of the Smoke set takes about 30 seconds per test case, in parallel.
+    ![Folders tab at the tenant level](assets/images/OC%20Tenant%20Folders.png)
 
-    Serverless doesn't run **Run autonomously** or **Autonomous Exploration**. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/executing-unattended-automations-with-serverless-robots" target="_blank">Executing unattended automations with serverless robots</a>.
+2. Click the new folder icon next to **Manage Folders**.
 
-## Mac learners
+    ![New folder icon next to Manage Folders](assets/images/OC%20New%20Folder%20icon.png){ width="400" }
 
-Learners on a Mac follow the **macOS** tabs in the guide. Check these before the session:
+3. Enter the **Name** `ATB - Agentic Testing Workshop` with a **plain hyphen** (learners type it in a search box), keep **Process packages source** as **Tenant package feed**, and click **Create**.
 
-✅ **Machine:** Apple silicon (M1 or later), macOS 14 Sonoma or later. Intel Macs aren't supported.
+    ![New Folder dialog with Name and Create](assets/images/OC%20New%20Folder%20dialog.png){ width="400" }
 
-✅ **Studio on macOS (Preview):** installed with the platform installer PKG. It opens only **Cross-platform** projects, so the backup Object Repository library in step 5 (a Windows project) doesn't work there.
+    !!! warning "Create it where learners get no inherited roles"
+        Create the folder at the root, or under a parent folder where the learner group has no role. A folder under a parent where a learner group is **Folder Administrator** inherits that role, gives learners admin rights, and hides any rights problem until a real class.
 
-✅ **Delegate for macOS (Preview):** DMG for Enterprise STS, PKG for Community. Not yet rehearsed for this workshop: Mac learners can use **Claude Code** with the `uip` CLI instead, the path that was rehearsed end to end on a Mac.
+4. Open the folder → **Manage access** → **Assign account/group/external app**:
+    - the learner group (or each learner): folder role **Automation User**
+    - your trainer or admin group: **Folder Administrator**
 
-✅ **Robot:** the learner's Mac with Assistant signed in and connected (see *Robot for each learner*), or the Cloud - Serverless fallback.
+    In the rehearsal, Test Manager's **Default Folder** picker listed the folder only after a **direct** folder assignment for the learner. A group assignment wasn't tested: check it with a learner account.
 
-✅ **Autonomous Exploration:** Windows only. Mac learners watch your demo.
+5. Select **Check own permissions** and tick **View Inherited Users** to see the effective rights.
 
-## Suggested agenda
+    ![Manage access tab of a folder, with the Robot Type column](assets/images/OC%20Settings%20Folder%20Admin.png)
 
-The step timings come from one rehearsal with Claude Code on a Mac, by a single learner on a quiet tenant; Delegate and Windows Studio times are the guide's estimates. Allow more time with a full class.
+!!! warning "Learner minimum rights are not proven yet"
+    With only **Automation User** in this folder, the learner-like account could set the Default Folder, start Run autonomously (which uploads a package and creates a process in the folder), link the trainer's package with **Select Automation** from the **Tenant Package Feed**, run the regression set on serverless robots, and use the chat tools. But that account also had tenant-level admin roles through another group, so these rights are **re-checked in the rehearsal** with a learner-only account.
 
-| Time | Block | Page | Rehearsal timing |
+    If one of these fails for a learner-only account, add the missing folder permissions (process create or edit, package view) or tenant-level **Packages – View**, and note what you added. Fallback: you link the automation for the learners (step 6).
+
+??? note "Fallback: one folder per learner"
+    If one shared folder doesn't suit your tenant, create one folder per learner, and add the robot account and both machines to each folder. It costs about 4 minutes of setup per learner.
+
+## Robot account
+
+Learners' run panels pick **Any User/Robot account**. The folder needs one account that can run **unattended** jobs, or runs stay **Pending**.
+
+1. Create a robot account, for example *ATB Workshop Robot* (**Admin → Accounts & groups → Robot accounts**; labels may differ).
+2. In the workshop folder → **Manage access** → **Assign account/group/external app**, add the robot account with the folder role **Automation User**. If the panel asks for a tenant role, add **Allow to be Automation User**.
+3. Check that its **Robot Type** shows **Unattended**.
+
+## Robots
+
+Learners use two kinds of cloud robot. You don't install anything on learner laptops.
+
+| Robot | Runtime type | Runs | Who starts it |
 |---|---|---|---|
-| 09:00–09:30 | Welcome and Test Cloud tour; learners start the project import | Home, Introduction, 1 | import ~3 min (guide says 3–15) |
-| 09:30–09:45 | Environment check: Delegate opens, "List the tenant I am connected to", `uip login status`, coding agent skills | Prerequisites | <1 min check |
-| 09:45–10:15 | Finish the import, link the folder, check folder and robot | 1, Prerequisites | link <1 min; project check ~1 min |
-| 10:15–10:45 | Evaluate requirements | 2 | evaluation <1 min; step ~5 min |
-| 10:45–11:00 | Break | | |
-| 11:00–11:30 | Generate test cases (include the over-65 case) | 3 | generation ~2 min; step ~4 min |
-| 11:30–12:15 | Delegate manual run (core); PDD exercise (optional) | 4 | Delegate about 10 min; Loan Lookup ~2 min |
-| 12:15–13:00 | Project, package, link to Test Manager, **start the Object Repository prompt** | 5 | Delegate ~7 min for the Object Repository (guide, Windows); Claude Code ~22 min, of which ~19 min is the Object Repository (Mac) |
-| 13:00–13:45 | Lunch | | |
-| 13:45–14:00 | Check the Object Repository; backup import if it fails | 5 | |
-| 14:00–15:00 | Coding agent: automate 3 test cases, run locally, publish | 6 | local run under a minute per test case in Windows Studio (guide), 2–3 min with Claude Code (Mac); publish seconds; link ~2 min |
-| 15:00–15:15 | Break | | |
-| 15:15–15:30 | Add test cases to the Smoke Test Set, test run | 7 | robot run seconds per test case (Mac 9–10 s, serverless ~30 s) |
-| 15:30–16:15 | Run, triage and report (go/no-go PDF) | 8 | run + triage ~2 min; report ~4–5 min |
-| 16:15–17:00 | Stretch, wrap-up, feedback | You did it! | |
+| **Cloud Robot – VM** pool, Windows 11 | **Cloud - VM Testing** | Run autonomously (step 4), Autonomous Exploration (step 5 demo) – both (Preview) | each learner (Run autonomously); you (Exploration) |
+| **Cloud Robot – Serverless** | **Cloud - Serverless Testing** | the automated regression set (step 7) | each learner |
 
-!!! tip "4-hour version"
-    Steps 1, 3, 5 (backup Object Repository), 6, 7 and 8, with each learner's folder and robot set up beforehand. Mac and Cloud - Serverless learners use a Cross-platform project and build the Object Repository with the coding-agent prompt instead (about 20 minutes).
+### Cloud Robot – VM pool for Run autonomously and Exploration
+
+Run autonomously and Autonomous Exploration run on Windows, in the machine's default browser, on a **Cloud - VM Testing**, **Cloud - VM** or self-hosted testing runtime. Serverless runtimes aren't supported for them.
+
+1. In Orchestrator, at the **Tenant** level, open **Machines** (**Infrastructure → Machines**) → **Add machine** → **Cloud Robot - VM**.
+
+    ![Machines tab at the tenant level](assets/images/OC%20Tenant%20Machines%20tab.png)
+
+2. Fill in the pool. The settings that were rehearsed:
+
+    | Setting | Value |
+    |---|---|
+    | Machine management | **Automatic** (VMs are created and deleted for you; changes made on a VM don't persist) |
+    | Pool environment | **Test** – this gives the **Cloud - VM Testing** runtime type |
+    | VM size | **Standard (4 CPUs, 32 GB)** |
+    | Machine image | **Windows Desktop** → **Standard** → **UiPath + Supported Browsers on Windows 11 Enterprise** |
+    | Machine availability profile | **Balanced** normally; **Always** (or **Fast**) for the workshop day – see the capacity box |
+    | Max number of VMs | 1 to start; see the capacity box |
+    | Automation Cloud Runtime(s) per machine | 1 to start; see the capacity box |
+    | Pool configurations | **Allow UiPath to manage Robot updates** on (required for a standard image) |
+
+    <!-- IMG: Edit Pool → VM & runtime details page (VM size, image, availability profile, runtime type Cloud - VM Testing), captured without the user's initials in the header -->
+
+3. Open the workshop folder → **Machines** → **Manage Machines in Folder**, select the pool, and click **Update**.
+
+    ![Manage Machines in Folder button](assets/images/OC%20Manage%20machine.png)
+
+No remote desktop session, browser extension setting or **Allow in Incognito** change was needed on the standard image: Run autonomously and Exploration both worked as delivered. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/running-unattended-automations-using-cloud-robots-vm" target="_blank">Running unattended automations using cloud robots – VM</a>.
+
+!!! warning "Capacity: plan the queue before lunch"
+    Measured with 1 VM and 1 runtime on **Balanced**:
+
+    - The first job of the day waited **9 minutes** while a VM started. Balanced shuts an idle VM down again.
+    - Each Run autonomously took about **6 minutes** (5 min 43 s to 8 min 14 s), **one after another** per runtime. One runtime handles about 9–10 runs an hour.
+
+    Learners start Run autonomously at the start of step 4, so the queue drains over lunch. Aim for one parallel slot per **4–5 learners** (15 learners → 3 slots). Two levers, both shown with their cost on the pool's edit page:
+
+    - **Automation Cloud Runtime(s) per machine:** each extra runtime costs **400 Platform Units per VM per month**. The docs say a Windows session runs one UI job at a time, and Run autonomously drives a browser. If jobs still run one after another with several runtimes, use the next lever instead.
+    - **Max number of VMs:** each VM adds the VM size's monthly cost (600 Platform Units for Standard).
+
+    For the workshop day, set **Always** (or start the pre-warm runs 15 minutes before class), check the Platform Units balance first, and **revert all three settings after the class**.
+
+!!! info "What learners see"
+    The Run autonomously panel preselects **Cloud - VM Testing** on a folder with this pool. **Cloud - Serverless Testing** and **Cloud - Serverless** are selectable in the list, but not supported. The learner pages say "your trainer tells you which runtime": tell them **Cloud - VM Testing**.
+
+### Cloud Robot – Serverless for the regression set
+
+1. At the **Tenant** level, open **Machines** → **Add machine** → **Cloud Robot - Serverless**. Enter a name, for example *ATB Serverless*, check that **Cloud - Serverless Testing** is offered as a runtime type, and select **Provision**.
+2. Open the workshop folder → **Machines** → **Manage Machines in Folder**, select the serverless machine, and click **Update**.
+
+Serverless jobs are limited to 15 minutes; the 3-test regression set takes under a minute. Studio Web Tests projects are cross-platform, so they run on serverless robots. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/executing-unattended-automations-with-serverless-robots" target="_blank">Executing unattended automations with serverless robots</a>.
+
+!!! warning "Configure Automation defaults to the VM pool"
+    With both machines in the folder, a test set's **Configure Automation** panel preselects **Cloud - VM Testing**. Step 7 tells learners in bold to pick **Cloud - Serverless Testing**. A learner who misses it sends the regression run to the VM queue: cancel and run again.
+
+### Robot-side errors
+
+These happen on the robot, not in the learner's test. They used to be learner troubleshooting rows.
+
+| What learners see | Cause and fix |
+|---|---|
+| Tests fail with "Cannot communicate with the browser" | The UiPath browser extension on the robot isn't reachable. On an automatically managed VM pool, use the standard image **UiPath + Supported Browsers on Windows 11 Enterprise**, which has the extension; on a custom image, install and enable the extension in the image. Then run again |
+| Tests fail with "Failed to start browser. New browser window did not appear." | The robot opened a browser profile without the UiPath extension. Same fix as above: standard image, or a custom image with the extension on in the default profile. Then run again |
+| A run stays **Pending** | The VM is starting (up to 9 minutes on Balanced), the queue is long, the folder has no unattended robot account, or a serverless runtime was picked for Run autonomously. Check **Orchestrator → Jobs** in the workshop folder |
+| A regression test shows **Faulted** in Orchestrator **Jobs** | A test that fails its assertion shows as Faulted in Jobs. It isn't a robot error: check the test log in Test Manager |
+
+## Trainer Demo project and the Studio Web package
+
+The Trainer Demo project is your own UiBank project. It holds the published automation that learners link to in step 6, and every backup.
+
+1. Import the workshop `.tmh` (step 1 of the learner guide) under a name and prefix of your own, for example *ATB Trainer Demo*. Set **Project Settings → Automation → Default Folder** to the workshop folder.
+2. Add a manual test case **Submit Over-65 Request**: age **66**, expected result: rejected with "Not approved due to age.", linked to **Submit Loan Request**. Learners create the same test case in step 3.
+3. Give the learner group read-only access to this project: in the project's user management, assign the group a **Viewer** project role. Step 5 sends learners here to read your completed over-65 run. The exact role label is confirmed in the rehearsal – see <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
+
+### Build the package in Studio Web
+
+Learners link to these four tests by name, so use these names exactly:
+
+| Studio Web test | Expected result in UiBank today |
+|---|---|
+| **Submit Standard Loan Request** | passes – "Congrats! You've been approved…" |
+| **Submit Underage Request** | passes – age 17 gives "Sorry, at this time you have not been approved for a loan." |
+| **Submit Over-65 Request** | **fails** – age 66 gets "Congrats! You've been approved…", but the requirement says reject. This is the UiBank defect behind the NO-GO |
+| **Submit High-Volume Request** | **fails** – a spare: UiBank never approves loans over $100,000, although the requirement approves them when income is more than 3x the loan. Keep its manual steps aligned with the automation's data (amount 150000, income 500000, verify "Congrats! You've been approved…"), or chat will call its failure a test defect |
+
+1. In Test Manager, open **Submit Standard Loan Request** → **Automation** tab → **Automate in Studio Web**.
+2. In the panel, type `UiBank.BusinessTests` in **Project\*** and select **Create project "UiBank.BusinessTests"**. In **Test case\***, create the test with the test case's name. Select **Add automation**. You see "Automation updated successfully!", then **Open in Studio Web**.
+3. Repeat for the other three test cases, choosing the same project.
+4. In Studio Web, build each test: **Use Browser** on `https://uibank.uipath.com/loans/apply` (Chrome) → **Type Into** email, amount, income and age → **Select Item** for the term → **Click** submit → **Get Text** of the heading on the result page → **Verify Expression** that it contains "Congrats" (approve) or "Sorry" (reject).
+
+    **Indicate target** and the Autopilot Recorder need the UiPath robot on your own machine ("Please wait while we start the UI Automation process on your local machine"): install UiPath Assistant on the trainer laptop and sign in to the same tenant first.
+
+5. Debug each test on the cloud (right-click the file → **Debug**). Standard passes ("Verification passed…"); Over-65 fails ("Verification failed. The expression 'resultHeading' with value 'Congrats!'…").
+6. Select **Publish**: Version **1.0.0**, and change **Location** from the default **Orchestrator Autopilot Feed** to **Orchestrator Tenant Processes Feed**. Publish.
+7. Back in Test Manager, each linked test case now shows **Package Source: Tenant Package Feed** on its **Automation** tab.
+
+!!! info "The empty TestCase entry"
+    Every Studio Web Tests project has a default **TestCase** entry point that can't be deleted. It shows up in learners' **Select Automation** list. Step 6 tells learners to ignore it.
+
+!!! info "One editor at a time"
+    A shared Tests project allows one editor at a time, so learners don't open it. They link to the published package with **Select Automation** (step 6). Opening it read-only as a learner wasn't tested.
+
+![The Automate in Studio Web panel: Project and Test case, then Add automation](assets/images/atb-06-automate-in-studio-web-panel.jpg)
+
+See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/automating-test-cases-in-studio-web" target="_blank">Automating test cases in Studio Web</a>, <a href="https://docs.uipath.com/studio-web/automation-cloud/latest/user-guide/publishing-a-project" target="_blank">Publishing a project</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/selecting-automation" target="_blank">Selecting automation</a>.
+
+### Run the regression set yourself
+
+1. In the Trainer Demo project, create the test set `Release 2.4 - Loan regression` (plain hyphen) with Submit Standard Loan Request, Submit Underage Request and Submit Over-65 Request.
+2. **Configure Automation** → **Runtime type** = **Cloud - Serverless Testing**, **Robot account** = **Any User/Robot account**, **Autoselect packages** → `UiBank.BusinessTests - 1.0.0` → **Save**.
+3. **Execute → Automated**. Expect **2 passed / 1 failed / 0 none** in under a minute.
+
+## Backups in the Trainer Demo project
+
+Keep these ready in the Trainer Demo project, so any step can fall back to them:
+
+✅ **Completed Run autonomously runs** – from the pre-warm (below), including one of **Submit Over-65 Request** that fails at the age decision. Step 5 sends learners to it when their own run hasn't finished. Learners open it through the **Viewer** role from the setup above; if that doesn't work on the day, show it on the projector.
+
+✅ **An Autonomous Exploration report** – from the pre-warm.
+
+✅ **An Execution Insights report** – Execution → **Generate Report** → **From selection** on your regression run → **Reports** tab → **Download** (DOCX).
+
+✅ **The reference execution PDF** – the regression execution's download icon → **Download Pdf**. Keep an **unsigned** copy for learners. A PDF from a signed governed log contains the signer's name and email.
+
+✅ **A reference go/no-go report** – the step 9 chat summary of your regression run, or a Delegate PDF report made from it. Unsigned, no names. It covers step 9 if a learner's chat or Delegate fails, or if UiBank fixes the defect.
+
+✅ **An Exploration charter prompt** in **Project Settings → Prompt Library**, for example "Explore only the over-65 rule of the loan application form."
+
+??? note "Optional: governance on the Trainer Demo project"
+    Shows the formal sign-off box in step 9.
+
+    1. **Project Settings → Governance → Enable governance**: set **Default governance state** (Governed / Not governed), **Default approvers** (users or groups) and **Signing order**, then **Save**.
+    2. Logs created before you enabled governance aren't governed: open the log and switch the **Governed** toggle on.
+    3. Set the approval status to **In review**. This locks the log: edits are disabled until all approvers sign.
+    4. On the log's **Governance** tab, sign: **Your role at time of signature\***, optional comments, **Sign**. Self-approval was allowed in the rehearsal.
+
+    Signatures show the signer's name and email, also in the PDF: crop screenshots and don't share that PDF. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance" target="_blank">Testing process governance</a>.
+
+## Pre-warm the robots (the day before)
+
+The first Run autonomously in a folder uploads a test package and creates the process `UiPathTestCloudAutonomousTestExecution`; the first Exploration creates `UiPathTestCloudAutonomousExploration`. Do these runs the day before, so the first class runs don't also start a cold VM.
+
+1. **Run autonomously ×3** from the Trainer Demo project – Submit Over-65 Request (the step 5 backup), Submit Standard Loan Request and Submit Underage Request: test case ⋮ → **Execute Autonomously** → **Url\*** `https://uibank.uipath.com/loans/apply`, keep the recommended **Model**, **Next** → **Runtime type** **Cloud - VM Testing**, **Robot account** **Any User/Robot account** → **Run**. Note the time per run and the App Test Platform Units used.
+2. **Autonomous Exploration ×1:** requirement **Submit Loan Request** → **+ Autonomous Exploration**. A 10-minute time-box finished in 11 minutes and covered about **one** scenario. For the step 5 demo, use the narrow charter prompt ("only the over-65 rule"), or a 20–30 minute pre-run you show as the result.
+3. Keep the completed runs and the report as backups. Check that Autopilot marked the over-65 age step **Failed** – that is the result learners compare in step 5, and it wasn't verified before this guide was written.
 
 ## Send learners the prerequisites
 
-✅ Copy these prerequisites, replace `<ORG>` and `<TENANT>` with your organization and tenant names, and send them to learners.
+✅ Send these **one week ahead**. Replace `<host>`, `<ORG>` and `<TENANT>` with your Test Cloud host, organization and tenant. Ask each learner to reply with a screenshot of Delegate showing the tenant.
 
 !!! info "Prerequisites to send learners"
     <div class="rich-copy" markdown>
@@ -155,20 +288,80 @@ The step timings come from one rehearsal with Claude Code on a Mac, by a single 
     ```text
     SYSTEM REQUIREMENTS
     --8<-- "system-requirements.md"
-    ACCESS AND SETUP
-    1. Sign in at https://cloud.uipath.com
-       - Open the organization <ORG> and the tenant <TENANT>
-       - Check that you can open Test Manager and Orchestrator
-    2. Launch Studio (Studio on macOS on a Mac), and sign in to <ORG> and <TENANT>
+    ACCESS AND SETUP (about 30 minutes)
+    1. Sign in at https://<host>/<ORG>/<TENANT>
+       - Open Test Manager. The project list may be empty.
+       - Allow pop-ups for the site.
+    2. Install UiPath Assistant with Delegate
+       - Windows: in the installer, select only "Assistant, Delegate & Cartographer"
+       - Mac: Delegate for macOS (Preview), Apple silicon, macOS 14 or later
+    3. In Assistant, sign in to <ORG> / <TENANT>. In Delegate, choose the QA / Testing profile.
+    4. Connect Delegate to Test Manager (one time, about 5 minutes):
+       follow the "Connect Delegate to Test Manager" section of the guide's
+       Prerequisites page, with these values:
+       - host: <host>
+       - organization: <ORG>
+       - tenant: <TENANT>
 
     VERIFICATION
-    - Studio asked you to sign in to Automation Cloud, and you signed in
-    - The UiPath extension is enabled in the browser profile you'll use for the workshop
+    - Delegate answers "List the tenant I am connected to." with <ORG> / <TENANT>
+    - The UiPath extension is enabled in the browser profile you'll use
+    - Reply with a screenshot of that Delegate answer
+    - If step 4 fails, send a screenshot and bring your laptop 30 minutes early
     ```
 
     </div>
 
-??? note "Trainer notes: Delegate security questions"
+!!! warning "Check the Delegate connection on real laptops"
+    The connection step was checked against the docs and the official installers, not yet on a learner laptop. Before the first class, spend 15 minutes on one Windows and one Mac laptop: Windows package manager allowed, the admin prompt for Node.js, the company proxy, the browser sign-in, Delegate finding the tool after Assistant restarts, the **QA / Testing** profile, and the Delegate for macOS (Preview) DMG.
+
+??? note "Mac learners"
+    ✅ **Machine:** Apple silicon (M1 or later), macOS 14 Sonoma or later. Intel Macs aren't supported.
+
+    ✅ **Delegate for macOS (Preview):** DMG for Enterprise organizations, PKG for Community. If it doesn't work, the learner uses the browser path and pairs with a neighbour for the Delegate parts.
+
+    ✅ Everything else runs in the browser or on your cloud robots.
+
+## Known caveats
+
+✅ **The sample project pre-fills old values.** The `.tmh` pre-fills Name **UiBank Project**, Prefix **UIBWS**, and a description written for a developer workshop. Step 1 tells learners what to type instead. Re-export a business-version `.tmh` when you can.
+
+✅ **Imported history is 3 years old.** The Dashboard (Daily / Weekly only, no custom date range) never shows it, and Execution Insights "From last N days" ignores it. Step 8 uses **From selection** or **From last day**.
+
+✅ **Imported results show the original tester's name** under **Executed By**. Crop it from any screenshot you share.
+
+✅ **Chat Edit mode asks Accept / Reject for every tool call**, reads included: about 5 clicks for the overview prompt and 7 for the triage prompt. The learner pages warn about it.
+
+✅ **No chat tool starts, schedules or stops runs, or creates Execution Insights** with the standard Test Manager tools. Learners use the buttons for those.
+
+## Suggested agenda
+
+Measured times come from one learner on a quiet tenant; allow more with a full class.
+
+| Time | Block | Page | Timing notes |
+|---|---|---|---|
+| 09:00–09:20 | Welcome: the release question, three roles, three helpers. **Learners start the import now** | Home, step 1 | import about 4 min (3–15 on a busy tenant) |
+| 09:20–09:45 | Introduction and Delegate check | Introduction, Prerequisites | check under 1 min |
+| 09:45–10:10 | 1. Default Folder, meet Autopilot chat | 1 | each chat answer 20 s to 1.5 min |
+| 10:10–10:40 | 2. Evaluate the requirement | 2 | about 5 min, plus discussion |
+| 10:40–10:55 | Break | | |
+| 10:55–11:25 | 3. Generate test cases, including Submit Over-65 Request | 3 | about 4 min; optional Excel import about 5 min |
+| 11:25–12:20 | 4. **Start Run autonomously first**, then Execute Manually and Delegate | 4 | each autonomous run about 6 min in the queue |
+| 12:20–13:05 | Lunch – the VM pool works through the queue. Watch **Orchestrator → Jobs** | | 15 runs need about 3 parallel slots |
+| 13:05–13:35 | 5. Compare the runs; your Autonomous Exploration demo | 5 | Exploration 11 min for a 10-min time-box |
+| 13:35–14:10 | 6. Studio Web demo, then learners link 3 test cases | 6 | |
+| 14:10–14:45 | 7. Build the set with chat, run on serverless, triage | 7 | run under 1 min; triage prompt about 2 min |
+| 14:45–15:00 | Break | | |
+| 15:00–15:40 | 8. Read the results | 8 | Insights report under 1 min |
+| 15:40–16:25 | 9. Go or no-go | 9 | chat summary about 2 min |
+| 16:25–17:00 | Wrap-up and feedback | You did it! | |
+
+!!! tip "4-hour version"
+    Steps 1, 2 and 3; step 4 with Execute Manually and Delegate only; steps 7, 8 (charts and Insights) and 9. You link the automations in advance (step 6), and Run autonomously and Exploration are demos.
+
+## Trainer notes
+
+??? note "Delegate security questions"
     Use these if a customer's IT or security team asks about Delegate.
 
     ✅ **Data:** the task text and screenshots go to the AI model through the AI Trust Layer. UiPath is contractually barred from training on customer data.
@@ -181,27 +374,50 @@ The step timings come from one rehearsal with Claude Code on a Mac, by a single 
 
     ✅ **Network:** outbound HTTPS only, to UiPath domains. Delegate uses the system proxy and the company's root certificates.
 
-    ✅ **Admin control:** Automation Ops can enforce and lock Delegate settings, including which models are allowed.
+    ✅ **Admin control:** Automation Ops can enforce and lock Delegate settings, including approval mode and which models are allowed.
 
-    ✅ **Compliance:** SOC 2 Type 2, ISO/IEC 27001, 27017, 27018 and 42001, HIPAA and others. Delegate falls under the existing Automation Cloud DPA.
+    ✅ **Compliance:** SOC 2 Type 2, ISO/IEC 27001, 27017, 27018 and 42001, HIPAA and others. Delegate falls under the existing Automation Cloud DPA (Data Processing Agreement).
 
     See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/security-overview" target="_blank">Security overview</a>, <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/data-and-compliance" target="_blank">Data security and compliance</a> and <a href="https://docs.uipath.com/automation-cloud/automation-cloud/latest/admin-guide/configuring-firewall" target="_blank">Configuring the firewall</a>.
 
-## Before the session
+??? note "Autopilot chat governance and cost talk-track"
+    ✅ Chat acts as the signed-in user, with that user's permissions. The AI Trust Layer audit log records its operations.
 
-✅ **Reference report:** run step 8 yourself and keep the go/no-go PDF, so learners can compare their report with it.
+    ✅ **Edit** mode asks before each tool; **Agent** mode runs tools without asking. The workshop stays in Edit mode.
 
-✅ **Check the failing test:** at <a href="https://uibank.uipath.com" target="_blank">UiBank</a>, apply for a loan with age 66. If UiBank rejects it, step 8 has no UiBank defect, so learners should expect **GO**. You can offer **Submit High-Volume Request** (already in the Smoke set) as a replacement failing test, but it isn't rehearsed yet: automate and run it yourself first, and check that it fails in UiBank before the session.
+    ✅ Cost in one line: chat turns and Delegate tasks use the learner's AI usage pool; the Autopilot buttons don't; robot runs use Platform Units, and autonomous runs use App Test Platform Units.
 
-✅ **Loan Lookup:** submit one loan application and check that its loan ID opens in **Loan Lookup** (UiBank's **Already Have A Loan?** button). Steps 4 and 8 rely on it.
+## Day-before checklist
 
-✅ **Report location:** on a lab machine, ask Delegate to save a test file on the Desktop and check where it lands. OneDrive can redirect the Desktop.
+✅ **UiBank still has the defect:** apply for a loan at <a href="https://uibank.uipath.com" target="_blank">UiBank</a> with age **66**. It must show "Congrats! You've been approved…". If UiBank now rejects it, there is no UiBank defect for the NO-GO: use **Submit High-Volume Request** as the failing test instead, and tell learners. Keep the reference go/no-go report at hand to show what the NO-GO looked like with the over-65 defect.
 
-✅ **Fallback robot:** if you offer Cloud - Serverless, run one test set on it from a Cross-platform project.
+✅ **Loan Lookup:** submit one loan and check that its loan ID opens under **Already Have A Loan?**. Step 9's Delegate repro uses it.
+
+✅ **Report location:** on a lab laptop, ask Delegate to save a test file on the Desktop and check where it lands. OneDrive can redirect the Desktop.
+
+✅ **VM pool:** availability profile, runtimes and VMs set for the class size; Platform Units balance checked.
+
+✅ **Pre-warm** done: 3 Run autonomously runs and 1 Exploration, timed.
+
+✅ **Learner-like account pass** (an account with only the learner group's rights): Default Folder picker shows the folder; the chat prompts of steps 1, 7, 8 and 9 give the expected answers; **Select Automation** lists `UiBank.BusinessTests`; the serverless run gives 2/1/0; **Generate Report → From selection** works; the learner can open your completed over-65 run in the Trainer Demo project; usage pool left.
+
+✅ **Screenshots:** if labels changed since the guide was written, note them and tell learners at the start.
+
+**During the session**
+
+✅ Watch **Orchestrator → Jobs** in the workshop folder before and after lunch.
+
+✅ Start the Exploration demo only when the Run autonomously queue has drained.
+
+✅ Watch the usage pool and the App Test Platform Units balance.
 
 ## After the workshop
 
-✅ Clean up the imported projects, learner folders, serverless machines and robot runtime assignments. Remove learners from the group, or delete the tenant.
+✅ Revert the VM pool: availability profile **Balanced**, runtimes per machine and Max number of VMs back to 1 (or delete the pool).
+
+✅ Clean up: learner projects, any schedules learners created, Delegate routines, governance settings, Studio Web projects, and the serverless machine and robot account if you won't reuse them. Granted top-ups can't be returned.
+
+✅ Remove learners from the group, or delete the tenant.
 
 ---
 

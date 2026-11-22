@@ -1,23 +1,20 @@
-- A Windows laptop with local admin rights
-    - Windows 10 (version 1903 or later) or Windows 11, 64-bit
-    - Intel or AMD processor, not ARM (such as Snapdragon)
-    - At least 8 GB RAM
-- or a Mac with Apple silicon (M1 or later) and rights to install apps
-    - macOS 14 Sonoma or later
-    - At least 8 GB free disk space
-    - Intel Macs are not supported
-    - Studio on macOS and Delegate for macOS are in Preview
+- A Windows laptop or a Mac, for Delegate
+    - Windows 10 (version 1903 or later) or Windows 11, 64-bit, with at least 8 GB RAM
+    - or a Mac with Apple silicon (M1 or later), macOS 14 Sonoma or later, and at least 8 GB free disk space
+    - Intel Macs are not supported, and Delegate for macOS is in Preview
+    - Rights to install apps, or ask your IT team to install UiPath Assistant and Delegate for you
 - Google Chrome or Microsoft Edge
-- UiPath Studio, latest STS version
-    - Install it even if you already have Studio
-    - Windows: in the installer, select Studio and Assistant, Delegate & Cartographer
+    - With the UiPath browser extension (installed with UiPath Assistant – your trainer helps if it's missing)
+    - Pop-ups allowed for your Test Cloud URL
+- UiPath Assistant with Delegate, latest STS (Short Term Support) installer
+    - Windows: in the installer, select Assistant, Delegate & Cartographer
     - Windows download link: https://download.uipath.com/connected-installer/latest/sts/UiPathPlatformSTS.msi
-    - Mac: the installer package installs Studio on macOS and Assistant
-    - Mac download link: https://download.uipath.com/connected-installer-macos/latest/sts/UiPathPlatformSTS.pkg
-    - Delegate for macOS: follow https://docs.uipath.com/delegate/standalone/latest/user-guide/installation
+    - Mac: install Delegate for macOS (Preview) as described in https://docs.uipath.com/delegate/standalone/latest/user-guide/installation
 - Access to these sites, with no proxy or firewall blocking them
-    - https://cloud.uipath.com
+    - Your Test Cloud URL, which your trainer sends you
     - https://uibank.uipath.com
+    - https://download.uipath.com (installers and the Delegate connection tool)
+    - The npm package registry, https://registry.npmjs.org, used once to install the Delegate connection tool
     - On a company laptop, check with your IT team first
 - On the day
     - Screen: never turn off

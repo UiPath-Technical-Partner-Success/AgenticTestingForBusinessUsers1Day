@@ -11,11 +11,13 @@ Learners take one UiBank loan requirement from a vague rule to a release decisio
 | Automate & organize | 6–7 | Link test cases to a Studio Web package, build and run a regression set with Autopilot chat |
 | Decide | 8–9 | Read the dashboard, charts and Execution Insights, then decide go or no-go |
 
-The trainer checklist is in the guide: [Trainer Setup](docs/trainer-setup.md).
+The workshop runs on a Test Cloud tenant with the latest features. Learners need a browser and UiPath Assistant with Delegate; the trainer prepares the shared folder, the robots and a Studio Web package. The trainer checklist is in the guide: [Trainer Setup](docs/trainer-setup.md).
 
-## Build it locally
+## Run it locally
 
 You need Python 3.
+
+macOS or Linux:
 
 ```bash
 python3 -m venv .venv
@@ -23,7 +25,15 @@ python3 -m venv .venv
 .venv/bin/mkdocs serve
 ```
 
-Then open http://127.0.0.1:8000. On Windows, double-click `start-guide.bat`.
+Windows: double-click `start-guide.bat`. The first run creates the virtual environment and installs the requirements, then it starts the site and opens your browser. By hand, in PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+.venv\Scripts\mkdocs serve
+```
+
+Then open http://127.0.0.1:8000.
 
 Before you push, run `mkdocs build --strict`: it fails on broken links and anchors.
 

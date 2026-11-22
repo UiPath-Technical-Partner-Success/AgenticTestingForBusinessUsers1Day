@@ -4,55 +4,84 @@ Working notes for whoever continues the guide. The full plan and research live o
 
 ## Status (2026-11-22)
 
-Phase 2 is done: the site is scaffolded and builds with `mkdocs build --strict`. **No page is finished yet.**
+Phase 3 is done: **every page is written**, no `PHASE3` markers are left, `mkdocs build --strict` passes (anchor checks on, 0 broken links or anchors), and the grep gates are clean. Next is phase 4 (full build and link check, grep gates, three independent reviews and one fix pass).
 
-- Pages copied from the technical guide (PR 1, commit `19079ac`) are starting drafts. Each starts with a `<!-- PHASE3: adapt per reuse-map … -->` comment that names its reuse-map and outline sections. They still contain technical content (Studio Desktop, Claude Code, coding agents, the `uip` CLI, the Object Repository, per-learner folders) that phase 3 must remove or rewrite.
-- New pages (steps 5, 6 and 8) are stubs: H1, one purpose line and a `<!-- PHASE3: write per outline … -->` marker.
-- Links to removed pages were pointed at their replacements so the build passes. Some link texts and anchors now point at sections phase 3 will rewrite, for example "Link the test cases to the package" in Troubleshooting. Re-check every link when the pages are written.
+How it was written: 7 parallel writers on disjoint files, one integration pass (links, anchors, Next chain, Home wf-map, naming, over-65 storyline), one completeness critic (18 gaps, none high) and one fix pass (17 fixed, 1 solved by cropping).
 
 ## Page map
 
-| Page | Source in PR 1 | State |
-|---|---|---|
-| `index.md` | `index.md` | draft – wf-map links updated to the 9 steps; text, phases, objectives still technical |
-| `module-0-prerequisites/index.md` | same | draft – still has Studio, coding agent and learner folder sections |
-| `module-1-introduction/index.md` | same | draft – needs "Which helper when", MCP teaser |
-| `01-import-and-meet-autopilot-chat.md` | `01-import-tm-project.md` | draft – "Check it with your coding agent" to replace with "Meet Autopilot chat" |
-| `02-evaluate-requirements.md` | same | draft (KEEP almost as is) |
-| `03-generate-test-cases.md` | `03-generate-test-cases.md` | draft – add PDD box (from step 4 draft) and Excel import box |
-| `04-run-the-test-three-ways.md` | `04-run-manual-tests.md` | draft – also holds the PR 1 Autonomous Exploration and PDD text: move them to steps 5 and 3 |
-| `05-compare-the-runs.md` | – | stub |
-| `06-automate-with-studio-web.md` | – | stub |
-| `07-build-and-run-the-regression-set.md` | `07-create-test-set.md` | draft – serverless only, chat + MCP box, run and triage parts from PR 1 `08` |
-| `08-read-the-results.md` | – | stub |
-| `09-decide-go-no-go.md` | `08-run-and-report.md` | draft – keep report, defect, routine; add browser path and governance box |
-| `you-did-it.md`, module 3 pages, `trainer-setup.md` | same (prompts page renamed `01-more-prompts.md`) | drafts |
-| `includes/system-requirements.md` | same | **unchanged** – still lists Studio and `cloud.uipath.com`; simplify per reuse-map §2 "Includes" |
+| Page | State |
+|---|---|
+| `index.md` | written – story, three helpers, wf-map (4 phases, 9 steps), persona flip-cards, objectives, latest-features box |
+| `module-0-prerequisites/index.md` | written – sign-in, licence check, Assistant + Delegate (Windows/macOS tabs), one-time **Connect Delegate to Test Manager** (`uip`), ready checklist |
+| `module-1-introduction/index.md` | written – Test Cloud, Test Manager, "Which helper when", buttons vs chat (pool), MCP teaser, Test Cloud only note, rule for today |
+| `01-import-and-meet-autopilot-chat.md` | written – import (what to type instead of the `.tmh` defaults), Default Folder, Autopilot in Edit mode, prompt 1 as a "check the answer" moment |
+| `02-evaluate-requirements.md` | written |
+| `03-generate-test-cases.md` | written – **Submit Over-65 Request** naming, Excel import box, PDD + Delegate box |
+| `04-run-the-test-three-ways.md` | written – Run autonomously (two screens, Preview) first, Execute Manually, Delegate |
+| `05-compare-the-runs.md` | written – comparison, step wording fix, trainer demo of Autonomous Exploration (Preview) |
+| `06-automate-with-studio-web.md` | written – trainer demo, learners link 3 test cases with Select Automation |
+| `07-build-and-run-the-regression-set.md` | written – MCP box, chat labels + set, Configure Automation (**Cloud - Serverless Testing**), 2/1/0, triage, optional schedule and governance pointer |
+| `08-read-the-results.md` | written – Dashboard, requirement view, chat charts, Execution Insights, execution PDF |
+| `09-decide-go-no-go.md` | written – Delegate path and browser path, one-page template, governance box, NO-GO |
+| `you-did-it.md`, module 3 pages | written |
+| `trainer-setup.md` | written – tenant, licences, folder, Cloud Robot – VM pool and serverless machine, package build, backups, pre-warm, day-before checklist |
+| `includes/system-requirements.md` | simplified – browser + extension, Assistant + Delegate, tenant URL from the trainer, uibank.uipath.com, download.uipath.com, npm registry |
+| `README.md` | business workshop description, local run |
 
 ## Assets
 
-- Kept: CSS/JS, hooks, the PDD, the sample project zip, 32 images (reuse-map KEEP list, Trainer Setup `OC *` images, two hero robot images for decoration).
-- Added: `docs/assets/Files/UAT Scripts/UiBank Regression Tests.xlsx` for the optional "Bring your Excel UAT scripts" box in step 3 (verification item 14). Not linked from any page yet.
-- Dropped: Object Repository `.nupkg` files, all `Studio *`, `Object Repo*`, `testExplorer`, `TExpl listing`, `Use Application properties`, `New Test Automation Project`, `UiBank Highlight`, `custom library listing`, `Manage packges settings` and the mobile hero image; `raw-content/`, the PR 1 `CLAUDE.md` and its HANDOFF history.
-- `TM Test Cases Studio Project.png` is kept only for a possible Package Name check in step 6. It shows a Studio project: retake or delete it.
-- CSS: new `.persona-badge--ba/--uat/--qa/--all`, `.tool-badge--autopilot/--testmanager/--robot/--trainer`, and a `.step-meta` line (usage example in the CSS comment). `--studio` is renamed `--studioweb` for both the tool badge and the flow-strip part.
+- New screenshots (from `findings/evidence/`, cropped to the side panel so no names, initials or project keys show): `atb-04-run-autonomously-setup.jpg`, `atb-04-run-autonomously-configure.jpg`, `atb-06-automate-in-studio-web-panel.jpg`, `atb-07-configure-automation-serverless.jpg`. Uncropped originals are not in the repo.
+- Removed: `Attachments in TM.png`, `TM Quality enhancements.png`, `TM Generated test cases.png` (showed a personal name) and 11 unreferenced leftovers (`OC Enterprise setup`, `OC Machine more actions`, `OC Manage access user`, `OC Runtime App Testing`, `OC Runtime Testing`, `TM Add Test Cases Static`, `TM Smoke Set Execution Result`, `TM Test Cases Studio Project`, `TM Test Set Configure Automation`, two hero robots). All are recoverable from commit `285b56b`.
+- `UAT Scripts/UiBank Regression Tests.xlsx` is linked from step 3.
 
-## Open items
+## Image placeholders to capture in phase 5 (26)
 
-From `findings/verification.md` ("Blockers and caveats"):
+`grep -rn "<!-- IMG" docs` lists them with what to capture. Capture as the learner-like account, crop header initials, executor names and signer names/emails.
 
-1. **The sample `.tmh` still pre-fills Name "UiBank Project", Prefix "UIBWS" and a description that mentions coding agents** (blocker 9). Re-exporting a business-version `.tmh` is a later tenant task. Until then, step 1 should tell learners what to type in those fields. Imported results also show the original executor's name: crop screenshots.
-2. Learner minimum rights are not proven: the learner test account sits in a group with tenant-level admin roles (blocker 1). Decision pending with the workshop owner; re-check in phase 5.
-3. Delegate + CLI sign-in not tried on a learner laptop (blocker 3). Copy-paste commands are in verification item 2.
-4. Chat Edit mode asks for one approval per tool call, reads included (blocker 4). Tell learners up front.
-5. Prompt fixes (blocker 5): the first docs prompt gets a wrong answer; "failed grouped by requirement" needs the word "chart"; "distribution by label" doesn't chart.
-6. Execute Manually window (capture, attachment) not verified (blocker 7).
-7. Imported executions are 3 years old: the Dashboard and "last N days" Insights ignore them (blocker 8).
-8. The shared robot is a Cloud Robot – VM pool with a 9-minute cold start and about 6 minutes per autonomous run (blocker 2). Trainer Setup needs the day-before settings from verification.md.
+| Page | Placeholders |
+|---|---|
+| Trainer Setup | Edit Pool → VM & runtime details |
+| Introduction | Autopilot chat panel in Edit mode |
+| Step 1 | Import dialog with replaced fields; Project Settings → Automation → Default Folder; Autopilot panel in Edit mode with footer |
+| Step 2 | Dashboard → Attachments; requirement page with + Evaluate quality and Quality enhancements |
+| Step 3 | Generated test cases under Latest activity; Submit Over-65 Request manual steps |
+| Step 4 | ⋮ menu with Execute Manually / Execute Autonomously; manual execution assistant with Failed step; Execution list with manual + Delegate runs Failed |
+| Step 5 | Autonomous run Logs tab; Autonomous Exploration Scenarios tab |
+| Step 6 | Select Automation panel (Tenant Package Feed, incl. empty TestCase); Automation tab after Save; Test Cases list with Package Name |
+| Step 7 | MCP Servers → Test Manager MCP server; Bulk_add_labels tool card; regression execution 2/1/0 |
+| Step 8 | Dashboard Results Overview; coverage pie chart; Generate Report menu + Reports tab; Download Pdf menu |
+| Step 9 | Chat go/no-go answer; Sign test case panel |
+
+## Open items (re-check in phase 4 review or phase 5 rehearsal)
+
+Unverified on the tenant – written from docs or PR 1, marked in the text where it matters:
+1. **Learner minimum rights** (blocker 1) – the guide claims no minimum roles; Trainer Setup gives Automation User (direct folder assignment) and flags the re-check. Also untested: a **group** folder assignment showing the folder in the Default Folder picker.
+2. **Delegate + `uip` on a real laptop** (blocker 3) – install, `uip login`, "quit and reopen Assistant", `uip --version`, Mac extension path, Behavior preferences Tone/Depth labels, sign-in URL shape.
+3. **Over-65 Run autonomously result** – learner checks ran Standard / Underage / High-Volume only. Step 4 says it "should" mark the age step Failed; check the URL (`/loans/apply` vs home page). Create a Trainer Demo autonomous over-65 run as the step 5 fallback (Trainer Setup pre-warm now lists it).
+4. **Execute Manually window** (blocker 7) – capture / upload labels; a one-case test set fallback is in step 4.
+5. **Prompts not run live**: "Show a chart of failed test cases grouped by requirement." and the table prompt that replaces the by-label chart (two `<!-- REHEARSE -->` comments in step 8); all of More Prompts; the step 7 optional failed-logs tip; the Delegate repro prompt with `<PROJECT_PREFIX>`.
+6. **Learner read access to the Trainer Demo project** – Trainer Setup suggests a project **Viewer** role (label to confirm); projector fallback.
+7. **Governance as a learner** – self as Default approver, then toggle Governed on an existing log.
+8. **Schedule labels** – save and deactivate one learner schedule (Recurrence daily 06:00 and the Advanced cron).
+9. **Studio Web Publish default location** – the text avoids naming the default.
+10. **Reference execution PDF** lists only the Standard and Underage cases under the requirement (the trainer's over-65 case was not linked at run time) – link it and regenerate the PDF before using it as a backup.
+11. **Cloud VM capacity** – one foreground job per Windows session: more runtimes per machine may not parallelize; Max number of VMs may be the real lever. Test before the class.
+12. The sample `.tmh` still pre-fills "UiBank Project / UIBWS" and a coding-agents description (blocker 9) – step 1 tells learners what to type; re-export a business `.tmh` later.
+
+Decisions taken in phase 3 (Victor: ask only for critical things):
+- Prompt 1 kept as a "check the answer" moment, not replaced.
+- By-label chart replaced with a table prompt.
+- Delegate model hint says "Claude Opus" (a model name, not a coding tool) – kept.
+- Windows on ARM line dropped (not in Delegate docs); "local admin" became "rights to install apps, or ask IT".
+- "Test Cloud only" labels added for Execute without a test set, Automate in Studio Web, governance, single-log PDF.
+- Orchestrator MCP servers: GA, with "some server types are in Preview" (prod docs).
+- The "Organize test cases in bulk" Delegate box from PR 1 step 4 was dropped, not moved to More Prompts.
+- Home has a one-line agenda only; the full agenda is on Trainer Setup until phase 5 timings exist.
 
 ## Rules for writers
 
-- En dashes (–) only, never em dashes. docs.uipath.com links only. Never "Test Product". No Claude Code, coding agents or Studio Desktop. `uip` only in the one-time "Connect Delegate to Test Manager" step.
+- En dashes (–) only, never em dashes. docs.uipath.com links only. Never "Test Product". No Claude Code, coding agents, Studio Desktop or Object Repository. `uip` only in the Prerequisites "Connect Delegate to Test Manager" step and in Troubleshooting.
 - No personal names and no real email addresses in text or screenshots. Use `<ORG>/<TENANT>` placeholders.
 - Keep `mkdocs build --strict` green; anchor checks are on (`validation.links.anchors: warn`).
 - `docs/assets/js/mermaid.min.js` is a third-party library and contains em dashes: exclude it from the em dash grep.
@@ -62,3 +91,4 @@ From `findings/verification.md` ("Blockers and caveats"):
 | Date | Phase | What changed |
 |---|---|---|
 | 2026-11-22 | 2 – scaffold | Site created from PR 1 `19079ac`: config retitled, 9-step nav, drafts + stubs, persona badge CSS, requirements file, deploy workflow, README, this file. Strict build passes. One local commit, nothing pushed. |
+| 2026-11-22 | 3 – write | All pages and the include written; integration, completeness critic and fix passes; 4 cropped screenshots added, 14 images removed; strict build and grep gates pass. One local commit, nothing pushed. |

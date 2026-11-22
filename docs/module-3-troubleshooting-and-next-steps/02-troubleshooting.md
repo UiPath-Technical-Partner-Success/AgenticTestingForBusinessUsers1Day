@@ -1,74 +1,66 @@
-<!-- PHASE3: adapt per reuse-map §1 .../02-troubleshooting.md; write per outline §3 Non-step pages – Troubleshooting. Copied from PR 1 (19079ac) module-3-troubleshooting-and-next-steps/02-troubleshooting.md as the starting draft. -->
-
 # Troubleshooting
+
+Find your symptom in one of the four tables: Delegate, Autopilot chat, runs, or reports. If nothing fits, ask your trainer.
 
 ## Delegate
 
 | Symptom | Likely cause / fix |
 |---|---|
-| Delegate isn't in UiPath Assistant's top ribbon | Your Studio version may be too old. Install the latest STS version from [Prerequisites](../module-0-prerequisites/index.md#your-machine), and ask your trainer to confirm your access. On a Mac, Delegate for macOS (Preview) needs Apple silicon and macOS 14 Sonoma or later. No Delegate at all? Use the coding-agent alternatives in [4. Run the Test Three Ways](../module-2-hands-on-workshop/04-run-the-test-three-ways.md). |
-| Delegate asks for approval on every step | The approval mode is **Cautious**. Click your user name (bottom left) → **Settings** → **Security**, and switch it to **Adaptive**. Delegate still asks before high-impact actions, such as starting the run in step 8. That's expected. Still asked before every step? See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/tasks-and-prompts-troubleshooting" target="_blank">Tasks and prompts troubleshooting</a>. |
-| Delegate can't find your project | Delegate is signed in to the wrong tenant. Ask Delegate *"Run uip login status."* to see which tenant it uses. If it's wrong, ask *"Log me in with uip login."* and sign in to the tenant from your trainer. |
-| `Authentication failed` or `401 Unauthorized` | Your `uip` sign-in has expired. Ask Delegate *"Log me in with uip login."* and sign in with your workshop account in the browser window that opens. |
+| Delegate isn't in UiPath Assistant | Your UiPath Assistant is too old, or Delegate wasn't selected during the install. Install it again as in [Prerequisites](../module-0-prerequisites/index.md#install-uipath-assistant-and-delegate) and check the version starts with `v26`. On a Mac, Delegate for macOS (Preview) needs Apple silicon and macOS 14 or later. Still no Delegate? Every Delegate part of the workshop has a browser path – or pair up with a neighbour. |
+| Delegate asks for approval on every step | The approval mode is **Cautious**. Switch it to **Adaptive** in the mode selector next to the chatbox (or **Settings → Security**). Delegate still asks before high-impact actions, such as starting a run – that's expected. Can't change the mode? Your admin may have locked it: ask your trainer. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/tasks-and-prompts-troubleshooting" target="_blank">Tasks and prompts troubleshooting</a>. |
+| Delegate can't find your project | Delegate is connected to the wrong tenant, or it's looking for the wrong project. Ask Delegate *"List the tenant I am connected to."* If the tenant is wrong, switch it in UiPath Assistant as described in [Set up Delegate](../module-0-prerequisites/index.md#set-up-delegate), then run the sign-in command from [Connect Delegate to Test Manager](../module-0-prerequisites/index.md#connect-delegate-to-test-manager) again. Always name your project by its prefix in the prompt. |
+| `401 Unauthorized`, `Authentication failed`, or Delegate says you're not signed in to Test Manager | Delegate's Test Manager sign-in has expired. Open a new PowerShell window (Windows) or Terminal window (macOS), paste the `uip login …` command from [Connect Delegate to Test Manager](../module-0-prerequisites/index.md#connect-delegate-to-test-manager) again, and sign in with your workshop account in the browser window that opens. Then repeat your prompt. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/testing-setup-faq" target="_blank">Delegate for Testing setup FAQ</a>. |
+| Delegate says it can't find `uip`, or `uip` is "not recognized" / "command not found" | Delegate was already open when the sign-in tool was installed, so it doesn't see it yet. Quit UiPath Assistant completely and open it again. Still missing? In a new PowerShell or Terminal window, type `uip --version`. If no version appears, run the install command from [Connect Delegate to Test Manager](../module-0-prerequisites/index.md#connect-delegate-to-test-manager) again. |
+| Delegate pauses or stops with a usage message | Your monthly AI and Agentic usage pool is spent. Delegate doesn't fall back to paid usage – it pauses until an admin grants a top-up or the month resets. Tell your trainer, and use the browser path in the meantime. Meanwhile, pair with a neighbour or follow the trainer's screen. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-usage-pool-for-testing" target="_blank">Autopilot usage pool for testing</a>. |
 
-## Coding agent
-
-=== "Autopilot"
-
-    | Symptom | Likely cause / fix |
-    |---|---|
-    | The **Autopilot** panel isn't in Studio | Your Studio is too old. You need Studio 2026.10 LTS or a current STS (2026.0.195 or later). If the version is right, ask your trainer to check that Autopilot is enabled for your tenant (an Autopilot or AI Trust Layer policy in Automation Ops). See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/enable-disable-functionality" target="_blank">Enabling/disabling Autopilot</a>. |
-    | On a Mac, there's no Autopilot in Studio | Use the **UiPath Autopilot** extension in VS Code 1.120.0 or later. Open your project folder and trust the workspace when VS Code asks. Still stuck? Use the Claude Code tab. |
-    | Autopilot Search counts don't match Test Manager | Autopilot Search can miscount. Check the numbers in **Execution**. |
-
-=== "Claude Code"
-
-    | Symptom | Likely cause / fix |
-    |---|---|
-    | `uip: command not found` | The terminal started before the install finished. Open a new terminal and run `uip --help`. Still missing? Run the install one-liner from [Prerequisites](../module-0-prerequisites/index.md#install-the-uip-cli) again – it's safe to re-run. |
-    | Claude Code doesn't know the UiPath commands | The UiPath skills aren't installed for Claude Code. Run `uip skills install --agent claude` (global only – `--local` doesn't work for Claude Code), restart `claude`, and ask *"What UiPath skills do you have installed?"* |
-    | `uip` commands fail with an authentication error | Your `uip` sign-in expires within the hour. Run `uip login`, pick the workshop tenant in the browser, then check `uip login status` shows "Logged in". |
-    | Your robot can't run the project built with `uip rpa` | `uip rpa init` may create a **net10.0** project, which needs a recent Robot (26.10 or later). Ask the agent to make the project **Cross-platform** on **net8.0**, then publish again. |
-
-    Any coding agent with the UiPath skills works the same way; the commands above are for Claude Code.
-
-## Execution
+## Autopilot chat
 
 | Symptom | Likely cause / fix |
 |---|---|
+| No **Autopilot** icon | The icon appears only inside a project. Open your project first – the icon is in the top bar. Still missing inside a project? Your user licence doesn't include chat: it needs an **App Tester** or **App Test Developer** licence. Ask your trainer. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/user-licenses" target="_blank">User licenses</a>. |
+| Chat asks you to **Accept** or **Reject** every tool, even for reading | That's how **Edit** mode works: one approval per Test Manager tool, reads included. An overview prompt takes about five clicks. Read the tool name on each card and accept. Stay in Edit mode for the workshop. |
+| Chat's counts don't match **Execution** | Chat and its search can miscount, or read a different execution. Check the numbers in **Execution**. Ask again and name the execution, for example *"the latest execution of Release 2.4 - Loan regression"*. |
+| Chat says it can't do something, or only explains how | There's no tool for it. With the standard Test Manager tools, chat can't start, schedule or stop a run, or create Execution Insights. Use the buttons: **Execute** → **Automated** or **Create Schedule** on the test set, and **Generate Report** in **Execution**. If chat can't add labels or create a test set either, open ⚙ **Chat settings** → **MCP Servers** and check that **Test Manager MCP server** is listed under **From your organization**. If it isn't, tell your trainer. |
+| A chart prompt returns a list, or says **Failed to apply** | Ask for the chart in so many words: *"Show a chart of failed test cases grouped by requirement."* Some groupings, such as by label, don't chart: ask for a table instead. |
+| A "how do I" answer doesn't match what you see | Chat can be wrong about how Test Manager works – the panel says so at the bottom. For example, it may say you can't run a single test case on its own, but **Execute Manually** is in the test case's ⋮ menu. Check against this guide or the docs. |
+| A turn is very slow, or ends with an error | Prompts that read several things take 1–2 minutes, plus your approvals. If a turn fails, click **New chat** and send a shorter prompt. Don't resend the same prompt again and again: every turn uses your usage pool. |
+| Chat pauses or stops with a usage message | Your monthly usage pool is spent, and chat doesn't fall back to paid usage. Tell your trainer. The Autopilot buttons (**Evaluate quality**, **Generate Report**, and so on) don't use the pool and keep working. Meanwhile, pair with a neighbour or follow the trainer's screen. |
+| You accepted a change you didn't want | Undo it by hand in Test Manager, or ask chat in Edit mode to undo it (for example, *"Remove the label release-2.4 from …"*) and check the tool card before you accept. |
+
+## Runs
+
+| Symptom | Likely cause / fix |
+|---|---|
+| Your **Run autonomously** (Preview) run stays **Pending** | Usually normal: all learners share one robot, which runs one job at a time (about 6 minutes each), and the first run of the day can wait up to about 10 minutes while the robot's machine starts. Still Pending after lunch? Check the **Runtime type** you picked: use the one your trainer gave you. **Cloud - Serverless Testing** is in the list but isn't supported for Run autonomously – start a new run with the right runtime. If the runtime is right, the folder may have no robot account that can run unattended jobs: tell your trainer. |
+| You can't continue in the Run autonomously panel (**Next** or **Run** is disabled) | The **Url** field on the first screen is empty – it isn't pre-filled. Enter the UiBank address from [4. Run the Test Three Ways](../module-2-hands-on-workshop/04-run-the-test-three-ways.md#1-start-the-robot-first-preview), click **Next**, then **Run**. |
+| `HTTP 400: Please assign folder to project level before executing testcases.` | Your project has no Default Folder. Set it to **ATB - Agentic Testing Workshop** as in [1. Import Your Project and Meet Autopilot Chat](../module-2-hands-on-workshop/01-import-and-meet-autopilot-chat.md#link-the-project-to-the-workshop-folder). |
+| The **Execute Manually** window didn't open | Your browser blocked the pop-up. Allow pop-ups for Test Manager, then select **Execute Manually** from the test case's ⋮ menu again. A run started without a test set can't be re-executed, so a new Execute Manually simply creates a new run. |
+| **Select Automation** shows an entry called **TestCase** | It's an empty default file in the trainer's package. Ignore it, and pick the test with the same name as your test case. |
+| You can't see the trainer's package in **Select Automation** | Check that **Package Source** is **Tenant Package Feed**. If the list is still empty, tell your trainer. |
+| A test case in the regression set is skipped, with no result | It isn't linked to the trainer's automation. Link it as in [6. Automate with Studio Web](../module-2-hands-on-workshop/06-automate-with-studio-web.md#link-your-test-cases-to-the-automated-tests) and check that **Package Name** is filled in on the test case's **Automation** tab. |
+| **Execute → Automated** isn't available on the test set | The set has no automated test case. Link the test cases first (step 6), then check the set in [7. Build and Run the Regression Set](../module-2-hands-on-workshop/07-build-and-run-the-regression-set.md#configure-the-automation). |
+| The regression run waits a long time, or runs on the shared robot | **Configure Automation** was left on its default runtime, **Cloud - VM Testing**. On the test set, open **Configure Automation**, set **Runtime type** to **Cloud - Serverless Testing**, click **Save**, and run the set again. |
+| More than one test case failed, or a failure has no UiBank message | Probably a robot error, not a UiBank defect: Test Manager records both as **Failed** (Orchestrator shows the job as **Faulted** either way). Open the failed test case log. A real UiBank failure has an assertion that quotes UiBank's page, such as *"Congrats! You've been approved…"*. A robot error has no assertion and an error such as *"Failed to start browser"*. Tell your trainer and run the set again. Don't triage a robot error as a UiBank defect. |
+| UiBank approves the over-65 applicant (*"Congrats! You've been approved…"*) | That's the defect the workshop is built on, and it's expected. In a manual run, mark the step **Failed** and keep going. Delegate and the robots record the failure for you. It gives the NO-GO in step 9. |
+| UiBank rejects the over-65 applicant | UiBank has fixed the defect, so your over-65 test case passes. Tell your trainer – they switch the class to a spare failing test and explain what changes in steps 7–9. |
 | *"We weren't able to locate a matching loan ID"* | The loan ID doesn't exist in UiBank. In <a href="https://uibank.uipath.com" target="_blank">UiBank</a>, go to **Products → Loans → Apply For A Loan**, submit an application, and use the new loan ID it shows. |
-| Delegate can't start the test set run, or **Execute → Automated** is unavailable | The test set has no automated test case. [link the test cases to the package](../module-2-hands-on-workshop/06-automate-with-studio-web.md) again, then check that the set lists them in [7. Build and Run the Regression Set](../module-2-hands-on-workshop/07-build-and-run-the-regression-set.md). |
-| The run doesn't use the robot you expect | **Runtime type** isn't set to your machine's runtime. In the test set, click **Configure Automation**, set **Runtime type** to **App Testing** or **Testing**, check it shows **1 Runtimes Available, 1 Connected**, and click **Save**. Pick **Cloud - Serverless Testing** only when your trainer has enabled it as the fallback and your project is **Cross-platform**. See [7. Build and Run the Regression Set](../module-2-hands-on-workshop/07-build-and-run-the-regression-set.md#configure-the-automation). |
-| `HTTP 400: Please assign folder to project level before executing testcases.` | The project has no default folder. Complete [1. Import Your Project and Meet Autopilot Chat](../module-2-hands-on-workshop/01-import-and-meet-autopilot-chat.md#link-the-project-to-your-folder). |
-| **A test case you automated** is skipped with no result | It isn't linked to a published automation. Complete [link the test cases to the package](../module-2-hands-on-workshop/06-automate-with-studio-web.md) and check it shows your package in the **Package Name** column of **Test Cases**. The set's imported manual test cases are always skipped; that's expected. |
-| The run stays pending or hangs | The robot is busy or disconnected, or nobody in your folder can run unattended jobs. In Orchestrator, check the machine in your folder is connected and has an **App Testing** or **Testing** runtime, and that your user shows **Attended, Unattended** under **Robot Type** in your folder's **Manage access** tab (**Tenant → Access → Folder management**, then your folder; see [Prerequisites](../module-0-prerequisites/index.md#orchestrator-folder-and-robot)). For **Run autonomously** and **Autonomous Exploration**, pick your machine's runtime: Cloud - Serverless isn't supported there. |
-| A test fails at a Type Into step, and the result shows the whole page's text | A failed run left UiBank windows open, and the next run typed into one of them. Close all UiBank windows, then run again. |
-| UiBank rejects the over-65 application | UiBank now rejects applicants over 65, so the age defect is fixed. Step 8 has no UiBank defect to triage, so expect **GO**. Tell your trainer. Optional: your trainer may give you a replacement failing test, such as **Submit High-Volume Request** (already in the Smoke set). Automate and publish it in [6. Automate with Studio Web](../module-2-hands-on-workshop/06-automate-with-studio-web.md), then rerun step 8. |
-| Tests fail with "Cannot communicate with the browser" | A robot-side problem with the UiPath browser extension, not a product defect. Check the extension is installed and enabled on the robot machine. |
-| Tests fail with "Failed to start browser. New browser window did not appear." | The robot opened Chrome in your last-used profile, where the UiPath extension is off. Use one Chrome profile for the workshop: open `chrome://extensions` in it, make sure **UiPath Studio Web Automation** is turned on (approve it if Chrome asks), then rerun the test set. This is a robot problem, not a test failure. |
-
-### The robot can't sign in or start the run
-
-=== "Windows"
-
-    The Windows credentials in your folder setup don't match your machine. Check the username (run `whoami`) and password in [Prerequisites](../module-0-prerequisites/index.md#orchestrator-folder-and-robot). Signed in with a PIN or no password? Ask your trainer.
-
-=== "macOS"
-
-    The robot runs your tests in your signed-in Mac session, so it doesn't use a Windows username or password. Keep the Mac signed in and unlocked, with UiPath Assistant signed in and connected, while the tests run. In Orchestrator, check your machine has an **App Testing** runtime and your user has **Unattended** enabled. See <a href="https://docs.uipath.com/robot/standalone/latest/admin-guide/mac-unattended-setup" target="_blank">Setting up unattended robots on macOS</a>.
 
 ## Report
 
 | Symptom | Likely cause / fix |
 |---|---|
-| You can't find the report | Delegate shows the path when it finishes. If you chose **Current working directory**, the file is inside the Assistant install folder, which is hard to find. Ask Delegate *"Create a PDF of the report and copy to my Downloads folder"*. |
-| The report numbers don't match Test Manager | Make sure you're comparing the **same execution**. Ask Delegate which execution ID it used. A rerun of the failures updates that execution, so its numbers change after a rerun. |
+| The Execution Insights report is empty or misses your runs | The imported results are three years old, so the "last 7/15/30 days" options see only today's runs. In **Execution**, use **Generate Report** → **From selection** (tick the results of your regression execution) or **From last day**. |
+| You can't find the Execution Insights report | It takes about a minute. Open the **Reports** tab in **Execution**, then click the **Download** icon: you get a `.docx` file with a long generated name. Rename it. |
+| The Dashboard doesn't show the imported results, or you can't pick a date range | The Dashboard shows **Daily** or **Weekly** results for recent weeks only, with no custom date range. Imported results never appear; today's runs do. |
+| You can't find the execution PDF | Open the execution in **Execution**, click the download icon, and select **Download Pdf**. |
+| You can't find Delegate's report | Delegate shows the path when it finishes. If it saved the file somewhere hard to find, ask Delegate *"Create a PDF of the report and copy it to my Downloads folder."* |
+| The report numbers don't match Test Manager | Make sure you're comparing the **same execution**: ask Delegate or chat which execution it used. A rerun of the failures updates that execution, so its numbers change after a rerun. |
 
 !!! info "Still stuck?"
-    Ask your trainer, or ask your agent – Delegate, Autopilot or Claude Code. For example: *"Why did that last step fail, and how do I fix it?"*
+    Ask your trainer, or ask Autopilot chat or Delegate, for example: *"Why did that last step fail, and how do I fix it?"* Check the answer before you act on it.
 
 ---
 
-[Back to Home](../index.md){: .md-button .md-button--primary}
+[Back to Home](../index.md){: .md-button .md-button--primary} [Trainer Setup (for trainers)](../trainer-setup.md){: .md-button}
 
 ---
