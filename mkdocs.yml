@@ -1,0 +1,97 @@
+site_name: Agentic Testing for Business People – Hands-On Workshop
+site_url: https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/
+site_description: UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.
+docs_dir: docs
+theme:
+  name: material
+  logo: assets/images/partner-success-logo-header.png
+  palette:
+    - scheme: light
+      primary: blue
+      accent: blue
+    - scheme: dark
+      primary: blue
+      accent: blue
+
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - toc.integrate
+    - content.code.copy
+    - content.tabs.link
+
+extra:
+  generator: false
+
+validation:
+  links:
+    anchors: warn
+    unrecognized_links: warn
+
+watch:
+  - includes
+
+hooks:
+  - hooks/cache_bust.py
+  - hooks/external_links.py
+  - hooks/nav_numbers.py
+
+extra_css:
+  - assets/css/custom.css
+
+extra_javascript:
+  - assets/js/mermaid.min.js
+  - assets/js/mermaid-init.js
+  - assets/js/sidebar-toggle.js
+  - assets/js/rich-copy.js
+  - assets/js/tabs-sync.js
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      base_path: [includes]
+      check_paths: true
+
+nav:
+  - Home: index.md
+  - Prerequisites:
+    - Overview: module-0-prerequisites/index.md
+  - Introduction:
+    - Test Cloud, Autopilot and Delegate: module-1-introduction/index.md
+  - Hands-On Workshop:
+    - 1. Import Your Project and Meet Autopilot Chat: module-2-hands-on-workshop/01-import-and-meet-autopilot-chat.md
+    - 2. Evaluate the Requirement: module-2-hands-on-workshop/02-evaluate-requirements.md
+    - 3. Generate Test Cases: module-2-hands-on-workshop/03-generate-test-cases.md
+    - 4. Run the Test Three Ways: module-2-hands-on-workshop/04-run-the-test-three-ways.md
+    - 5. Compare the Runs: module-2-hands-on-workshop/05-compare-the-runs.md
+    - 6. Automate with Studio Web: module-2-hands-on-workshop/06-automate-with-studio-web.md
+    - 7. Build and Run the Regression Set: module-2-hands-on-workshop/07-build-and-run-the-regression-set.md
+    - 8. Read the Results: module-2-hands-on-workshop/08-read-the-results.md
+    - 9. Decide Go or No-Go: module-2-hands-on-workshop/09-decide-go-no-go.md
+    - You did it!: module-2-hands-on-workshop/you-did-it.md
+  - Troubleshooting & Next Steps:
+    - Overview: module-3-troubleshooting-and-next-steps/index.md
+    - More Prompts to Try: module-3-troubleshooting-and-next-steps/01-more-prompts.md
+    - Troubleshooting: module-3-troubleshooting-and-next-steps/02-troubleshooting.md
+  - Trainer Setup: trainer-setup.md

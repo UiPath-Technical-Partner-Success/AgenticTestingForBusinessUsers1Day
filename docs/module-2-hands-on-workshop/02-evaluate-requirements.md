@@ -1,0 +1,80 @@
+<!-- PHASE3: adapt per reuse-map §1 M2/02-evaluate-requirements.md (KEEP); write per outline §3 Hands-on steps – 2. Copied from PR 1 (19079ac) module-2-hands-on-workshop/02-evaluate-requirements.md as the starting draft. -->
+
+# 2. Evaluate the Requirement
+
+Vague or incomplete requirements lead to gaps in testing. The **Evaluate Requirement Quality** built-in agent, an Autopilot action in Test Manager, finds gaps in a requirement, such as undefined thresholds, ambiguous input formats, and missing edge cases or validation rules, and suggests fixes.
+
+## Evaluate it with a built-in agent
+
+1. Open **Requirements** → **Submit Loan Request**.
+2. Click **Optimize coverage**, and choose **Evaluate quality**.
+3. In **Provide additional context → Add documents**, select these project documents (marked **P**), so the agent checks the requirement against their rules:
+
+    ✅ **UiBank Security Guidelines.pdf** – input validation rules for the form fields
+
+    ✅ **UiBank Accessibility Guidelines.docx** – form labels, error messages and keyboard access
+
+    ![Add documents tab in Provide additional context](../assets/images/Add%20Documents%20dialog.png){ .img-equal }
+
+    You may also see **Project_import_summary_<date>.pdf**, created by your import in step 1. Leave it unselected.
+
+    ??? tip "Where do these documents come from?"
+        They're the project's attachments, under **Dashboard → Attachments**:
+
+        ![Attachments tab of the Test Manager project](../assets/images/Attachments%20in%20TM.png){ .img-equal }
+
+4. On the next screen:
+    1. **Select a prompt**: choose **Multifaceted Audit**.
+
+        ??? info "Editing prompts and adding your own"
+            The built-in prompts are editable, and you can add custom prompts of your own. Manage them in the **Prompt Library**, under **Project Settings**.
+
+    2. Choose a model.
+    3. Click **Evaluate quality**. The agent can take a minute or so. You can close the dialog while it works.
+
+5. Under **Latest activity**, click **Quality enhancements** to see the suggestions. If you kept the dialog open, it shows them as soon as the agent finishes.
+
+    ![Quality enhancements under Latest activity on the requirement](../assets/images/TM%20Quality%20enhancements.png)
+
+6. Expand each suggestion. Select **Add to Requirement** for the ones you agree with. Its status changes from **To do** to **In work**, and its title and suggestion appear at the end of the description. **Add to Requirement** closes the panel: reopen **Quality enhancements** for the next one. Pick 1–2 suggestions about outcomes or messages, such as boundaries, rejection rules or the result page: you'll replace them with UiBank's exact text.
+7. Edit the requirement. Under each added title, replace the suggestion with the rule itself, using the exact text UiBank shows. Your changes save when you click outside the description.
+
+    ??? example "Sample: turn a suggestion into a rule"
+        Your suggestions may differ. This one says rejection rules are missing:
+
+        ![An enhancement suggestion: Add Rejection Criteria and Messages](../assets/images/TM%20Enhancement%20suggestion.png)
+
+        Applying with its second example in <a href="https://uibank.uipath.com" target="_blank">UiBank</a> gives the exact text. The acceptance criteria already have a rule for this case, with a different message, so update that rule instead of adding one:
+
+        ```text
+        Applicants 18-65 years old, requesting >$100,000 without income >3x loan amount:
+        Reject with "You must be at least 18 years old for a loan and the loan must not exceed 100k."
+        ```
+
+8. Set the status of each suggestion you used to **Done**, from its status drop-down.
+
+!!! success "Check it"
+    Each title you added has a rule under it, not the suggestion.
+
+## Fix the requirement
+
+The original acceptance criteria need the same check. Test cases are generated from the requirement's text, so its messages must match what UiBank shows. The requirement says what UiBank *should* do: match its wording, not its behavior.
+
+1. In <a href="https://uibank.uipath.com" target="_blank">UiBank</a>, go to **Products → Loans → Apply For A Loan**, apply with an age of **17**, and note the second line of the message, the reason: *You must be at least 18 years old for a loan and the loan must not exceed 100k.*
+2. Edit **Submit Loan Request**. In the **under 18** rule only, replace "Not approved due to age." with that message. It saves when you click outside the description.
+
+!!! success "Check it"
+    The **under 18** rule shows UiBank's message. The **over 65** rule still says "Not approved due to age."
+
+!!! tip "Make every rule measurable"
+    Edit the acceptance criteria themselves so each rule is measurable, with exact boundaries (18, 65, $100,000) and the exact message UiBank shows for approval and for rejection. Leave the **over 65** rule as it is. [3. Generate Test Cases](03-generate-test-cases.md) generates test cases from this text.
+
+## Nice work!
+
+Your requirement is clearer and more testable – ready for generating test cases.
+
+---
+
+[Next → 3. Generate Test Cases](03-generate-test-cases.md){: .md-button .md-button--primary}
+
+---
