@@ -35,7 +35,7 @@ You watch this part, about 15 minutes. You don't need to build automations yours
 
 ### 1 – Create the automated test
 
-1. In Test Manager, the trainer opens a test case, for example **Submit Standard Loan Request**, and goes to its **Automation** tab. It says **No automation has been assigned to this test case.** and offers two buttons: **Select Automation** (link a test that already exists – you do this below) and **Automate in Studio Web** (create a new one, Test Cloud only).
+1. In Test Manager, the trainer opens a test case with no automation yet, for example **Submit Short-Term Request**, and goes to its **Automation** tab. It says **No automation has been assigned to this test case.** and offers two buttons: **Select Automation** (link a test that already exists – you do this below) and **Automate in Studio Web** (create a new one, Test Cloud only).
 2. The trainer selects **Automate in Studio Web**. In the panel, they type a new **Project** name to create the Tests project, pick or create the **Test case**, and select **Add automation**. Test Manager confirms with **Automation updated successfully!**
 
     ![The Automate in Studio Web panel: Project and Test case, then Add automation](../assets/images/atb-06-automate-in-studio-web-panel.jpg)

@@ -20,7 +20,7 @@ Over lunch, the shared robot worked through the queue. Now you read what Autopil
 
 1. Go to **Execution** and open the run of **Submit Over-65 Request** that you started with **Run autonomously** in [step 4](04-run-the-test-three-ways.md#1-start-the-robot-first-preview).
 
-    Robot runs show the type **Manual**, the same as your own run. Open each run of the test case: the robot's is the one with comments you didn't write and a screenshot on every step.
+    Robot runs show the type **Manual**, the same as your own run. Skip the run whose name starts with **Delegate-** and the one with your own comment. The robot's run has a **Tester comment** that Autopilot wrote and a screenshot under every step.
 
     ??? tip "Not finished yet?"
         If your run is still waiting or running, don't start another one. Your trainer has a completed robot run of **Submit Over-65 Request** in the trainer's demo project: read that one instead, on your screen or on the projector. Come back to yours at the end of the day.
@@ -34,7 +34,10 @@ Over lunch, the shared robot worked through the queue. Now you read what Autopil
 
     ✅ **Behaviour verification** – how Autopilot checked the expected behaviour, and what it found.
 
-4. Find the **execution log**. It first lists the setup (package, process, robot), then Autopilot's reasoning for each step: how it found a field, what it typed, and how it compared the result with what you expected.
+4. Open the **Robot Logs** tab. This is the execution log: it first lists the setup (package, process, robot), then Autopilot's reasoning for each step – how it found a field, what it typed, and how it compared the result with what you expected.
+
+    <!-- REHEARSE: confirm the execution log is on the Robot Logs tab -->
+
 5. Find the age decision step. Autopilot should mark it **Failed**: UiBank showed *Congrats! You've been approved…* where your test case expects a rejection.
 
 <!-- IMG: autonomous execution, Logs tab with the decision step expanded (Sub-steps screenshot of the UiBank approval page + Behaviour verification), no executor names -->

@@ -87,7 +87,7 @@ A suggestion tells you *what's missing*. Your job as the analyst is to replace i
 
     Autopilot shows one card, **Evaluate Requirement Quality**, with the requirement, documents, prompt and model it will use. Select **Accept**. After about 1–2 minutes it says how many suggestions it found, lists the top 5 and gives a **Review** link to the same **Quality enhancements** list. It doesn't change the requirement itself.
 
-    Same result, two ways in: the **+ Evaluate quality** button is free and lets you pick documents and a prompt; the chat version uses your AI usage pool but fits into a conversation – for example "…and tell me which suggestion matters most for the over-65 rule".
+    Same result, two ways in: the **+ Evaluate quality** button doesn't use your AI usage pool and lets you pick documents and a prompt; the chat version uses your AI usage pool but fits into a conversation – for example "…and tell me which suggestion matters most for the over-65 rule".
 
 ## Fix the under-18 rule
 

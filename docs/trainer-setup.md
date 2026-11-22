@@ -3,7 +3,7 @@
 Complete this page **a few days before the workshop**, then run the [day-before checklist](#day-before-checklist). It sets up one shared folder, two kinds of cloud robot, a Trainer Demo project with a published Studio Web package, and the backups you need if something fails in class.
 
 !!! note "Where these steps come from"
-    Every step below was done and checked on a Test Cloud tenant in November 2026, with one trainer account and one learner-like account. Use **your Test Cloud host** wherever the guide says `<host>`. Labels may differ slightly on your tenant, and **(Preview)** features may change.
+    Most steps below were done and checked on a Test Cloud tenant in November 2026, with one trainer account and one learner-like account. Steps marked **not tested** or **re-checked in the rehearsal** were not – check them with a learner-only account before the class. Use **your Test Cloud host** wherever the guide says `<host>`. Labels may differ slightly on your tenant, and **(Preview)** features may change.
 
 **What you build**
 
@@ -37,6 +37,8 @@ Complete this page **a few days before the workshop**, then run the [day-before 
 
 ## Users and licences
 
+✅ **Your trainer account:** your own account needs an **App Test Developer** licence, the **Project Creator** tenant role in Test Manager, **Folder Administrator** on the workshop folder, and tenant-level rights to publish packages (for example **Allow to be Automation Publisher** – check the label in the rehearsal). On your laptop, install UiPath Assistant signed in to the same tenant, and the UiPath Studio Web browser extension, for **Indicate target** and the Autopilot Recorder.
+
 ✅ Create a **group** for the learners, invite each learner to the organization, and add them to the group. Give rights and licences to the **group**, so late joiners get everything at once.
 
 ✅ **Licence:** allocate **App Test Developer** to the group (**Admin → Licenses**). **App Tester** is the minimum: it has Autopilot chat and Delegate, but can't build in Studio Web. Never use **Express User**. Autopilot chat in Test Manager isn't included with a **Pro** licence. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/user-licenses" target="_blank">User licenses</a>.
@@ -67,7 +69,7 @@ Complete this page **a few days before the workshop**, then run the [day-before 
 
 | Item | What to check |
 |---|---|
-| **AI and Agentic usage pool** | Each chat turn and each Delegate task uses the learner's monthly pool. Autopilot buttons (Evaluate quality, Generate tests, Generate Report) don't. On an **Enterprise** plan, App Tester gets 7x the Basic pool and App Test Developer 20x. On **Basic** and trial plans, every licence except Express User gets the same Basic pool. When the pool is spent, Autopilot and Delegate pause: there is no fallback to paid units. Budget per learner: about 11 chat turns, plus 4–5 Delegate tasks. See <a href="https://docs.uipath.com/test-cloud/automation-cloud/latest/admin-guide/usage-pool-consumption-for-autopilot-delegate-and-cartographer" target="_blank">Usage pool consumption</a> |
+| **AI and Agentic usage pool** | Each chat turn and each Delegate task uses the learner's monthly pool. Autopilot buttons (Evaluate quality, Generate tests, Generate Report) don't. On an **Enterprise** plan, App Tester gets 7x the Basic pool and App Test Developer 20x. On **Basic** and trial plans, every licence except Express User gets the same Basic pool. When the pool is spent, Autopilot and Delegate pause: there is no fallback to paid units. Budget per learner: about 11 chat turns, plus 4–5 Delegate tasks. On a Basic or trial plan, UiPath's own estimate puts the Basic pool at about 4 chat tasks and 2 standard Delegate tasks a month, below the 4–5 the workshop uses. Plan a top-up for every learner, or run the Delegate parts as trainer demos. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/methodology-for-usage-estimates" target="_blank">Methodology for usage estimates</a> and <a href="https://docs.uipath.com/test-cloud/automation-cloud/latest/admin-guide/usage-pool-consumption-for-autopilot-delegate-and-cartographer" target="_blank">Usage pool consumption</a> |
 | **Top-ups** | Granting a top-up needs the **License Administrator** role and Platform Units in the organization's distribution. One pack = 50 Platform Units, and granted packs can't be returned. Option for a class: turn on **Automatic License Top-Up Grant** (Preview) in the AI Trust Layer policy. Bring your own model (BYOM) for Delegate, if your organization allows it, avoids the pool. See <a href="https://docs.uipath.com/test-cloud/automation-cloud/latest/admin-guide/granting-ai-and-agentic-usage-top-ups" target="_blank">Granting AI and agentic usage top-ups</a> |
 | **App Test Platform Units** | Run autonomously and Autonomous Exploration need an active App Test Platform Units bundle on the tenant. The docs publish no rate per run: note the balance before and after the pre-warm runs. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/autonomous-test-execution" target="_blank">Autonomous test execution</a> |
 | **Platform Units for robots** | The Cloud Robot – VM pool deducts Platform Units per month from the tenant balance; serverless robots are billed per minute. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/machine-sizes-and-costs" target="_blank">Machine sizes and costs</a> |
@@ -112,6 +114,8 @@ All learners work in **one** Orchestrator folder. They do no Orchestrator work t
 
     If one of these fails for a learner-only account, add the missing folder permissions (process create or edit, package view) or tenant-level **Packages – View**, and note what you added. Fallback: you link the automation for the learners (step 6).
 
+    To link for a learner, do it at their desk, in their browser and their project. Or ask them to add you as a project administrator in their project's user management (check the exact role label in the rehearsal).
+
 ??? note "Fallback: one folder per learner"
     If one shared folder doesn't suit your tenant, create one folder per learner, and add the robot account and both machines to each folder. It costs about 4 minutes of setup per learner.
 
@@ -134,7 +138,7 @@ Learners use two kinds of cloud robot. You don't install anything on learner lap
 
 ### Cloud Robot – VM pool for Run autonomously and Exploration
 
-Run autonomously and Autonomous Exploration run on Windows, in the machine's default browser, on a **Cloud - VM Testing**, **Cloud - VM** or self-hosted testing runtime. Serverless runtimes aren't supported for them.
+Run autonomously and Autonomous Exploration run in the machine's default browser on a **Cloud - VM Testing**, **Cloud - VM** or self-hosted testing runtime. Serverless runtimes aren't supported for them. Autonomous Exploration needs a Windows robot; this workshop uses a Windows 11 pool for both.
 
 1. In Orchestrator, at the **Tenant** level, open **Machines** (**Infrastructure → Machines**) → **Add machine** → **Cloud Robot - VM**.
 
@@ -150,7 +154,8 @@ Run autonomously and Autonomous Exploration run on Windows, in the machine's def
     | Machine image | **Windows Desktop** → **Standard** → **UiPath + Supported Browsers on Windows 11 Enterprise** |
     | Machine availability profile | **Balanced** normally; **Always** (or **Fast**) for the workshop day – see the capacity box |
     | Max number of VMs | 1 to start; see the capacity box |
-    | Automation Cloud Runtime(s) per machine | 1 to start; see the capacity box |
+    | Automation Cloud Runtime(s) per machine | 1; see the capacity box |
+    | Runtime license | **Platform units (PLTUs)** – the page shows the monthly total |
     | Pool configurations | **Allow UiPath to manage Robot updates** on (required for a standard image) |
 
     <!-- IMG: Edit Pool → VM & runtime details page (VM size, image, availability profile, runtime type Cloud - VM Testing), captured without the user's initials in the header -->
@@ -167,12 +172,12 @@ No remote desktop session, browser extension setting or **Allow in Incognito** c
     - The first job of the day waited **9 minutes** while a VM started. Balanced shuts an idle VM down again.
     - Each Run autonomously took about **6 minutes** (5 min 43 s to 8 min 14 s), **one after another** per runtime. One runtime handles about 9–10 runs an hour.
 
-    Learners start Run autonomously at the start of step 4, so the queue drains over lunch. Aim for one parallel slot per **4–5 learners** (15 learners → 3 slots). Two levers, both shown with their cost on the pool's edit page:
+    Learners start Run autonomously at the start of step 4, so the queue drains over lunch. Aim for one VM per **4–5 learners** (15 learners → 3 VMs). Both settings show their cost on the pool's edit page:
 
-    - **Automation Cloud Runtime(s) per machine:** each extra runtime costs **400 Platform Units per VM per month**. The docs say a Windows session runs one UI job at a time, and Run autonomously drives a browser. If jobs still run one after another with several runtimes, use the next lever instead.
-    - **Max number of VMs:** each VM adds the VM size's monthly cost (600 Platform Units for Standard).
+    - **Max number of VMs:** the lever to use. Each VM runs one browser job at a time and adds the VM size's monthly cost (600 Platform Units for Standard). For 15 learners, set 3 VMs.
+    - **Automation Cloud Runtime(s) per machine:** leave at 1. The docs describe parallel jobs on extra runtimes for background processes only, and Run autonomously drives a browser. Each extra runtime still costs 400 Platform Units per VM per month.
 
-    For the workshop day, set **Always** (or start the pre-warm runs 15 minutes before class), check the Platform Units balance first, and **revert all three settings after the class**.
+    For the workshop day, set **Always** (or start the pre-warm runs 15 minutes before class), check the Platform Units balance first, and **revert the availability profile and Max number of VMs after the class**.
 
 !!! info "What learners see"
     The Run autonomously panel preselects **Cloud - VM Testing** on a folder with this pool. **Cloud - Serverless Testing** and **Cloud - Serverless** are selectable in the list, but not supported. The learner pages say "your trainer tells you which runtime": tell them **Cloud - VM Testing**.
@@ -181,6 +186,7 @@ No remote desktop session, browser extension setting or **Allow in Incognito** c
 
 1. At the **Tenant** level, open **Machines** → **Add machine** → **Cloud Robot - Serverless**. Enter a name, for example *ATB Serverless*, check that **Cloud - Serverless Testing** is offered as a runtime type, and select **Provision**.
 2. Open the workshop folder → **Machines** → **Manage Machines in Folder**, select the serverless machine, and click **Update**.
+3. Check the serverless capacity. The rehearsed folder showed one **Cloud - Serverless Testing** runtime. In the learner-like pass, start the regression set from two projects at once and check that both run in parallel. If they queue, raise the serverless runtimes for the folder, or allow a few extra minutes in step 7.
 
 Serverless jobs are limited to 15 minutes; the 3-test regression set takes under a minute. Studio Web Tests projects are cross-platform, so they run on serverless robots. See <a href="https://docs.uipath.com/robot/automation-cloud/latest/user-guide/executing-unattended-automations-with-serverless-robots" target="_blank">Executing unattended automations with serverless robots</a>.
 
@@ -203,29 +209,31 @@ These happen on the robot, not in the learner's test. They used to be learner tr
 The Trainer Demo project is your own UiBank project. It holds the published automation that learners link to in step 6, and every backup.
 
 1. Import the workshop `.tmh` (step 1 of the learner guide) under a name and prefix of your own, for example *ATB Trainer Demo*. Set **Project Settings → Automation → Default Folder** to the workshop folder.
-2. Add a manual test case **Submit Over-65 Request**: age **66**, expected result: rejected with "Not approved due to age.", linked to **Submit Loan Request**. Learners create the same test case in step 3.
+2. Add a manual test case **Submit Over-65 Request** with the same data as the automation (amount **50000**, term **3** years, income **90000**, age **66**). Expected result: rejected with "Not approved due to age." Link it to **Submit Loan Request**. Learners create the same test case, with the same data, in step 3.
 3. Give the learner group read-only access to this project: in the project's user management, assign the group a **Viewer** project role. Step 5 sends learners here to read your completed over-65 run. The exact role label is confirmed in the rehearsal – see <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/tenant-roles-and-project-roles" target="_blank">Tenant roles and project roles</a>.
 
 ### Build the package in Studio Web
 
 Learners link to these four tests by name, so use these names exactly:
 
-| Studio Web test | Expected result in UiBank today |
-|---|---|
-| **Submit Standard Loan Request** | passes – "Congrats! You've been approved…" |
-| **Submit Underage Request** | passes – age 17 gives "Sorry, at this time you have not been approved for a loan." |
-| **Submit Over-65 Request** | **fails** – age 66 gets "Congrats! You've been approved…", but the requirement says reject. This is the UiBank defect behind the NO-GO |
-| **Submit High-Volume Request** | **fails** – a spare: UiBank never approves loans over $100,000, although the requirement approves them when income is more than 3x the loan. Keep its manual steps aligned with the automation's data (amount 150000, income 500000, verify "Congrats! You've been approved…"), or chat will call its failure a test defect |
+| Studio Web test | Test data | Expected result in UiBank today |
+|---|---|---|
+| **Submit Standard Loan Request** | any test email, amount 50000, term 3, income 90000, age 34 | passes – "Congrats! You've been approved…" |
+| **Submit Underage Request** | same, age 17 | passes – age 17 gives "Sorry, at this time you have not been approved for a loan." |
+| **Submit Over-65 Request** | same, age 66 | **fails** – age 66 gets "Congrats! You've been approved…", but the requirement says reject. This is the UiBank defect behind the NO-GO |
+| **Submit High-Volume Request** | amount 150000, term 3, income 500000, age 34 | **fails** – a spare: UiBank never approves loans over $100,000, although the requirement approves them when income is more than 3x the loan. The imported test case uses amount 120000 and income 90000. Change its steps 6, 8 and 11 to 150000, 500000 and "Verify 'Congrats! You've been approved…'", or chat calls its failure a test defect |
 
 1. In Test Manager, open **Submit Standard Loan Request** → **Automation** tab → **Automate in Studio Web**.
 2. In the panel, type `UiBank.BusinessTests` in **Project\*** and select **Create project "UiBank.BusinessTests"**. In **Test case\***, create the test with the test case's name. Select **Add automation**. You see "Automation updated successfully!", then **Open in Studio Web**.
 3. Repeat for the other three test cases, choosing the same project.
-4. In Studio Web, build each test: **Use Browser** on `https://uibank.uipath.com/loans/apply` (Chrome) → **Type Into** email, amount, income and age → **Select Item** for the term → **Click** submit → **Get Text** of the heading on the result page → **Verify Expression** that it contains "Congrats" (approve) or "Sorry" (reject).
+4. In Studio Web, build each test: **Use Browser** on `https://uibank.uipath.com/loans/apply` (Chrome) → **Type Into** email, amount, income and age → **Select Item** for the term → **Click** submit → **Get Text** of the heading on the result page → **Verify Expression** that it contains "Congrats" (approve) or "Sorry" (reject). Use the test data from the table.
+
+    Use an amount of $100,000 or less in the Over-65 test. Otherwise UiBank rejects it for the amount and the defect is hidden.
 
     **Indicate target** and the Autopilot Recorder need the UiPath robot on your own machine ("Please wait while we start the UI Automation process on your local machine"): install UiPath Assistant on the trainer laptop and sign in to the same tenant first.
 
 5. Debug each test on the cloud (right-click the file → **Debug**). Standard passes ("Verification passed…"); Over-65 fails ("Verification failed. The expression 'resultHeading' with value 'Congrats!'…").
-6. Select **Publish**: Version **1.0.0**, and change **Location** from the default **Orchestrator Autopilot Feed** to **Orchestrator Tenant Processes Feed**. Publish.
+6. Select **Publish**: choose **Shared** (confirm in the rehearsal), Version **1.0.0**, and set **Location** to **Orchestrator Tenant Processes Feed** (the default differs by tenant – it was Orchestrator Autopilot Feed on the rehearsal tenant). Publish.
 7. Back in Test Manager, each linked test case now shows **Package Source: Tenant Package Feed** on its **Automation** tab.
 
 !!! info "The empty TestCase entry"
@@ -237,6 +245,10 @@ Learners link to these four tests by name, so use these names exactly:
 ![The Automate in Studio Web panel: Project and Test case, then Add automation](assets/images/atb-06-automate-in-studio-web-panel.jpg)
 
 See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/automating-test-cases-in-studio-web" target="_blank">Automating test cases in Studio Web</a>, <a href="https://docs.uipath.com/studio-web/automation-cloud/latest/user-guide/publishing-a-project" target="_blank">Publishing a project</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/selecting-automation" target="_blank">Selecting automation</a>.
+
+### The live demo in step 6
+
+Demo on a test case with no automation yet, for example **Submit Short-Term Request** in the Trainer Demo project. Create a separate Tests project, for example `UiBank.DemoLive`, build or record one test and **Debug** it. Never publish `UiBank.BusinessTests` again during class – learners link version **1.0.0**, and step 7 expects it.
 
 ### Run the regression set yourself
 
@@ -257,6 +269,8 @@ Keep these ready in the Trainer Demo project, so any step can fall back to them:
 ✅ **The reference execution PDF** – the regression execution's download icon → **Download Pdf**. Keep an **unsigned** copy for learners. A PDF from a signed governed log contains the signer's name and email.
 
 ✅ **A reference go/no-go report** – the step 9 chat summary of your regression run, or a Delegate PDF report made from it. Unsigned, no names. It covers step 9 if a learner's chat or Delegate fails, or if UiBank fixes the defect.
+
+✅ **Offline copies** – save the Insights DOCX, the unsigned execution PDF, the reference go/no-go report and screenshots of each step on your laptop. If the tenant is down, walk through them on the projector. Decide before the day whether a second tenant, set up the same way, is your backup.
 
 ✅ **An Exploration charter prompt** in **Project Settings → Prompt Library**, for example "Explore only the over-65 rule of the loan application form."
 
@@ -318,7 +332,7 @@ The first Run autonomously in a folder uploads a test package and creates the pr
 ??? note "Mac learners"
     ✅ **Machine:** Apple silicon (M1 or later), macOS 14 Sonoma or later. Intel Macs aren't supported.
 
-    ✅ **Delegate for macOS (Preview):** DMG for Enterprise organizations, PKG for Community. If it doesn't work, the learner uses the browser path and pairs with a neighbour for the Delegate parts.
+    ✅ **Delegate for macOS (Preview):** DMG for Enterprise organizations, PKG for Community. Tell Mac learners which installer to use and where to get it: point them to <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/installation" target="_blank">Install and update</a> (Enterprise: `UiPath Assistant (arm64).dmg`; Community: the UiPath Platform Installer for macOS PKG). Put the exact download link in the prerequisites message. If it doesn't work, the learner uses the browser path and pairs with a neighbour for the Delegate parts.
 
     ✅ Everything else runs in the browser or on your cloud robots.
 
@@ -347,7 +361,7 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 | 10:40–10:55 | Break | | |
 | 10:55–11:25 | 3. Generate test cases, including Submit Over-65 Request | 3 | about 4 min; optional Excel import about 5 min |
 | 11:25–12:20 | 4. **Start Run autonomously first**, then Execute Manually and Delegate | 4 | each autonomous run about 6 min in the queue |
-| 12:20–13:05 | Lunch – the VM pool works through the queue. Watch **Orchestrator → Jobs** | | 15 runs need about 3 parallel slots |
+| 12:20–13:05 | Lunch – the VM pool works through the queue. Watch **Orchestrator → Jobs** | | 15 runs need about 3 VMs |
 | 13:05–13:35 | 5. Compare the runs; your Autonomous Exploration demo | 5 | Exploration 11 min for a 10-min time-box |
 | 13:35–14:10 | 6. Studio Web demo, then learners link 3 test cases | 6 | |
 | 14:10–14:45 | 7. Build the set with chat, run on serverless, triage | 7 | run under 1 min; triage prompt about 2 min |
@@ -357,7 +371,7 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 | 16:25–17:00 | Wrap-up and feedback | You did it! | |
 
 !!! tip "4-hour version"
-    Steps 1, 2 and 3; step 4 with Execute Manually and Delegate only; steps 7, 8 (charts and Insights) and 9. You link the automations in advance (step 6), and Run autonomously and Exploration are demos.
+    Steps 1, 2 and 3; step 4 with Execute Manually and Delegate only; the linking part of step 6 (learners link 3 test cases – skip the Studio Web demo); steps 7, 8 (charts and Insights) and 9. Run autonomously and Exploration are demos from the Trainer Demo project.
 
 ## Trainer notes
 
@@ -391,11 +405,19 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 
 ✅ **UiBank still has the defect:** apply for a loan at <a href="https://uibank.uipath.com" target="_blank">UiBank</a> with age **66**. It must show "Congrats! You've been approved…". If UiBank now rejects it, there is no UiBank defect for the NO-GO: use **Submit High-Volume Request** as the failing test instead, and tell learners. Keep the reference go/no-go report at hand to show what the NO-GO looked like with the over-65 defect.
 
+??? note "If UiBank fixed the over-65 defect"
+    This switch was not re-run on the tenant – check it in the rehearsal if you need it.
+
+    1. Learners edit steps 6, 8 and 11 of their own **Submit High-Volume Request** to 150000, 500000 and "Verify 'Congrats! You've been approved…'" – the same data as your automation.
+    2. In step 6, they link **Submit High-Volume Request** instead of **Submit Over-65 Request**.
+    3. In step 7, they add it to the set in place of **Submit Over-65 Request**.
+    4. In step 9, they expect NO-GO on the criterion "Applicants 18-65 years old, requesting >$100,000 with income >3x loan amount: Approve".
+
 ✅ **Loan Lookup:** submit one loan and check that its loan ID opens under **Already Have A Loan?**. Step 9's Delegate repro uses it.
 
 ✅ **Report location:** on a lab laptop, ask Delegate to save a test file on the Desktop and check where it lands. OneDrive can redirect the Desktop.
 
-✅ **VM pool:** availability profile, runtimes and VMs set for the class size; Platform Units balance checked.
+✅ **VM pool:** availability profile and Max number of VMs set for the class size (1 VM per 4–5 learners); Platform Units balance checked.
 
 ✅ **Pre-warm** done: 3 Run autonomously runs and 1 Exploration, timed.
 
@@ -413,7 +435,7 @@ Measured times come from one learner on a quiet tenant; allow more with a full c
 
 ## After the workshop
 
-✅ Revert the VM pool: availability profile **Balanced**, runtimes per machine and Max number of VMs back to 1 (or delete the pool).
+✅ Revert the VM pool: availability profile **Balanced**, Max number of VMs back to 1 (or delete the pool).
 
 ✅ Clean up: learner projects, any schedules learners created, Delegate routines, governance settings, Studio Web projects, and the serverless machine and robot account if you won't reuse them. Granted top-ups can't be returned.
 

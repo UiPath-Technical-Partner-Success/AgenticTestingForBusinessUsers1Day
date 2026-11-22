@@ -92,7 +92,7 @@ For the failed test cases in the latest execution of Release 2.4 - Loan regressi
 Find obsolete tests for the Submit Loan Request requirement.
 ```
 
-Chat opens **Find Obsolete Tests**, the same capability as the button on the requirement page. It only flags test cases as outdated or redundant – you decide what to remove.
+Chat runs **Find Obsolete Tests** for you – the same capability you can start without chat from the requirement page (**Assign test case → Find obsolete tests**). It only flags test cases as outdated or redundant – you decide what to remove.
 
 ### Custom fields
 

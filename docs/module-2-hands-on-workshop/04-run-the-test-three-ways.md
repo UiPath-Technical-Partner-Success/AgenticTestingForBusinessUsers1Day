@@ -59,13 +59,13 @@ UiBank has a defect. An applicant aged 66 gets *Congrats! You've been approved�
 
     ✅ **Select folder**: leave it as it is. It shows your project's Default Folder from step 1, **ATB - Agentic Testing Workshop**.
 
-    ✅ **Runtime type**: your trainer tells you which runtime to use. On the workshop tenant it's **Cloud - VM Testing**, usually already selected. Don't pick a Serverless runtime: the list shows them, but Run autonomously doesn't support them.
+    ✅ **Runtime type** – the kind of robot machine that does the run. Your trainer tells you which one to use. On the workshop tenant it's **Cloud - VM Testing**, the trainer's shared cloud machine, usually already selected. Don't pick a Serverless runtime: the list shows them, but Run autonomously doesn't support them.
 
     ✅ **Robot account**: **Any User/Robot account**.
 
     ✅ **Machine template**: **Any machine template**.
 
-    Select **Run**.
+    Select **Run** – once only. Every extra click adds another run to the shared queue. Wait for the panel's progress messages instead of clicking again.
 
     ![Second screen of Run test autonomously: Select folder, Runtime type, Robot account and Machine template](../assets/images/atb-04-run-autonomously-configure.jpg)
 
@@ -74,7 +74,7 @@ UiBank has a defect. An applicant aged 66 gets *Congrats! You've been approved�
 !!! note "Waiting is normal"
     The shared robot runs one test at a time, about 6 minutes each. The first run of the day can also wait several minutes while the cloud machine starts. With the whole class in the queue, your run may finish only after lunch. Leave it and carry on: you read its result in [5. Compare the Runs](05-compare-the-runs.md).
 
-    Select **Run** only once. Every extra click adds another run to the shared queue. If the panel shows an error, tell your trainer.
+    If the panel shows an error, tell your trainer.
 
 Run autonomously uses App Test Platform Units from the tenant, not your personal AI allowance. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/running-autonomous-test-execution" target="_blank">Running Autonomous Test Execution</a>.
 
@@ -110,7 +110,9 @@ You run the steps in UiBank and record each result in the **manual execution ass
 
     <!-- IMG: manual execution assistant with the decision step set to Failed, the tester comment and the screenshot attached (phase 5: confirm the Capture screen / Upload attachment labels) -->
 
-7. Finish the test case and select **Done**.
+7. If the test case has a postcondition, check it in UiBank and select **Condition Met**. Then select **Next**, and **Done** to finish.
+
+    <!-- REHEARSE: confirm the Condition Met / Next / Done labels in the manual-window rehearsal (open item 4) -->
 
 !!! info "Made a mistake?"
     A run started without a test set can't be run again. Start a new **Execute Manually** instead. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/executing-test-cases-without-a-test-set" target="_blank">Executing test cases without a test set</a>.
@@ -149,7 +151,7 @@ Use the **QA / Testing** session you set up in [Prerequisites](../module-0-prere
     Your one-time connection from Prerequisites has probably expired. Repeat the sign-in in [Connect Delegate to Test Manager](../module-0-prerequisites/index.md#connect-delegate-to-test-manager), then paste the prompt again.
 
 ??? tip "Delegate keeps retrying the failing step?"
-    Tell it: *"Mark this step Failed with what you see on the screen, and carry on."* Still stuck? Run **Submit Standard Loan Request** with Delegate instead. It passes, but you still see how Delegate records a run.
+    Tell it: *"Mark this step Failed with what you see on the screen, and carry on."* Still stuck? Run **Submit Standard Loan Request** with Delegate instead. It passes, but you still see how Delegate records a run. In the checks below and in step 5, your Delegate run is then **Passed** on Submit Standard Loan Request – that's expected, and the defect evidence comes from your own run and the robot's.
 
 !!! question "Think about it"
     Did Delegate stop to ask about a step, or do something you didn't expect? The same steps feed Run autonomously now, and the automation in [6. Automate with Studio Web](06-automate-with-studio-web.md). An unclear step costs time for every tester, person or agent.

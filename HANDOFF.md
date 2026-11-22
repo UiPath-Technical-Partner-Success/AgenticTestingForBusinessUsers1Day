@@ -4,9 +4,44 @@ Working notes for whoever continues the guide. The full plan and research live o
 
 ## Status (2026-11-22)
 
-Phase 3 is done: **every page is written**, no `PHASE3` markers are left, `mkdocs build --strict` passes (anchor checks on, 0 broken links or anchors), and the grep gates are clean. Next is phase 4 (full build and link check, grep gates, three independent reviews and one fix pass).
+Phase 4 is done (2026-11-22): strict build, internal link and anchor check (0 broken), external link check (every docs.uipath.com URL is in the official sitemaps) and grep gates pass; three independent reviews ran, every finding went through a skeptic, and one fix pass applied the confirmed ones. Rendered check done at desktop and phone width (Home, Prerequisites, steps 4, 7, 8, Trainer Setup). Next is phase 5 (timed rehearsal on the tenant).
 
-How it was written: 7 parallel writers on disjoint files, one integration pass (links, anchors, Next chain, Home wf-map, naming, over-65 storyline), one completeness critic (18 gaps, none high) and one fix pass (17 fixed, 1 solved by cropping).
+Phase 3 recap: every page written by 7 parallel writers, one integration pass, one completeness critic (18 gaps) and one fix pass.
+
+## Phase 4 review summary (2026-11-22)
+
+Workflow `atb-phase4-review`: three Opus reviewers (high effort) with separate lenses, then Opus skeptics (medium) that tried to refute each finding. One Opus fixer applied the confirmed findings (the skeptic's corrected fix where it gave one).
+
+| Lens | Findings | Confirmed | Refuted | Fixed | Deferred |
+|---|---|---|---|---|---|
+| Accuracy (labels, Preview, licensing, unverified items) | 12 | 12 | 0 | 12 | 0 |
+| Business-learner usability | 13 | 13 | 0 | 13 | 0 |
+| Coverage and trainer readiness | 13 | 13 | 0 | 13 | 0 |
+| **Total** | **38** | **38** | **0** | **38** | **0** |
+
+Severity: 1 high (coverage-1 – no test data for the trainer's automations), 17 medium, 20 low. Skeptics corrected the proposed fix in 30 cases (for example Find obsolete tests lives under **Assign test case**, not **+ Optimize coverage**). Nothing was deferred, but several fixes are hedged until phase 5 confirms the label (list below). Full findings JSON: the side-session notes folder, `phase-4-review-findings.json` (outside the repo).
+
+Main changes:
+- **Trainer Setup:** Max number of VMs is now the capacity lever for Run autonomously (extra runtimes run background processes only, per the Cloud Robots VM docs); test data table for the four automations (50000 / 3 / 90000, ages 34 / 17 / 66; High-Volume 150000 / 3 / 500000); trainer account needs; step 6 live demo script (a separate Tests project, never re-publish UiBank.BusinessTests); Basic or trial pool warning; offline copies and backup tenant; Runtime license row; Publish **Shared** (to confirm); only Autonomous Exploration needs Windows; "Most steps were checked" instead of "Every step".
+- **Step 3:** the over-65 test case uses the same data as the trainer's automation.
+- **Warnings before the click:** Run only once (step 4), governance moved before Run the set (step 7), signature warning before Sign (step 9).
+- **Step 4:** postcondition (**Condition Met**), runtime type explained, the Standard Loan fallback explained. **Step 5:** Robot Logs tab, how to spot the robot's run. **Step 8:** coverage chart and failures prompt answers loosened until phase 5. **Step 9:** "restricted" removed.
+- **Prerequisites:** neutral Delegate model hint (no model name), Adaptive with an optional Smart mode / Smart approvals, pop-up click path, Orchestrator explained.
+- **Rendered fix:** dropped the custom `mermaid-init.js`, which threw a console error on the Prerequisites diagram. Material's built-in Mermaid support renders it with the local `mermaid.min.js`.
+
+## Phase 5 must check live (added in phase 4)
+
+On top of the 12 open items below:
+1. The Delegate **Smart mode** / **Smart approvals** label (Prerequisites step 6). Recapture `Delegate model selector.png` without a model name if possible.
+2. The manual execution assistant's postcondition control (**Condition Met**, step 4 item 7).
+3. The **Robot Logs** tab name for the autonomous run (step 5).
+4. Step 8 coverage chart: **Fully** or **Partially tested** after a real learner run; the failures prompt answer (list or table).
+5. Studio Web Publish: **For me / Shared** choice and the default Location on the class tenant.
+6. Trainer publisher role label and the Test Manager project administrator role label (Trainer Setup, rights warning).
+7. **Max number of VMs** really parallelises Run autonomously (replaces open item 11's runtime question); serverless capacity with several learners running the set at once.
+8. Find obsolete tests under **Assign test case** on the requirement page (More Prompts).
+9. The "If UiBank fixed the over-65 defect" High-Volume switch box: rehearse it, or keep it as an untested emergency path.
+Remove each hedge or `<!-- REHEARSE -->` comment once confirmed.
 
 ## Page map
 
@@ -66,13 +101,13 @@ Unverified on the tenant – written from docs or PR 1, marked in the text where
 8. **Schedule labels** – save and deactivate one learner schedule (Recurrence daily 06:00 and the Advanced cron).
 9. **Studio Web Publish default location** – the text avoids naming the default.
 10. **Reference execution PDF** lists only the Standard and Underage cases under the requirement (the trainer's over-65 case was not linked at run time) – link it and regenerate the PDF before using it as a backup.
-11. **Cloud VM capacity** – one foreground job per Windows session: more runtimes per machine may not parallelize; Max number of VMs may be the real lever. Test before the class.
+11. **Cloud VM capacity** – Trainer Setup now uses Max number of VMs as the lever (phase 4, per the Cloud Robots VM docs). Test that it parallelises before the class.
 12. The sample `.tmh` still pre-fills "UiBank Project / UIBWS" and a coding-agents description (blocker 9) – step 1 tells learners what to type; re-export a business `.tmh` later.
 
 Decisions taken in phase 3 (Victor: ask only for critical things):
 - Prompt 1 kept as a "check the answer" moment, not replaced.
 - By-label chart replaced with a table prompt.
-- Delegate model hint says "Claude Opus" (a model name, not a coding tool) – kept.
+- Delegate model hint: changed in phase 4 to "keep the default or recommended model" (no model name), so the guide does not go stale.
 - Windows on ARM line dropped (not in Delegate docs); "local admin" became "rights to install apps, or ask IT".
 - "Test Cloud only" labels added for Execute without a test set, Automate in Studio Web, governance, single-log PDF.
 - Orchestrator MCP servers: GA, with "some server types are in Preview" (prod docs).
@@ -92,3 +127,4 @@ Decisions taken in phase 3 (Victor: ask only for critical things):
 |---|---|---|
 | 2026-11-22 | 2 – scaffold | Site created from PR 1 `19079ac`: config retitled, 9-step nav, drafts + stubs, persona badge CSS, requirements file, deploy workflow, README, this file. Strict build passes. One local commit, nothing pushed. |
 | 2026-11-22 | 3 – write | All pages and the include written; integration, completeness critic and fix passes; 4 cropped screenshots added, 14 images removed; strict build and grep gates pass. One local commit, nothing pushed. |
+| 2026-11-22 | 4 – review | Build, link, external link and grep checks; 3 reviews (38 findings, all confirmed by skeptics, all fixed); neutral Delegate model hint; mermaid init fix; rendered check at desktop and phone width. One local commit, nothing pushed. |

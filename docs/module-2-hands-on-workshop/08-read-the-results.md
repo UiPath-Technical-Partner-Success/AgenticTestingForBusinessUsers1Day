@@ -14,7 +14,7 @@
   <a class="flow-step" href="#download-the-execution-pdf">Download the execution PDF</a>
 </div>
 
-**Why it matters for you:** a release manager doesn't read test logs. They want coverage, a trend and a short list of what broke. This step turns today's runs into that evidence, and saves two files you'll use in step 9.
+**Why it matters for you:** a release manager doesn't read test logs. They want coverage, a trend and a short list of what broke. This step turns today's runs into that evidence, and saves the execution PDF you'll attach in step 9.
 
 You ran the over-65 test case three ways and the regression set once. Now read the results the way a QA (Quality Assurance) manager does: first the big picture, then the requirement, then the failures.
 
@@ -64,7 +64,9 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
         How many requirements are fully, partially, or not tested?
         ```
 
-        Chat uses its **Autopilot Chart** tool: a pie chart and a table with **Fully tested 1**, Partially tested 0, Not tested 0. It's a built-in tool, so there's nothing to approve. Read what chat adds under the chart: "tested" means the linked test cases ran, not that every scenario is covered.
+        Chat uses its **Autopilot Chart** tool: a pie chart and a table with your one requirement, **Submit Loan Request**. It shows as **Fully tested** or **Partially tested** – the test cases you generated in step 3 are linked but most haven't run yet. It's a built-in tool, so there's nothing to approve. Read what chat adds under the chart: "tested" means the linked test cases ran, not that every scenario is covered.
+
+        <!-- REHEARSE: record the label on a learner project after steps 3–7 in phase 5 -->
 
     2. **Failures by requirement**
 
@@ -72,7 +74,7 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
         Show a chart of failed test cases grouped by requirement.
         ```
 
-        Keep the word **chart** in the prompt. Without it, chat searches and gives you a list instead. Your **Submit Over-65 Request** should be among the failures under **Submit Loan Request**. Other failures may come from the imported history.
+        Keep the word **chart** in the prompt. Without it, chat searches and gives you a list instead. Your **Submit Over-65 Request** should be among the failures under **Submit Loan Request**. Other failures may come from the imported history. If chat gives a list or a table instead of a chart, that's fine – check the content.
 
         <!-- REHEARSE: verified only without the word "chart" (chat used Autopilot Search and gave a list). Record the answer with "chart" in phase 5. -->
 
@@ -106,7 +108,7 @@ Autopilot chat can draw a chart or a table from your project in a few seconds. O
 
     Under **Common Errors** you should read something like "The application did not reject an applicant over 65 as expected…".
 
-6. Select the download icon (tooltip **Download**). You get a `.docx` file with a long, random-looking name. Rename it, for example `UiBank-Execution-Insights.docx`, and keep it for step 9.
+6. Select the download icon (tooltip **Download**). You get a `.docx` file with a long, random-looking name. Rename it, for example `UiBank-Execution-Insights.docx`, and share it with the developers – it's triage input, not release evidence.
 
 <!-- IMG: Execution → Functional with the Generate Report ▾ menu open (From selection / From last day …), and the Reports tab with the Download icon. Learner project, header initials cropped. -->
 
@@ -137,7 +139,7 @@ Open it and check:
 ## Check it
 
 !!! success "Check it"
-    ✅ The failures chart shows **Submit Over-65 Request** under **Submit Loan Request**.
+    ✅ Chat's answer to the failures prompt shows **Submit Over-65 Request** among the failures under **Submit Loan Request**.
 
     ✅ The Execution Insights `.docx` and the execution PDF are saved on your computer.
 

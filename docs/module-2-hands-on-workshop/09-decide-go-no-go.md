@@ -53,7 +53,7 @@ Delegate gives the path to the saved report and summarizes it in the chat. Alway
 
 ✅ **Scope** – the execution it covers
 
-✅ **Totals** – passed, failed, none, and restricted
+✅ **Totals** – passed, failed and none (the same numbers as the **Execution** page)
 
 ✅ **Success rate** – passed out of passed + failed
 
@@ -195,16 +195,20 @@ Pick what fits your role. None of these is needed to finish the workshop.
     1. **Project Settings** → **Governance** → **Enable governance**.
     2. Set **Default governance state** to **Governed**, add yourself under **Default approvers**, and leave **Signing order** off. Select **Save**. You see "Governance settings updated successfully."
 
-    Your regression run happened before you switched governance on, so its results aren't governed yet. Govern the over-65 result now:
+    If you can't add yourself as an approver, or the sign icon doesn't appear on your row, ask your trainer to show the signed result in the Trainer Demo project instead.
+
+    <!-- REHEARSE: learner adding self as Default approver and signing – HANDOFF item 7 -->
+
+    Didn't switch governance on before your regression run in step 7? Then its results aren't governed yet – govern the over-65 result now. Switched it on in step 7? The result is already governed: open it (item 1), then skip to item 3.
+
+    !!! warning "Before you sign: your name and email appear in the signature"
+        The signature and the PDF show your name and email address, and the signed result stays on the shared workshop tenant. Don't share the signed PDF outside the class, and crop screenshots before you use them.
 
     1. **Execution** → open your regression execution → open the **Submit Over-65 Request** result.
     2. Turn on the **Governed** toggle. **Approval status** shows **In work**.
     3. Select the pencil next to the status → **In review**. From now on the result is locked: nobody can edit it until it's signed.
     4. Open the **Governance** tab of the result. On your approver row, select the sign icon. In the **Sign test case** panel, fill in **Your role at time of signature**, for example `QA Manager`, add a comment if you like, and select **Sign**.
     5. The status changes to **Signed**. Download the execution PDF again: it now has a **Governance** section with the signature.
-
-    !!! warning "Your name and email appear in the signature"
-        The signature and the PDF show the signer's name and email address. Don't share the signed PDF outside the class, and crop screenshots before you use them.
 
     In a real project, switch governance on *before* the run: new results are then governed from the start. Moving a result to **In review** locks it, so make any override or comment first. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance" target="_blank">Testing process governance</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance-for-test-case-logs" target="_blank">Governance for test results</a>.
 

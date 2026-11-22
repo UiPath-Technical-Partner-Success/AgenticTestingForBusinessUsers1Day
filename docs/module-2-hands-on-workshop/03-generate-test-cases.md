@@ -45,7 +45,7 @@
     2. At the end of the prompt text, on a new line, add these instructions:
 
         ```text
-        Generate 5 test cases. Give every step one action and an expected result, and add preconditions and postconditions. Name every UI element exactly as it is labelled in UiBank. Start steps with Select, Type, Get Text, Check or Select item. Include 1 test case for an applicant aged 66 that expects the loan to be rejected, and name it Submit Over-65 Request.
+        Generate 5 test cases. Give every step one action and an expected result, and add preconditions and postconditions. Name every UI element exactly as it is labelled in UiBank. Start steps with Select, Type, Get Text, Check or Select item. Include 1 test case for an applicant aged 66, with a loan amount of 50000, a term of 3 years and a yearly income of 90000, that expects the loan to be rejected, and name it Submit Over-65 Request.
         ```
 
         Why "Select, Type, Get Text…"? Steps written as one clear action each are easier for everyone who runs them later today: you, Delegate and a robot.
@@ -91,11 +91,12 @@ One of your new test cases submits a loan request for an applicant **over 65** �
 1. Find it on the requirement's **Test Cases** tab.
 2. Check its name. If it isn't exactly **Submit Over-65 Request**, open the test case and rename it to `Submit Over-65 Request`.
 3. Open its manual steps. The age step uses an age over 65 (66–70), and the last expected result is a **rejection** – not "Congrats! You've been approved…".
+4. Check that it uses amount 50000, term 3 and income 90000 – the same data as the trainer's automated test. With an amount over $100,000, UiBank rejects the loan for the amount, and you won't see the age defect. Edit the steps if needed.
 
 <!-- IMG: the Submit Over-65 Request test case with its manual steps, age 66 and an expected rejection (no names in the header) -->
 
 !!! warning "No over-65 test case?"
-    Generate again with only this instruction, or create it yourself: **Test Cases** → create a test case named `Submit Over-65 Request`, link it to **Submit Loan Request**, and add the steps of a loan application with age `66` that expects a rejection. Ask your trainer if you're stuck – you need this test case for the rest of the day.
+    Generate again with only this instruction, or create it yourself: **Test Cases** → create a test case named `Submit Over-65 Request`, link it to **Submit Loan Request**, and add the steps of a loan application with amount `50000`, term `3`, income `90000` and age `66` that expects a rejection. Ask your trainer if you're stuck – you need this test case for the rest of the day.
 
 !!! success "Check it"
     ✅ At least 3 new test cases are linked to **Submit Loan Request** (its **Test Cases** tab shows 9 or more).

@@ -110,13 +110,18 @@ Tell Test Manager where and on which robot the set runs. You do this once per te
 3. **Runtime type** defaults to **Cloud - VM Testing**. **Change it to Cloud - Serverless Testing.** The panel then says "Serverless executions are limited to 15 minutes." – the set needs about one.
 
     !!! warning "Why not the default?"
-        **Cloud - VM Testing** is the shared robot that runs everyone's Run autonomously (Preview) tests from step 4. Your set would wait in its queue. **Cloud - Serverless Testing** starts fresh cloud robots for each run, in parallel.
+        **Cloud - VM Testing** is the shared robot that runs everyone's Run autonomously (Preview) tests from step 4. Your set would wait in its queue. **Cloud - Serverless Testing** starts fresh cloud robots for each run and doesn't wait behind the Run autonomously queue.
 
 4. Leave **Robot account** on **Any User/Robot account** and **Machine template** on **Any machine template**.
 5. Under **Automation packages**, select **Autoselect packages**. It adds **UiBank.BusinessTests - 1.0.0**.
 6. Select **Save**. Test Manager confirms with **Automation details for testset saved successfully!**
 
 ![Configure Automation with Cloud - Serverless Testing, Any User/Robot account, Any machine template and the UiBank.BusinessTests package](../assets/images/atb-07-configure-automation-serverless.jpg)
+
+??? info "Optional: formal sign-off (governance)"
+    Need a signed record of the over-65 result? Test Manager can govern test results so approvers sign them.
+
+    Want the result governed from the start? Enable it now, before **Execute** → **Automated**: **Project Settings** → **Governance** (see [9. Decide Go or No-Go](09-decide-go-no-go.md) for the settings). Forgot? You can still govern the result afterwards – step 9 shows how.
 
 ## Run the set
 
@@ -197,14 +202,11 @@ A failed test doesn't always mean a broken app: the test itself can expect the w
         - **Recurrence** → daily at 06:00, or
         - **Advanced** → paste the cron expression `0 0 6 ? * MON-FRI` (06:00, Monday to Friday).
     4. Set **Start Date**, the time and your **Time zone** (the default is UTC), and save.
-    5. **Deactivate it right away**, so it doesn't run every day after the workshop: go to **Execution** → **Schedules**, open the schedule's **More Options** (⋮) and select **Deactivate**.
+    5. **Deactivate it right away**, so it doesn't run every day after the workshop: go to **Execution** → **Schedules**, open the schedule's **More Options** (⋮) and select **Deactivate**. Can't find Deactivate? Delete the schedule from the same menu, or tell your trainer.
+
+    <!-- REHEARSE: save a Recurrence schedule and Deactivate it – HANDOFF item 8 -->
 
     See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/creating-schedules" target="_blank">Creating schedules</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/deactivating-schedules" target="_blank">Deactivating schedules</a>.
-
-??? info "Optional: formal sign-off (governance)"
-    Need a signed record of the over-65 result? Test Manager can govern test results so approvers sign them.
-
-    Want the result governed from the start? Enable it now, before **Execute** → **Automated**: **Project Settings** → **Governance** (see [9. Decide Go or No-Go](09-decide-go-no-go.md) for the settings). Forgot? You can still govern the result afterwards – step 9 shows how.
 
 ## Nice work!
 

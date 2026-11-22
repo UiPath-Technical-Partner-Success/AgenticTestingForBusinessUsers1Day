@@ -83,7 +83,7 @@ Robots run tests with no one at the keyboard. Your trainer provides them, so you
 !!! info "Licensing and cost"
     Each user has a monthly AI allowance, called the **AI and Agentic usage pool**.
 
-    ✅ **Autopilot buttons don't use it.** Evaluate quality, Generate tests, Import Test Cases and Execution Insights are free to use from their own buttons.
+    ✅ **Autopilot buttons don't use it.** Evaluate quality, Generate tests, Import Test Cases and Execution Insights don't take anything from your pool when you start them from their own buttons.
 
     ✅ **Every Autopilot chat turn uses it**, even when chat runs the same capability for you. Charts exist only in chat.
 

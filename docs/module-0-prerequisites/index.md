@@ -34,14 +34,14 @@ Your trainer invites you to the workshop **organization** and **tenant**, and se
 
 1. Open the link and sign in with the account your trainer invited.
 2. Open **Test Manager** from the left menu. You see the list of Test Manager projects. It may be empty: you create your own project in step 1 of the workshop.
-3. Allow pop-ups for this site in your browser. Test Manager opens the manual test window as a pop-up.
+3. Allow pop-ups for this site, because Test Manager opens the manual test window as a pop-up. In Chrome or Edge: select the icon to the left of the address bar → **Site settings** (Chrome) or **Permissions for this site** (Edge) → **Pop-ups and redirects** → **Allow**.
 
 !!! info "Check your licence"
     The **Autopilot** icon (a sparkle, top right) appears only **inside** a project, not on the project list. If a project is already listed, open it and look for the icon. If no project is listed yet, you'll check it in step 1.
 
     No Autopilot icon inside a project? Ask your trainer to check your **user licence**: you need **App Test Developer** or **App Tester**.
 
-Your trainer has prepared the shared workshop folder and the robots. You don't set up anything in Orchestrator.
+Your trainer has prepared the shared workshop folder and the robots in Orchestrator, the part of UiPath where robots and their folders live. You don't set up anything there.
 
 ## Install UiPath Assistant and Delegate
 
@@ -94,16 +94,16 @@ For testing, Delegate works with **Test Manager**: in the workshop it runs a tes
     Optional: in the same **Behavior preferences**, pick a plain-language **Tone** and a shorter **Depth**.
 
 4. Click **+ New** in the left panel to start a session. Use this one session for the whole workshop.
-5. Pick a model in the model selector next to the chatbox. We suggest **Claude Opus**. Other models work too, but their answers may differ from the guide's samples.
+5. Check the model selector next to the chatbox: keep the default or recommended model it offers, unless your trainer names another one. Other models work too, but their answers may differ from the guide's samples.
 
     ![Model selector next to the Delegate chatbox](../assets/images/Delegate%20model%20selector.png)
 
-6. Choose how much Delegate does on its own: select **Adaptive** in the mode selector next to the chatbox (or **Settings → Security**) and turn **Smart approvals** on.
+6. Choose how much Delegate does on its own: select **Adaptive** in the mode selector next to the chatbox (or **Settings → Security**). If you also see a smart option (**Smart mode** or **Smart approvals**), leave it on – it also approves what Delegate judges safe.
 
     | Approval mode | What Delegate does |
     |---|---|
     | **Cautious** | Asks before every action. A good choice for regulated teams |
-    | **Adaptive** *(recommended)* | Does safe, read-only actions on its own, and asks before anything that changes data. **Smart approvals** also approves what Delegate judges safe |
+    | **Adaptive** *(recommended)* | Does safe, read-only actions on its own, and asks before anything that writes, changes or runs something |
     | **Full access** | Never asks – trusted environments only |
 
 !!! warning "Delegate acts on your behalf"
@@ -204,7 +204,7 @@ See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/insta
 
     ✅ UiPath Assistant is installed, signed in to the workshop tenant, and shows **Delegate** in the top ribbon.
 
-    ✅ Delegate uses the **QA / Testing** profile, with **Adaptive** mode and **Smart approvals** on.
+    ✅ Delegate uses the **QA / Testing** profile, in **Adaptive** mode.
 
     ✅ The sign-in check in [Connect Delegate to Test Manager](#connect-delegate-to-test-manager) showed the workshop organization and tenant.
 
