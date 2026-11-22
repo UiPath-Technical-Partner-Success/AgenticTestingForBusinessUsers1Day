@@ -1,0 +1,1397 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.">
+      
+      
+      
+        <link rel="canonical" href="https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/module-0-prerequisites/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../module-1-introduction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Overview - Agentic Testing for Business People – Hands-On Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css?v=b9661cbe">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Agentic Testing for Business People – Hands-On Workshop" class="md-header__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Testing for Business People – Hands-On Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Agentic Testing for Business People – Hands-On Workshop" class="md-nav__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    Agentic Testing for Business People – Hands-On Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#your-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your machine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts and access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-uipath-assistant-and-delegate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install UiPath Assistant and Delegate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-delegate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up Delegate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-delegate-to-test-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect Delegate to Test Manager (one time, ~5 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-delegate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Delegate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ready?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Cloud, Autopilot and Delegate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Workshop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/01-import-and-meet-autopilot-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/02-evaluate-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">2</span>Evaluate the Requirement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/03-generate-test-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">3</span>Generate Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/04-run-the-test-three-ways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/05-compare-the-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">5</span>Compare the Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/06-automate-with-studio-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">6</span>Automate with Studio Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/07-build-and-run-the-regression-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">7</span>Build and Run the Regression Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/08-read-the-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">8</span>Read the Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/09-decide-go-no-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-hands-on-workshop/you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    You did it!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-3-troubleshooting-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-3-troubleshooting-and-next-steps/01-more-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Prompts to Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-3-troubleshooting-and-next-steps/02-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trainer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trainer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h1>
+<p>Do this checklist <strong>at least a few days before the workshop</strong>. It takes about 30 minutes. Most of the day runs in your browser; the only thing you install is <strong>UiPath Assistant with Delegate</strong>, plus a one-time connection to Test Manager.</p>
+<p>When you're done, send your trainer a screenshot of Delegate showing your tenant (see <a href="#ready">Ready?</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Labels may differ</p>
+<p>This workshop runs on a tenant with the latest features. Your screens may show slightly different labels. Features marked <strong>(Preview)</strong> may still change.</p>
+</div>
+<h2 id="your-machine">Your machine<a class="headerlink" href="#your-machine" title="Permanent link">&para;</a></h2>
+<div class="req-list">
+<ul>
+<li>A Windows laptop or a Mac, for Delegate<ul>
+<li>Windows 10 (version 1903 or later) or Windows 11, 64-bit, with at least 8 GB RAM</li>
+<li>or a Mac with Apple silicon (M1 or later), macOS 14 Sonoma or later, and at least 8 GB free disk space</li>
+<li>Intel Macs are not supported, and Delegate for macOS is in Preview</li>
+<li>Rights to install apps, or ask your IT team to install UiPath Assistant and Delegate for you</li>
+</ul>
+</li>
+<li>Google Chrome or Microsoft Edge<ul>
+<li>With the UiPath browser extension (installed with UiPath Assistant – your trainer helps if it's missing)</li>
+<li>Pop-ups allowed for your Test Cloud URL</li>
+</ul>
+</li>
+<li>UiPath Assistant with Delegate, latest STS (Short Term Support) installer<ul>
+<li>Windows: in the installer, select Assistant, Delegate &amp; Cartographer</li>
+<li>Windows download link: <a href="https://download.uipath.com/connected-installer/latest/sts/UiPathPlatformSTS.msi" target="_blank">https://download.uipath.com/connected-installer/latest/sts/UiPathPlatformSTS.msi</a></li>
+<li>Mac: install Delegate for macOS (Preview) as described in <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/installation" target="_blank">https://docs.uipath.com/delegate/standalone/latest/user-guide/installation</a></li>
+</ul>
+</li>
+<li>Access to these sites, with no proxy or firewall blocking them<ul>
+<li>Your Test Cloud URL, which your trainer sends you</li>
+<li><a href="https://uibank.uipath.com" target="_blank">https://uibank.uipath.com</a></li>
+<li><a href="https://download.uipath.com" target="_blank">https://download.uipath.com</a> (installers and the Delegate connection tool)</li>
+<li>The npm package registry, <a href="https://registry.npmjs.org" target="_blank">https://registry.npmjs.org</a>, used once to install the Delegate connection tool</li>
+<li>On a company laptop, check with your IT team first</li>
+</ul>
+</li>
+<li>On the day<ul>
+<li>Screen: never turn off</li>
+<li>Laptop: never sleep while plugged in</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>On the day, Delegate works on your screen while you watch, so your laptop must stay awake and unlocked. Turn screen lock back on after the workshop.</p>
+<details class="tip">
+<summary>How to keep the screen on (Windows 11)</summary>
+<ol>
+<li>Open <strong>Start → Settings → System → Power &amp; battery → Screen, sleep, &amp; hibernate timeouts</strong>.</li>
+<li>Under <strong>Plugged in</strong>, set <strong>Turn my screen off after</strong> and <strong>Make my device sleep after</strong> to <strong>Never</strong>.</li>
+</ol>
+<p>On a company laptop, a policy may still lock the screen. Check with your IT team.</p>
+</details>
+<details class="tip">
+<summary>How to keep the screen on (macOS)</summary>
+<p>Open <strong>System Settings → Lock Screen</strong> and set <strong>Turn display off on power adapter when inactive</strong> to <strong>Never</strong>.</p>
+<p>On a company Mac, a policy may still lock the screen. Check with your IT team.</p>
+</details>
+<h2 id="accounts-and-access">Accounts and access<a class="headerlink" href="#accounts-and-access" title="Permanent link">&para;</a></h2>
+<p>Your trainer invites you to the workshop <strong>organization</strong> and <strong>tenant</strong>, and sends you the sign-in link. It looks like <code>https://&lt;host&gt;/&lt;ORG&gt;/&lt;TENANT&gt;</code>. For most organizations, the host is <code>cloud.uipath.com</code>.</p>
+<ol>
+<li>Open the link and sign in with the account your trainer invited.</li>
+<li>Open <strong>Test Manager</strong> from the left menu. You see the list of Test Manager projects. It may be empty: you create your own project in step 1 of the workshop.</li>
+<li>Allow pop-ups for this site, because Test Manager opens the manual test window as a pop-up. In Chrome or Edge: select the icon to the left of the address bar → <strong>Site settings</strong> (Chrome) or <strong>Permissions for this site</strong> (Edge) → <strong>Pop-ups and redirects</strong> → <strong>Allow</strong>.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Check your licence</p>
+<p>The <strong>Autopilot</strong> icon (a sparkle, top right) appears only <strong>inside</strong> a project, not on the project list. If a project is already listed, open it and look for the icon. If no project is listed yet, you'll check it in step 1.</p>
+<p>No Autopilot icon inside a project? Ask your trainer to check your <strong>user licence</strong>: you need <strong>App Test Developer</strong> or <strong>App Tester</strong>.</p>
+</div>
+<p>Your trainer has prepared the shared workshop folder and the robots in Orchestrator, the part of UiPath where robots and their folders live. You don't set up anything there.</p>
+<h2 id="install-uipath-assistant-and-delegate">Install UiPath Assistant and Delegate<a class="headerlink" href="#install-uipath-assistant-and-delegate" title="Permanent link">&para;</a></h2>
+<p><strong>UiPath Delegate</strong> is a desktop AI agent. You give it a task in plain words, and it does the work on your machine, in your browser and apps, while you watch. It comes with <strong>UiPath Assistant</strong>.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["You describe a task&lt;br/&gt;(in plain words)"] --&gt; B["Delegate does it&lt;br/&gt;(browser, apps, Test Manager)"]</code></pre>
+<p>For testing, Delegate works with <strong>Test Manager</strong>: in the workshop it runs a test case on the UiBank website and records the result, and later it reproduces a defect and writes a report.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Download the installer: <a href="https://download.uipath.com/connected-installer/latest/sts/UiPathPlatformSTS.msi" target="_blank">UiPathPlatformSTS.msi</a>.</li>
+<li>Run it, and select only <strong>Assistant, Delegate &amp; Cartographer</strong>. <strong>Robot</strong> and <strong>Extensions</strong> are selected for you. Accept the licence and select <strong>Install</strong>.</li>
+<li>Open UiPath Assistant once it's installed.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Used Delegate during Preview?</p>
+<p>Uninstall the Preview build first, then install the current installer. In Delegate, open <strong>Settings → General → About</strong> and check that the version starts with <code>v26</code>. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/moving-from-preview-to-ga-installer" target="_blank">Moving from the Preview installer to the GA installer</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition info">
+<p class="admonition-title">Delegate for macOS (Preview)</p>
+<p>Delegate for macOS is in Public Preview. It works for the workshop, but screens may change. If it doesn't work on your Mac, every step has a browser path, and you can pair with a neighbour for the Delegate parts.</p>
+</div>
+<p>You need a Mac with Apple silicon (M1 or later), macOS 14 Sonoma or later, and 8 GB of free disk space. Intel Macs aren't supported.</p>
+<ol>
+<li>Install Delegate for macOS as your trainer tells you:<ul>
+<li><strong>Enterprise organizations:</strong> the DMG (<code>UiPath Assistant (arm64).dmg</code>). Open it and drag the app to <strong>Applications</strong>. It doesn't update itself.</li>
+<li><strong>Community organizations:</strong> the UiPath Platform Installer for macOS (PKG).</li>
+</ul>
+</li>
+<li>Open UiPath Assistant from <strong>Applications</strong>.</li>
+</ol>
+<p>See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/installation" target="_blank">Install and update</a>.</p>
+</div>
+</div>
+</div>
+<h2 id="set-up-delegate">Set up Delegate<a class="headerlink" href="#set-up-delegate" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>In <strong>UiPath Assistant</strong>, click the person icon or your initials (top right) → <strong>Preferences</strong> → <strong>Orchestrator connection</strong>. Sign in with your workshop account and select the workshop tenant.</p>
+<p>If your trainer gave you a host other than <code>cloud.uipath.com</code>, enter it as the service URL before you sign in. Your trainer tells you what to type.</p>
+<details class="tip">
+<summary>Assistant already shows you signed in, but to another tenant?</summary>
+<ol>
+<li>Click <strong>Sign out</strong>. Your default browser opens and asks if you want to log out. Don't click it.</li>
+<li>In that browser, sign in to the workshop tenant.</li>
+<li>Go back to Assistant, click <strong>Sign in</strong>, and select the workshop tenant.</li>
+</ol>
+</details>
+</li>
+<li>
+<p>Select <strong>Delegate</strong> in Assistant's top ribbon. It appears only once Assistant is connected.</p>
+</li>
+<li>
+<p>Set the work profile: click your user name (bottom left) → <strong>Settings</strong> → <strong>Behavior preferences</strong>, and select <strong>QA / Testing</strong>.</p>
+<p>Optional: in the same <strong>Behavior preferences</strong>, pick a plain-language <strong>Tone</strong> and a shorter <strong>Depth</strong>.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong> in the left panel to start a session. Use this one session for the whole workshop.</p>
+</li>
+<li>
+<p>Check the model selector next to the chatbox: keep the default or recommended model it offers, unless your trainer names another one. Other models work too, but their answers may differ from the guide's samples.</p>
+<p><img alt="Model selector next to the Delegate chatbox" src="../assets/images/Delegate%20model%20selector.png" /></p>
+</li>
+<li>
+<p>Choose how much Delegate does on its own: select <strong>Adaptive</strong> in the mode selector next to the chatbox (or <strong>Settings → Security</strong>). If you also see a smart option (<strong>Smart mode</strong> or <strong>Smart approvals</strong>), leave it on – it also approves what Delegate judges safe.</p>
+<table>
+<thead>
+<tr>
+<th>Approval mode</th>
+<th>What Delegate does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cautious</strong></td>
+<td>Asks before every action. A good choice for regulated teams</td>
+</tr>
+<tr>
+<td><strong>Adaptive</strong> <em>(recommended)</em></td>
+<td>Does safe, read-only actions on its own, and asks before anything that writes, changes or runs something</td>
+</tr>
+<tr>
+<td><strong>Full access</strong></td>
+<td>Never asks – trusted environments only</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Delegate acts on your behalf</p>
+<p>It uses your UiPath account and permissions, and every action is logged in your name.</p>
+<p>✅ Keep screen context on <strong>Default</strong> (the screen icon next to the chatbox), so Delegate sees only the apps you attach to the chat.</p>
+<p>✅ In <strong>Settings → Security → Blocked websites</strong>, quick-add <strong>Banking</strong>, <strong>Payments</strong> and <strong>Password Manager</strong>.</p>
+</div>
+<p>✅ Check that the UiPath browser extension is turned on in the browser you'll use: open <code>chrome://extensions</code> (Chrome) or <code>edge://extensions</code> (Edge). If you have several Chrome profiles, use one profile for the whole workshop. Not listed? The extension comes with the UiPath Assistant installer – ask your trainer to help you add it.</p>
+<h2 id="connect-delegate-to-test-manager">Connect Delegate to Test Manager (one time, ~5 min)<a class="headerlink" href="#connect-delegate-to-test-manager" title="Permanent link">&para;</a></h2>
+<p>Delegate talks to Test Manager through a small UiPath command-line tool (CLI – Command Line Interface). You install it once and sign it in once. You copy two lines; you don't need to learn any commands.</p>
+<p>Your trainer sends you the <strong>host</strong>, <strong>organization</strong> and <strong>tenant</strong> to use. Keep that message open.</p>
+<p><strong>1. Install the tool.</strong> Copy the line for your computer, paste it, and press <strong>Enter</strong>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Windows</label><label for="__tabbed_2_2">macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Open <strong>PowerShell</strong> (press the Windows key, type <code>PowerShell</code>, and press <strong>Enter</strong>). A normal window is fine. Paste:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$env:UIP_SKIP_SKILLS</span><span class="p">=</span><span class="s2">"1"</span><span class="p">;</span> <span class="nv">$env:UIP_SKIP_RUNTIMES</span><span class="p">=</span><span class="s2">"1"</span><span class="p">;</span> <span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">download</span><span class="p">.</span><span class="n">uipath</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">uipath-cli</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
+</code></pre></div>
+<p>If <strong>Node.js</strong> isn't on your laptop, the script installs it first. Windows may ask <strong>Do you want to allow this app to make changes to your device?</strong> Select <strong>Yes</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p>Open <strong>Terminal</strong> (press <strong>Cmd + Space</strong>, type <code>Terminal</code>, and press <strong>Enter</strong>). Paste:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.uipath.com/uipath-cli/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--skip-skills<span class="w"> </span>--skip-runtimes
+</code></pre></div>
+<p>If <strong>Node.js</strong> isn't on your Mac, the script installs it first, without asking for your Mac password.</p>
+</div>
+</div>
+</div>
+<p>Wait until the script finishes and you see the prompt again. It takes a few minutes. The extra settings in the line skip parts that only developers need.</p>
+<p><strong>2. Sign in.</strong> Close the window and open a <strong>new</strong> PowerShell or Terminal window, so it finds the new tool. Paste this line, with the three values from your trainer in place of <code>&lt;host&gt;</code>, <code>&lt;ORG&gt;</code> and <code>&lt;TENANT&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code>uip login --authority https://&lt;host&gt; --organization &lt;ORG&gt; --tenant &lt;TENANT&gt;
+</code></pre></div>
+<p>Your browser opens a UiPath sign-in page. Sign in with your workshop account. When the page says you're signed in, close the tab and go back to the window.</p>
+<p><strong>3. Check it worked.</strong> In the same window, paste:</p>
+<div class="highlight"><pre><span></span><code>uip login status
+</code></pre></div>
+<p>It shows that you're logged in, with the workshop <strong>organization</strong> and <strong>tenant</strong>. Then close the window, and quit and reopen UiPath Assistant, so Delegate finds the tool.</p>
+<div class="admonition warning">
+<p class="admonition-title">If it fails</p>
+<p>Don't spend more than 10 minutes on it. Send your trainer a screenshot of the error, and <strong>bring your laptop 30 minutes early</strong> on the day: the trainer helps you there. Common causes are a company laptop that blocks installs, or a proxy that blocks downloads. Ask your IT team if you can.</p>
+<p>You can still do the whole workshop: <strong>every step has a browser path</strong>, and for the Delegate parts you can pair with a neighbour.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Signed out later?</p>
+<p>The sign-in expires after a while without use. If Delegate later says it isn't signed in, or shows <code>401 Unauthorized</code>, run the sign-in line from step 2 again (30 seconds).</p>
+</div>
+<p>See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/installing-delegate-for-the-testing-profile" target="_blank">Installing Delegate for the testing profile</a> and <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/testing-setup-faq" target="_blank">Testing setup FAQ</a>.</p>
+<h2 id="check-delegate">Check Delegate<a class="headerlink" href="#check-delegate" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>In your Delegate session, ask:</p>
+<div class="highlight"><pre><span></span><code>List the tenant I am connected to.
+</code></pre></div>
+<p>Delegate replies with your organization, tenant and user name. Wrong tenant? Switch it as in the <em>Assistant already shows you signed in</em> tip, and ask again.</p>
+</li>
+<li>
+<p>Then ask:</p>
+<div class="highlight"><pre><span></span><code>Check that you can reach Test Manager in my tenant, and list the Test Manager projects I can see.
+</code></pre></div>
+<p>Delegate lists the projects, or says the list is empty. Both are fine: it reached Test Manager. If it says it isn't signed in, repeat <a href="#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Delegate asks to approve a command?</p>
+<p>Delegate reaches Test Manager by running commands, in PowerShell on Windows or in the shell on a Mac. In <strong>Adaptive</strong> mode it asks first. You can approve each one, or select <strong>Allow Run PowerShell for this session</strong>. That lets Delegate run <strong>any</strong> PowerShell command without asking until the session ends, so choose it only on your workshop laptop.</p>
+</div>
+<details class="info">
+<summary>No Delegate on the day?</summary>
+<p>Locked-down laptop, Mac problems, or the connection failed? You can still do every step. Steps that use Delegate also have a <strong>browser path</strong>, and you can pair with a neighbour to watch Delegate work.</p>
+</details>
+<h2 id="ready">Ready?<a class="headerlink" href="#ready" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Check it</p>
+<p>✅ You can sign in to the workshop tenant and open <strong>Test Manager</strong>.</p>
+<p>✅ Pop-ups are allowed for the site.</p>
+<p>✅ UiPath Assistant is installed, signed in to the workshop tenant, and shows <strong>Delegate</strong> in the top ribbon.</p>
+<p>✅ Delegate uses the <strong>QA / Testing</strong> profile, in <strong>Adaptive</strong> mode.</p>
+<p>✅ The sign-in check in <a href="#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a> showed the workshop organization and tenant.</p>
+<p>✅ Delegate answered both check prompts.</p>
+<p>✅ The UiPath extension is turned on in the browser profile you'll use.</p>
+<p>Send your trainer a screenshot of Delegate's answer to <em>List the tenant I am connected to.</em></p>
+</div>
+<hr />
+<p><a class="md-button md-button--primary" href="../module-1-introduction/">Next → Introduction</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../assets/js/mermaid.min.js?v=faba385a"></script>
+      
+        <script src="../assets/js/sidebar-toggle.js?v=7be908d6"></script>
+      
+        <script src="../assets/js/rich-copy.js?v=f90dcf6c"></script>
+      
+        <script src="../assets/js/tabs-sync.js?v=0a2fe6bf"></script>
+      
+    
+  </body>
+</html>

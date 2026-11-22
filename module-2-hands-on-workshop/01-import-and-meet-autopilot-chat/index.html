@@ -1,0 +1,1345 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.">
+      
+      
+      
+        <link rel="canonical" href="https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/module-2-hands-on-workshop/01-import-and-meet-autopilot-chat/">
+      
+      
+        <link rel="prev" href="../../module-1-introduction/">
+      
+      
+        <link rel="next" href="../02-evaluate-requirements/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>1. Import Your Project and Meet Autopilot Chat - Agentic Testing for Business People – Hands-On Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css?v=b9661cbe">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-import-your-project-and-meet-autopilot-chat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-header__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Testing for Business People – Hands-On Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Import Your Project and Meet Autopilot Chat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-nav__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    Agentic Testing for Business People – Hands-On Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-0-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Cloud, Autopilot and Delegate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Workshop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-project-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download the project file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-it-into-test-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import it into Test Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-the-project-to-the-workshop-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link the project to the workshop folder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-autopilot-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Autopilot chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ask-your-first-three-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask your first three questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ask your first three questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-a-how-to-question-check-the-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 – A how-to question: check the answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-an-overview-of-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 – An overview of your project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-a-coverage-gap-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 – A coverage gap search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nice-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nice work!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-evaluate-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">2</span>Evaluate the Requirement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-generate-test-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">3</span>Generate Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-run-the-test-three-ways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-compare-the-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">5</span>Compare the Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-automate-with-studio-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">6</span>Automate with Studio Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-build-and-run-the-regression-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">7</span>Build and Run the Regression Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-read-the-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">8</span>Read the Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-decide-go-no-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    You did it!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/01-more-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Prompts to Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/02-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trainer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trainer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-import-your-project-and-meet-autopilot-chat">1. Import Your Project and Meet Autopilot Chat<a class="headerlink" href="#1-import-your-project-and-meet-autopilot-chat" title="Permanent link">&para;</a></h1>
+<p class="step-meta">Leads: <span class="persona-badge persona-badge--all">All</span> · Tools: <span class="tool-badge tool-badge--testmanager">Test Manager</span> <span class="tool-badge tool-badge--autopilot">Autopilot chat</span></p>
+
+<div class="flow">
+  <a class="flow-step" href="#download-the-project-file">Download the project file</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#import-it-into-test-manager">Import it into Test Manager</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#link-the-project-to-the-workshop-folder">Link the workshop folder</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#open-autopilot-chat">Open Autopilot chat</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#ask-your-first-three-questions">Ask your first three questions</a>
+</div>
+
+<p><strong>Why it matters for you:</strong> you get your own copy of the UiBank release project, and a chat assistant that answers questions about it in seconds instead of clicking through every page.</p>
+<p>You start from a ready-made <strong>UiBank</strong> project: one requirement, six test cases, a test set, past results and attachments. Start the import as soon as you arrive – it runs in the background while the trainer introduces the day.</p>
+<h2 id="download-the-project-file">Download the project file<a class="headerlink" href="#download-the-project-file" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Download <a href="../../assets/Files/Test%20Manager%20Project/Agentic%20Testing%20Workshop%20-%20Sample%20Test%20Manager%20Project.zip" target="_blank">Agentic Testing Workshop - Sample Test Manager Project.zip</a>.</li>
+<li>Unzip it. You'll import the <code>.tmh</code> file inside.</li>
+</ol>
+<h2 id="import-it-into-test-manager">Import it into Test Manager<a class="headerlink" href="#import-it-into-test-manager" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open <strong>Test Manager</strong> in the workshop tenant, <code>&lt;ORG&gt;/&lt;TENANT&gt;</code>. Your trainer gives you the link.</li>
+<li>On <strong>Projects</strong>, select <strong>Import project</strong>, then <strong>Add file</strong> and select the <code>.tmh</code> file. Keep <strong>Target: New project</strong>.</li>
+<li>
+<p>The file fills in a name, a prefix and a description. Replace all three, so your project is unique on the shared tenant:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Pre-filled</th>
+<th>Type instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>UiBank Project</td>
+<td><code>UiBank</code> plus your initials, for example <code>UiBank AS</code></td>
+</tr>
+<tr>
+<td><strong>Prefix</strong> (the project key)</td>
+<td>UIBWS</td>
+<td><code>UIB</code> plus your initials, for example <code>UIBAS</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>a sentence about the original technical workshop</td>
+<td><code>Loan application tests for the UiBank 2.4 release decision.</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use initials, not your full name: everyone on the tenant sees the project list.</p>
+</li>
+<li>
+<p>Clear <strong>Include automation information for test cases</strong> (it's checked by default). Leave <strong>Import governance information</strong> and <strong>Import project configuration</strong> cleared.</p>
+</li>
+<li>Select <strong>Import</strong>, then <strong>OK</strong> when the upload completes.</li>
+</ol>
+<p><img alt="Import project dialog with a new name, prefix and description, and Include automation information for test cases cleared" src="../../assets/images/atb-01-import-project.jpg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>✅ Clear <strong>Include automation information for test cases</strong> before you select <strong>Import</strong>.</p>
+<p>✅ The import runs in the background and takes 3–15 minutes (about 3 minutes in rehearsal), longer when the whole class imports at once. Refresh <strong>Projects</strong> until your project card shows <strong>Created on</strong> instead of <strong>Import in progress…</strong>. Don't link the folder or open Autopilot chat before then.</p>
+<p>✅ Don't see your card? Search for your project name on <strong>Projects</strong>. The project <strong>Dashboard</strong> may show <strong>No results</strong>: the imported results are older than its date range. You'll see your own results there from step 4 on.</p>
+</div>
+<details class="info">
+<summary>Who ran the old tests?</summary>
+<p>The imported results keep the name of the person who ran them originally, under <strong>Executed By</strong>. That's history from the sample project, not a person on your team.</p>
+</details>
+<h2 id="link-the-project-to-the-workshop-folder">Link the project to the workshop folder<a class="headerlink" href="#link-the-project-to-the-workshop-folder" title="Permanent link">&para;</a></h2>
+<p>To run tests on robots later today, Test Manager needs to know which <strong>Orchestrator folder</strong> to use. Orchestrator is where the robots live; your trainer set up one shared folder for the class.</p>
+<div class="admonition example">
+<p class="admonition-title">It's your turn now!</p>
+<ol>
+<li>In your project, go to <strong>Project Settings</strong> and open the <strong>Automation</strong> tab.</li>
+<li>Set <strong>Default Folder</strong> to the folder your trainer gives you: in this workshop, <strong>ATB - Agentic Testing Workshop</strong>. Type part of its name to filter the list.</li>
+<li>Click <strong>Save</strong>. A message confirms <strong>Folder updated successfully</strong>.</li>
+</ol>
+</div>
+<p><img alt="Project Settings, Automation tab, with Default Folder set to the workshop folder" src="../../assets/images/atb-01-default-folder.jpg" /></p>
+<div class="admonition failure">
+<p class="admonition-title">Skipped this step?</p>
+<p>Robot runs fail with <code>HTTP 400: Please assign folder to project level before executing testcases.</code></p>
+<p>The workshop folder isn't in the <strong>Default Folder</strong> list? You're not assigned to it yet. Ask your trainer.</p>
+</div>
+<h2 id="open-autopilot-chat">Open Autopilot chat<a class="headerlink" href="#open-autopilot-chat" title="Permanent link">&para;</a></h2>
+<p><strong>Autopilot chat</strong> is an assistant inside Test Manager. You ask in plain words; it reads your project, searches the documentation, builds charts and – with your approval – makes changes.</p>
+<ol>
+<li>Open your project first. The <strong>Autopilot</strong> icon (a sparkle) is in the top bar, next to the notifications bell, and it only appears inside a project – not on the project list.</li>
+<li>Select it. The Autopilot panel opens on the right, with the question "How can I assist you with test management?".</li>
+<li>
+<p>Under the text box, check the mode selector. Test Manager offers two modes:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>What it does</th>
+<th>Today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Edit</strong></td>
+<td>Shows each action Autopilot wants to take and waits for your <strong>Accept</strong> or <strong>Reject</strong></td>
+<td>✅ Use this one all day</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>Runs actions without asking</td>
+<td>Don't use it in the workshop</td>
+</tr>
+</tbody>
+</table>
+<p>If it shows <strong>Agent</strong>, switch it to <strong>Edit</strong>.</p>
+</li>
+</ol>
+<p><img alt="Autopilot panel open inside a project, with the mode selector set to Edit" src="../../assets/images/atb-01-autopilot-panel.jpg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Edit mode asks for every action – reads included</p>
+<p>In <strong>Edit</strong> mode, Autopilot shows a card for each action it takes in Test Manager – the action's name, "via MCP server: testmanager", and <strong>Reject</strong> / <strong>Accept</strong> – even when it only <em>reads</em> your project. One question can ask for 5 or more approvals. Read each card, then select <strong>Accept</strong>. It's slower, but you always see what Autopilot does on your behalf. Searches and charts run without a card.</p>
+<p>These actions are called <strong>tools</strong>. You'll learn what they are, and what they can't do, in <a href="../07-build-and-run-the-regression-set/#what-mcp-means-for-you">7. Build and Run the Regression Set</a>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Every chat turn uses your AI allowance</p>
+<p>Each message you send to Autopilot chat uses your AI and agentic usage pool. The dedicated Autopilot buttons you use in steps 2 and 3 don't. Ask focused questions, and don't paste the same prompt twice. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-usage-pool-for-testing" target="_blank">Autopilot usage pool for testing</a>.</p>
+<p>Autopilot chat needs Test Manager on Test Cloud. No Autopilot icon? See <a href="../../module-3-troubleshooting-and-next-steps/02-troubleshooting/#autopilot-chat">Troubleshooting</a> and ask your trainer to check your user licence.</p>
+</div>
+<h2 id="ask-your-first-three-questions">Ask your first three questions<a class="headerlink" href="#ask-your-first-three-questions" title="Permanent link">&para;</a></h2>
+<p>Wait until your project card shows <strong>Created on</strong>. Then type each prompt into the Autopilot panel and press Enter. Wait for the answer before you send the next one.</p>
+<h3 id="1-a-how-to-question-check-the-answer">1 – A how-to question: check the answer<a class="headerlink" href="#1-a-how-to-question-check-the-answer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>How do I run a manual test case in Test Manager?
+</code></pre></div>
+<p>Autopilot answers from what it knows, without a tool card. <strong>Don't take the answer at face value.</strong> In rehearsal it said you can't run a test case on its own and must add it to a test set first. On Test Cloud that's out of date: you can open the test case's <strong>⋮</strong> menu and select <strong>Execute Manually</strong>. You'll do exactly that in <a href="../04-run-the-test-three-ways/#2-run-it-yourself">4. Run the Test Three Ways</a>.</p>
+<div class="admonition question">
+<p class="admonition-title">Think about it</p>
+<p>The footer of the panel says "Autopilot can make mistakes. Please double check the responses." Treat chat like a helpful new colleague: fast and usually right, but you check anything you'll act on.</p>
+</div>
+<h3 id="2-an-overview-of-your-project">2 – An overview of your project<a class="headerlink" href="#2-an-overview-of-your-project" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Give me an overview of this project: the requirements and how many test cases each has, the test sets, and the latest executions.
+</code></pre></div>
+<p>Autopilot asks you to approve about 5 read actions, one at a time – for example <strong>Get_requirements</strong>, <strong>Get_test_sets</strong>, <strong>Get_test_executions</strong>, <strong>Get_assigned_test_case_ids_for_requirement</strong> and <strong>Get_test_cases</strong>. Select <strong>Accept</strong> on each. The answer takes about 1–2 minutes. It may list only the newest executions, but it states the total: 17.</p>
+<h3 id="3-a-coverage-gap-search">3 – A coverage gap search<a class="headerlink" href="#3-a-coverage-gap-search" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Find all test cases not linked to any requirement.
+</code></pre></div>
+<p>This starts with <strong>Autopilot Search</strong>, which runs without a card. Chat may then ask you to approve one read, <strong>Get_test_cases</strong>, to double-check the result. Select <strong>Accept</strong>. A test case without a requirement is a gap: nobody can say which business rule it proves.</p>
+<div class="admonition success">
+<p class="admonition-title">Check it</p>
+<p>Compare Autopilot's answers with the left navigation of your project:</p>
+<p>✅ <strong>Requirements</strong>: 1 – <strong>Submit Loan Request</strong>, with 6 test cases</p>
+<p>✅ <strong>Test Cases</strong>: 6</p>
+<p>✅ <strong>Test Sets</strong>: 1 – <strong>UiBank Smoke Test Set</strong></p>
+<p>✅ <strong>Execution</strong>: 17 executions (the imported history)</p>
+<p>✅ The search for unlinked test cases returns <strong>none</strong>: all 6 are linked to <strong>Submit Loan Request</strong>. Open <strong>Test Cases</strong> to confirm.</p>
+<p>Counts that don't match? Trust the Test Manager pages, not the chat. Chat can miscount – that's why you check.</p>
+</div>
+<h2 id="nice-work">Nice work!<a class="headerlink" href="#nice-work" title="Permanent link">&para;</a></h2>
+<p>Your project is imported, linked to the workshop folder, and you've had your first conversation with Autopilot – including one answer you had to correct.</p>
+<hr />
+<p><a class="md-button md-button--primary" href="../02-evaluate-requirements/">Next → 2. Evaluate the Requirement</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../assets/js/mermaid.min.js?v=faba385a"></script>
+      
+        <script src="../../assets/js/sidebar-toggle.js?v=7be908d6"></script>
+      
+        <script src="../../assets/js/rich-copy.js?v=f90dcf6c"></script>
+      
+        <script src="../../assets/js/tabs-sync.js?v=0a2fe6bf"></script>
+      
+    
+  </body>
+</html>

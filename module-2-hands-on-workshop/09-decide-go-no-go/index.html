@@ -1,0 +1,1373 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.">
+      
+      
+      
+        <link rel="canonical" href="https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/module-2-hands-on-workshop/09-decide-go-no-go/">
+      
+      
+        <link rel="prev" href="../08-read-the-results/">
+      
+      
+        <link rel="next" href="../you-did-it/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>9. Decide Go or No-Go - Agentic Testing for Business People – Hands-On Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css?v=b9661cbe">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-decide-go-or-no-go" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-header__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Testing for Business People – Hands-On Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. Decide Go or No-Go
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-nav__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    Agentic Testing for Business People – Hands-On Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-0-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Cloud, Autopilot and Delegate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Workshop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-import-and-meet-autopilot-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-evaluate-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">2</span>Evaluate the Requirement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-generate-test-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">3</span>Generate Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-run-the-test-three-ways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-compare-the-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">5</span>Compare the Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-automate-with-studio-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">6</span>Automate with Studio Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-build-and-run-the-regression-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">7</span>Build and Run the Regression Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-read-the-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">8</span>Read the Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pick-your-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pick your path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-a-delegate-reproduces-the-defect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path A – Delegate reproduces the defect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-b-autopilot-chat-writes-the-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path B – Autopilot chat writes the summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-the-one-page-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write the one-page decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check the decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional extras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nice-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nice work!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    You did it!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/01-more-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Prompts to Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/02-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trainer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trainer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="9-decide-go-or-no-go">9. Decide Go or No-Go<a class="headerlink" href="#9-decide-go-or-no-go" title="Permanent link">&para;</a></h1>
+<p class="step-meta">Leads: <span class="persona-badge persona-badge--qa">QA</span> with <span class="persona-badge persona-badge--uat">UAT</span> for the defect draft · Tools: <span class="tool-badge tool-badge--delegate">Delegate</span> <span class="tool-badge tool-badge--autopilot">Autopilot chat</span> <span class="tool-badge tool-badge--testmanager">Test Manager</span></p>
+
+<div class="flow">
+  <a class="flow-step" href="#pick-your-path">Pick your path: Delegate or browser</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#write-the-one-page-decision">Write the one-page decision</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#check-the-decision">Check the decision</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#optional-extras">Optional: defect, routine, sign-off</a>
+</div>
+
+<p><strong>Why it matters for you:</strong> the tools give you evidence, but the call is yours. This step turns today's evidence into a decision a release manager can act on – and defend afterwards.</p>
+<p>It's release night, and the release manager wants to know: <strong>can we ship the new loan form?</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Check these first</p>
+<p>✅ Your <strong>Release 2.4 - Loan regression</strong> run from <a href="../07-build-and-run-the-regression-set/#triage-the-results-in-chat">7. Build and Run the Regression Set</a> finished with <strong>2 passed / 1 failed / 0 none</strong>, and chat triaged the failure as a <strong>UiBank defect</strong>.</p>
+<p>✅ The <strong>execution PDF</strong> from <a href="../08-read-the-results/#download-the-execution-pdf">8. Read the Results</a> is saved on your computer.</p>
+</div>
+<h2 id="pick-your-path">Pick your path<a class="headerlink" href="#pick-your-path" title="Permanent link">&para;</a></h2>
+<p>Both paths reach the same decision:</p>
+<ul>
+<li><strong>Path A – Delegate.</strong> Delegate repeats the over-65 application in the browser, takes screenshots, and writes a PDF report on your Desktop. Pick it if Delegate is connected on your laptop.</li>
+<li><strong>Path B – Browser only.</strong> Autopilot chat writes the go/no-go summary, and you attach the execution PDF from step 8. Pick it if you don't have Delegate, or if Path A gets stuck.</li>
+</ul>
+<p>Got time? Do both, and compare the two reports.</p>
+<h2 id="path-a-delegate-reproduces-the-defect">Path A – Delegate reproduces the defect<a class="headerlink" href="#path-a-delegate-reproduces-the-defect" title="Permanent link">&para;</a></h2>
+<p>This path uses <strong>Delegate</strong>, the desktop agent: it works in your browser with your mouse and keyboard. A go/no-go call needs evidence, so Delegate repeats the over-65 application on UiBank, captures the result and puts it in the report.</p>
+<div class="admonition example">
+<p class="admonition-title">It's your turn now!</p>
+<ol>
+<li>Copy the totals and the triage Autopilot chat gave you in step 7.</li>
+<li>
+<p>Go back to your Delegate session. Replace <code>&lt;PROJECT_PREFIX&gt;</code> with your project prefix from step 1. Paste the prompt below and, in the same message, paste the totals and triage under it:</p>
+<div class="highlight"><pre><span></span><code>Reproduce the UiBank defect in the browser: open https://uibank.uipath.com, apply for a loan with the data from the Submit Over-65 Request test case in my Test Manager project &lt;PROJECT_PREFIX&gt;, and take a screenshot of the result. Then look up its loan ID on the Loan Lookup page, and take a screenshot. Then create a release manager report in PDF for the latest execution of Release 2.4 - Loan regression, and save it on my Desktop. Cover this execution only, not earlier ones. I need a go/no-go recommendation before tonight's sign-off meeting. Base it on UiBank defects only, and list test defects as follow-ups. Include the triage, and add both screenshots and the loan ID as evidence. Under each screenshot, add one line on what it proves against the requirement.
+</code></pre></div>
+<p>It takes about 6 minutes.</p>
+</li>
+<li>
+<p>Approve when Delegate asks. Don't use your browser while it reproduces the defect.</p>
+</li>
+<li>If Delegate asks where to save the report, choose your Desktop. Keep the default file name, and select <strong>Submit</strong>.</li>
+</ol>
+</div>
+<p>On a Mac, this uses Delegate for macOS (Preview). If it doesn't work, switch to Path B.</p>
+<p>Delegate gives the path to the saved report and summarizes it in the chat. Always review its output before sharing. The report shows:</p>
+<p>✅ <strong>Scope</strong> – the execution it covers</p>
+<p>✅ <strong>Totals</strong> – passed, failed and none (the same numbers as the <strong>Execution</strong> page)</p>
+<p>✅ <strong>Success rate</strong> – passed out of passed + failed</p>
+<p>✅ <strong>Triage</strong> – each failure, whether it's a UiBank or a test defect, and the criterion it breaks</p>
+<p>✅ <strong>Evidence</strong> – the approval and Loan Lookup screenshots, each with what it proves, and the loan ID</p>
+<p>✅ <strong>Recommendation</strong> – GO or NO-GO, and why</p>
+<p>Delegate may also list gaps in the requirement or other observations as follow-ups. Check its reasoning against the requirement before you pass them on. UiBank's Loan Lookup page always shows the email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#115;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#115;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>. That's how the demo app works, not a defect to report.</p>
+<details class="tip">
+<summary>Saved as .md instead of PDF?</summary>
+<p>Ask Delegate:</p>
+<div class="highlight"><pre><span></span><code>Create a PDF of the report and save it on my Desktop.
+</code></pre></div>
+</details>
+<h2 id="path-b-autopilot-chat-writes-the-summary">Path B – Autopilot chat writes the summary<a class="headerlink" href="#path-b-autopilot-chat-writes-the-summary" title="Permanent link">&para;</a></h2>
+<p>This path needs only your browser. Open your project, click <strong>Autopilot</strong> (the sparkle icon, top right) and keep the mode on <strong>Edit</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">It's your turn now!</p>
+<ol>
+<li>
+<p>Send:</p>
+<div class="highlight"><pre><span></span><code>Write a go/no-go summary of the latest execution of Release 2.4 - Loan regression for a release manager: scope, totals, success rate as passed out of passed plus failed, each failure with the acceptance criterion it breaks, and a GO or NO-GO recommendation based on UiBank defects only.
+</code></pre></div>
+</li>
+<li>
+<p>Chat only <em>reads</em> your project for this: it uses Test Manager tools such as <strong>Get_test_executions</strong> and <strong>Get_test_case_logs_by_test_execution</strong>. These are the same MCP tools you met in <a href="../07-build-and-run-the-regression-set/#what-mcp-means-for-you">step 7</a> – this time read-only. In Edit mode you select <strong>Accept</strong> for each one – about 4–6 times. It takes about 1–2 minutes.</p>
+</li>
+</ol>
+</div>
+<p><img alt="Autopilot chat go/no-go summary with NO-GO, the totals and the quoted over-65 criterion" src="../../assets/images/atb-09-go-no-go-answer.jpg" /></p>
+<div class="admonition info">
+<p class="admonition-title">What you should get</p>
+<p>✅ <strong>NO-GO</strong>, because one UiBank acceptance criterion fails: a real application defect, not a flaky test or an environment problem.</p>
+<p>✅ Totals <strong>2 passed / 1 failed / 0 none</strong>, and a success rate of <strong>66.7%</strong> (2 out of 2 + 1).</p>
+<p>✅ The over-65 criterion quoted from the requirement: applicants over 65 must be rejected.</p>
+<p>✅ A release condition: fix the over-65 rule, then re-run the set and get 3 out of 3.</p>
+<p>✅ Chat may add a <strong>Coverage caveat</strong>: only 3 test cases cover the requirement. Keep it in your decision as a note.</p>
+<p>Chat recommends GO? Ask it to check Submit Over-65 Request against the over-65 criterion again. Chat can be wrong: the decision is yours.</p>
+</div>
+<p>Then write the one-page decision below, and attach the execution PDF from step 8 as the evidence.</p>
+<h2 id="write-the-one-page-decision">Write the one-page decision<a class="headerlink" href="#write-the-one-page-decision" title="Permanent link">&para;</a></h2>
+<p>A release manager wants one page. Copy the template into an email or a document and fill it in from your report (Path A) or the chat summary (Path B).</p>
+<div class="highlight"><pre><span></span><code>GO / NO-GO DECISION – UiBank loan form, release 2.4
+
+Decision:          [GO or NO-GO]
+Date and author:   [today's date, your role]
+
+Scope:             [test set and execution name, what it covers]
+Totals:            [passed / failed / none]
+Success rate:      [passed out of passed + failed, as a %]
+
+Blocking defect:   [what UiBank does wrong, in one sentence]
+Criterion broken:  [the acceptance criterion, quoted from the requirement]
+
+Evidence:          [execution PDF file name; screenshots or Delegate report, if any]
+Test defects:      [failures caused by the test itself, as follow-ups – or "none"]
+Notes:             [caveats, for example limited coverage – or "none"]
+
+Conditions to reach GO:
+  1. [what must be fixed]
+  2. [what must be re-run, and the result you need]
+</code></pre></div>
+<details class="example">
+<summary>What a filled-in one looks like</summary>
+<div class="highlight"><pre><span></span><code>GO / NO-GO DECISION – UiBank loan form, release 2.4
+
+Decision:          NO-GO
+Date and author:   workshop day, QA manager
+
+Scope:             Release 2.4 - Loan regression, latest automated execution
+                   (standard, underage and over-65 loan applications)
+Totals:            2 passed / 1 failed / 0 none
+Success rate:      66.7% (2 out of 3)
+
+Blocking defect:   UiBank approves a loan for an applicant aged 66
+                   ("Congrats! You've been approved...").
+Criterion broken:  Applicants over 65 must be rejected
+                   ("Not approved due to age.").
+
+Evidence:          execution PDF from step 8; the same failure in the manual,
+                   Delegate and autonomous runs of step 4
+Test defects:      none
+Notes:             only 3 test cases in the regression set cover the requirement
+
+Conditions to reach GO:
+  1. UiBank rejects applicants over 65.
+  2. Release 2.4 - Loan regression re-run: 3 out of 3 passed.
+</code></pre></div>
+</details>
+<h2 id="check-the-decision">Check the decision<a class="headerlink" href="#check-the-decision" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Check it</p>
+<p>The right call is <strong>NO-GO</strong>, because UiBank breaks the over-65 rule – not because of the 66.7% success rate.</p>
+<p>A success rate of 95% with the same failure would still be NO-GO. A success rate of 66.7% caused only by test defects could be a GO. The rate tells you how much failed; the requirement tells you whether it matters.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Think about it</p>
+<p>How did you tell a UiBank defect from a test defect? Would the success rate alone have told you to stop the release? What does a developer need to fix it? How long would all of this take you by hand?</p>
+</div>
+<h2 id="optional-extras">Optional extras<a class="headerlink" href="#optional-extras" title="Permanent link">&para;</a></h2>
+<p>Pick what fits your role. None of these is needed to finish the workshop.</p>
+<details class="example">
+<summary>Optional: Draft the defect (UAT)</summary>
+<p>In Delegate, in the same session as Path A:</p>
+<div class="highlight"><pre><span></span><code>Draft a defect for the UiBank age defect: title, steps to reproduce, test data, expected and actual result, loan ID, and the screenshots. Save it on my Desktop.
+</code></pre></div>
+<p>No Delegate? Ask Autopilot chat for the same draft, without the screenshots and the loan ID, and copy the text from its answer.</p>
+<p>In a real project, log the defect before the go/no-go call: in your defect tracker, or from the failed result in Test Manager if it's linked to your ALM (Application Lifecycle Management) tool. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/quickstart-analyzing-results" target="_blank">Analyzing results</a>.</p>
+</details>
+<details class="example">
+<summary>Optional: Schedule the report as a morning routine (Delegate)</summary>
+<p>A routine suits a personal report. For the regression run itself, schedule the test set in Test Manager – on the set, <strong>Execute → Create Schedule</strong> – so it runs on a robot every morning (<a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/scheduling-test-executions" target="_blank">Scheduling test executions</a>). Let the routine only fetch and summarize the results. Routines are a Delegate feature.</p>
+<p><strong>Save it as a routine.</strong> Ask Delegate, for example: <em>"Save the report part of this task as a routine called UiBank Release Report. Include my Test Manager project in the routine, so it works when it runs on a schedule."</em> The routine appears under <strong>Routines</strong> in Delegate's left panel.</p>
+<p><strong>Put it on a schedule.</strong> Under <strong>Scheduled routines</strong>, a Day / Week / Month calendar shows every routine with a time slot. New routines wait in the <strong>Not scheduled</strong> list below it. Drop one onto a time slot or set it to recur, for example weekdays at 8:00 AM.</p>
+<p><strong>Start from a ready-made routine.</strong> The Test Cloud plugin includes <strong>Summarize last night's execution of a test set</strong>, already waiting in the <strong>Not scheduled</strong> list. It returns results only after the test set has run overnight, so on workshop day it finds nothing. To try the same summary now, ask: <em>"Summarize the latest execution of Release 2.4 - Loan regression in my project."</em></p>
+<p>A scheduled routine runs only if its machine is powered on and signed in at the scheduled time.</p>
+</details>
+<details class="example">
+<summary>Optional: Formal sign-off with governance (QA, Test Cloud only)</summary>
+<p>Some teams need a signed record of who accepted a test result, and in which role. Test Manager's <strong>governance</strong> feature adds approvers and signatures to test cases and test results, and the signature appears in the execution PDF. Your company may not need it – skip this box if so.</p>
+<p>You own your project, so you can switch governance on yourself:</p>
+<ol>
+<li><strong>Project Settings</strong> → <strong>Governance</strong> → <strong>Enable governance</strong>.</li>
+<li>Set <strong>Default governance state</strong> to <strong>Governed</strong>, and add yourself under <strong>Default approvers</strong>: type your first name or the start of your email address. Your full name may find nothing, because the directory can list you differently. Leave <strong>Signing order</strong> off. Select <strong>Save</strong>. You see "Governance settings updated successfully."</li>
+</ol>
+<p>If you can't add yourself as an approver, or the sign icon doesn't appear on your row, ask your trainer to show the signed result in the Trainer Demo project instead.</p>
+<p>Didn't switch governance on before your regression run in step 7? Then its results aren't governed yet – govern the over-65 result now. Switched it on in step 7? The result is already governed: open it (item 1), then skip to item 3.</p>
+<div class="admonition warning">
+<p class="admonition-title">Before you sign: your name and email appear in the signature</p>
+<p>The signature and the PDF show your name and email address, and the signed result stays on the shared workshop tenant. Don't share the signed PDF outside the class, and crop screenshots before you use them. The test case's <strong>Latest Results</strong> grid shows your email under <strong>Executed By</strong> too: crop it as well.</p>
+</div>
+<ol>
+<li><strong>Execution</strong> → open your regression execution → open the <strong>Submit Over-65 Request</strong> result.</li>
+<li>Turn on the <strong>Governed</strong> toggle. <strong>Approval status</strong> shows <strong>In work</strong>.</li>
+<li>Select the pencil next to the status. In <strong>Set approval status</strong>, select <strong>In review</strong>. From now on the result is locked: nobody can edit it until it's signed.</li>
+<li>Open the <strong>Governance</strong> tab of the result. On your approver row, select the sign icon. In the <strong>Sign test case</strong> panel, fill in <strong>Your role at time of signature</strong>, for example <code>QA Manager</code>, add a comment if you like, and select <strong>Sign</strong>.</li>
+<li>The status changes to <strong>Signed</strong>, and your approver row shows <strong>Signed</strong> with your name. Download the execution PDF again: it now has a <strong>Governance</strong> section with the signature.</li>
+</ol>
+<p>In a real project, switch governance on <em>before</em> the run: new results are then governed from the start. Moving a result to <strong>In review</strong> locks it, so make any override or comment first. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance" target="_blank">Testing process governance</a> and <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/testing-process-governance-for-test-case-logs" target="_blank">Governance for test results</a>.</p>
+<p><img alt="Sign test case panel with Your role at time of signature and Add comments" src="../../assets/images/atb-09-sign-test-case.jpg" /></p>
+</details>
+<details class="question">
+<summary>Discuss: when is an override OK?</summary>
+<p>Test Manager lets you <strong>override</strong> a result – for example, change a Failed result to Passed – with a mandatory comment. The override is visible on the result, so it works as a documented waiver (<a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/overriding-test-results" target="_blank">Overriding test results</a>).</p>
+<p>Discuss with your neighbour, without changing your results:</p>
+<ul>
+<li>Would you override the over-65 failure to reach GO? (No: UiBank is wrong, and the override would hide a real defect.)</li>
+<li>When would an override be fair? For example, a failure caused by the test itself, when the app did the right thing and re-running doesn't help.</li>
+<li>Who in your company should be allowed to override, and who should sign it off?</li>
+</ul>
+</details>
+<h2 id="go-further">Go further<a class="headerlink" href="#go-further" title="Permanent link">&para;</a></h2>
+<p>Stay in the same Delegate or Autopilot chat session – it remembers the run and the report:</p>
+<p>✅ <em>"Summarize the failures in three bullet points I can paste into Teams or Slack."</em></p>
+<p>✅ <em>"Add a section to the report with recommended next steps for the developers."</em></p>
+<p>✅ <em>"Rewrite the summary for a developer, with the failed check and the actual value UiBank returned."</em></p>
+<p>More ideas in <strong><a href="../../module-3-troubleshooting-and-next-steps/01-more-prompts/">More Prompts to Try</a></strong>.</p>
+<h2 id="nice-work">Nice work!<a class="headerlink" href="#nice-work" title="Permanent link">&para;</a></h2>
+<p>You turned today's runs into a documented <strong>NO-GO</strong>: a UiBank defect against a named acceptance criterion, with evidence, and a clear condition for GO.</p>
+<hr />
+<p><a class="md-button md-button--primary" href="../you-did-it/">Next → You did it!</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../assets/js/mermaid.min.js?v=faba385a"></script>
+      
+        <script src="../../assets/js/sidebar-toggle.js?v=7be908d6"></script>
+      
+        <script src="../../assets/js/rich-copy.js?v=f90dcf6c"></script>
+      
+        <script src="../../assets/js/tabs-sync.js?v=0a2fe6bf"></script>
+      
+    
+  </body>
+</html>

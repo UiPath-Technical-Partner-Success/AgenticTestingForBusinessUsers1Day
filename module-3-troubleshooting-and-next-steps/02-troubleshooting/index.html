@@ -1,0 +1,1334 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.">
+      
+      
+      
+        <link rel="canonical" href="https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/module-3-troubleshooting-and-next-steps/02-troubleshooting/">
+      
+      
+        <link rel="prev" href="../01-more-prompts/">
+      
+      
+        <link rel="next" href="../../trainer-setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Troubleshooting - Agentic Testing for Business People – Hands-On Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css?v=b9661cbe">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#troubleshooting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-header__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Testing for Business People – Hands-On Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-nav__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    Agentic Testing for Business People – Hands-On Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-0-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Cloud, Autopilot and Delegate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Workshop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/01-import-and-meet-autopilot-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/02-evaluate-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">2</span>Evaluate the Requirement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/03-generate-test-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">3</span>Generate Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/04-run-the-test-three-ways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/05-compare-the-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">5</span>Compare the Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/06-automate-with-studio-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">6</span>Automate with Studio Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/07-build-and-run-the-regression-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">7</span>Build and Run the Regression Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/08-read-the-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">8</span>Read the Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/09-decide-go-no-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2-hands-on-workshop/you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    You did it!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-more-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Prompts to Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delegate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delegate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autopilot-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autopilot chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Report
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trainer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trainer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
+<p>Find your symptom in one of the four tables: Delegate, Autopilot chat, runs, or reports. If nothing fits, ask your trainer.</p>
+<h2 id="delegate">Delegate<a class="headerlink" href="#delegate" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delegate isn't in UiPath Assistant</td>
+<td>Your UiPath Assistant is too old, or Delegate wasn't selected during the install. Install it again as in <a href="../../module-0-prerequisites/#install-uipath-assistant-and-delegate">Prerequisites</a> and check the version starts with <code>v26</code>. On a Mac, Delegate for macOS (Preview) needs Apple silicon and macOS 14 or later. Still no Delegate? Every Delegate part of the workshop has a browser path – or pair up with a neighbour.</td>
+</tr>
+<tr>
+<td>Delegate asks for approval on every step</td>
+<td>The approval mode is <strong>Cautious</strong>. Switch it to <strong>Adaptive</strong> in the mode selector next to the chatbox (or <strong>Settings → Security</strong>). Delegate still asks before it changes data or starts a run – that's expected. Can't change the mode? Your admin may have locked it: ask your trainer. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/tasks-and-prompts-troubleshooting" target="_blank">Tasks and prompts troubleshooting</a>.</td>
+</tr>
+<tr>
+<td>Delegate can't find your project</td>
+<td>Delegate is connected to the wrong tenant, or it's looking for the wrong project. Ask Delegate <em>"List the tenant I am connected to."</em> If the tenant is wrong, switch it in UiPath Assistant as described in <a href="../../module-0-prerequisites/#set-up-delegate">Set up Delegate</a>, then run the sign-in command from <a href="../../module-0-prerequisites/#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a> again. Always name your project by its prefix in the prompt.</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code>, <code>Authentication failed</code>, or Delegate says you're not signed in to Test Manager</td>
+<td>Delegate's Test Manager sign-in has expired. Open a new PowerShell window (Windows) or Terminal window (macOS), paste the <code>uip login …</code> command from <a href="../../module-0-prerequisites/#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a> again, and sign in with your workshop account in the browser window that opens. Then repeat your prompt. See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/testing-setup-faq" target="_blank">Delegate for Testing setup FAQ</a>.</td>
+</tr>
+<tr>
+<td>Delegate says it can't find <code>uip</code>, or <code>uip</code> is "not recognized" / "command not found"</td>
+<td>Delegate was already open when the sign-in tool was installed, so it doesn't see it yet. Quit UiPath Assistant completely and open it again. Still missing? In a new PowerShell or Terminal window, type <code>uip --version</code>. If no version appears, run the install command from <a href="../../module-0-prerequisites/#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a> again.</td>
+</tr>
+<tr>
+<td>Delegate pauses or stops with a usage message</td>
+<td>Your monthly AI and Agentic usage pool is spent. Delegate doesn't fall back to paid usage – it pauses until an admin grants a top-up or the month resets. Tell your trainer, and use the browser path in the meantime. Meanwhile, pair with a neighbour or follow the trainer's screen. See <a href="https://docs.uipath.com/autopilot/other/latest/user-guide/autopilot-usage-pool-for-testing" target="_blank">Autopilot usage pool for testing</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autopilot-chat">Autopilot chat<a class="headerlink" href="#autopilot-chat" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No <strong>Autopilot</strong> icon</td>
+<td>The icon appears only inside a project. Open your project first – the icon is in the top bar. Still missing inside a project? Your user licence doesn't include chat: it needs an <strong>App Tester</strong> or <strong>App Test Developer</strong> licence. Ask your trainer. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/user-licenses" target="_blank">User licenses</a>.</td>
+</tr>
+<tr>
+<td>Chat asks you to <strong>Accept</strong> or <strong>Reject</strong> every tool, even for reading</td>
+<td>That's how <strong>Edit</strong> mode works: one approval per Test Manager tool, reads included. An overview prompt takes about five clicks. Read the tool name on each card and accept. Stay in Edit mode for the workshop.</td>
+</tr>
+<tr>
+<td>Chat's counts don't match <strong>Execution</strong></td>
+<td>Chat and its search can miscount, or read a different execution. Check the numbers in <strong>Execution</strong>. Ask again and name the execution, for example <em>"the latest execution of Release 2.4 - Loan regression"</em>.</td>
+</tr>
+<tr>
+<td>Chat says it can't do something, or only explains how</td>
+<td>There's no tool for it. With the standard Test Manager tools, chat can't start, schedule or stop a run, or create Execution Insights. Use the buttons: <strong>Execute</strong> → <strong>Automated</strong> or <strong>Create Schedule</strong> on the test set, and <strong>Generate Report</strong> in <strong>Execution</strong>. If chat can't add labels or create a test set either, open ⚙ <strong>Chat settings</strong> → <strong>MCP Servers</strong> and check that <strong>Test Manager MCP server</strong> is listed under <strong>From your organization</strong>. If it isn't, tell your trainer.</td>
+</tr>
+<tr>
+<td>A chart prompt returns a list, or says <strong>Failed to apply</strong></td>
+<td>Ask for the chart in so many words: <em>"Show a chart of failed test cases grouped by requirement."</em> Some groupings, such as by label, don't chart: ask for a table instead.</td>
+</tr>
+<tr>
+<td>A "how do I" answer doesn't match what you see</td>
+<td>Chat can be wrong about how Test Manager works – the panel says so at the bottom. For example, it may say you can't run a single test case on its own, but <strong>Execute Manually</strong> is in the test case's ⋮ menu. Check against this guide or the docs.</td>
+</tr>
+<tr>
+<td>A turn is very slow, or ends with an error</td>
+<td>Prompts that read several things take 1–2 minutes, plus your approvals. If a turn fails, click <strong>New chat</strong> and send a shorter prompt. Don't resend the same prompt again and again: every turn uses your usage pool.</td>
+</tr>
+<tr>
+<td>Chat pauses or stops with a usage message</td>
+<td>Your monthly usage pool is spent, and chat doesn't fall back to paid usage. Tell your trainer. The Autopilot buttons (<strong>Evaluate quality</strong>, <strong>Generate Report</strong>, and so on) don't use the pool and keep working. Meanwhile, pair with a neighbour or follow the trainer's screen.</td>
+</tr>
+<tr>
+<td><strong>Add to Requirement</strong> or a suggestion's status drop-down opens <em>"You do not have the necessary rights to access this application."</em> with <strong>Click here to logout</strong></td>
+<td>Suggestions made by the <strong>+ Evaluate quality</strong> button can't be applied with workshop rights. Don't click <strong>Click here to logout</strong>: press the browser <strong>Back</strong> button. Run the evaluation in Autopilot chat instead and select <strong>Review</strong> – in that list <strong>Add to Requirement</strong> works. See <a href="../../module-2-hands-on-workshop/02-evaluate-requirements/#evaluate-in-autopilot-chat">2. Evaluate the Requirement</a></td>
+</tr>
+<tr>
+<td>You accepted a change you didn't want</td>
+<td>Undo it by hand in Test Manager, or ask chat in Edit mode to undo it (for example, <em>"Remove the label release-2.4 from …"</em>) and check the tool card before you accept.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your <strong>Run autonomously</strong> (Preview) run stays <strong>Pending</strong></td>
+<td>Usually normal: all learners share one robot, which runs one job at a time (about 6 minutes each), and the first run of the day can wait up to about 10 minutes while the robot's machine starts. Still Pending after lunch? Check the <strong>Runtime type</strong> you picked: use the one your trainer gave you. <strong>Cloud - Serverless Testing</strong> is in the list but isn't supported for Run autonomously – start a new run with the right runtime. If the runtime is right, the folder may have no robot account that can run unattended jobs: tell your trainer.</td>
+</tr>
+<tr>
+<td>The Run autonomously panel stops with an error before <em>Autonomous test execution job triggered.</em></td>
+<td>Usually a missing permission in the workshop folder (uploading the test package or creating the process). Don't click <strong>Run</strong> again. Tell your trainer, who adds the permission (see Trainer Setup). Meanwhile, carry on with <strong>Execute Manually</strong> and Delegate, and use the trainer's completed run in step 5.</td>
+</tr>
+<tr>
+<td>You can't continue in the Run autonomously panel (<strong>Next</strong> or <strong>Run</strong> is disabled)</td>
+<td>The <strong>Url</strong> field on the first screen is empty. It's pre-filled only when the test case's <strong>Manual Steps</strong> → <strong>URL</strong> field is filled in (the Url you type is saved there). Enter <code>https://uibank.uipath.com</code>, the UiBank home page, as in <a href="../../module-2-hands-on-workshop/04-run-the-test-three-ways/#1-start-the-robot-first-preview">4. Run the Test Three Ways</a>, click <strong>Next</strong>, then <strong>Run</strong>.</td>
+</tr>
+<tr>
+<td>Your Run autonomously run ends after about a minute, step 1 <strong>Failed</strong>, the other steps <strong>None</strong></td>
+<td>The run didn't reach the age decision – not a UiBank defect. Open the test case's <strong>Manual Steps</strong> → <strong>URL</strong> field: it must be exactly <code>https://uibank.uipath.com</code>. Typing into a pre-filled Url adds to the old address (for example <code>…/loans/applyhttps://…</code>). Clear the field and type it again. If step 1's <strong>Behaviour verification</strong> says <em>"Verification could not be completed (HttpRequestException)"</em>, it was a service error. Ask your trainer before you start another run – each run costs App Test Platform Units – and use the trainer's completed run in step 5.</td>
+</tr>
+<tr>
+<td><strong>Project Settings</strong> shows <em>"Folder does not exist."</em>, and <strong>Default Folder</strong> is blank after a reload</td>
+<td>Your account can't view the workshop folder's details, although your choice may have saved. Tell your trainer, who checks your folder permissions (see Trainer Setup).</td>
+</tr>
+<tr>
+<td><code>HTTP 400: Please assign folder to project level before executing testcases.</code></td>
+<td>Your project has no Default Folder. Set it to <strong>ATB - Agentic Testing Workshop</strong> as in <a href="../../module-2-hands-on-workshop/01-import-and-meet-autopilot-chat/#link-the-project-to-the-workshop-folder">1. Import Your Project and Meet Autopilot Chat</a>.</td>
+</tr>
+<tr>
+<td>The <strong>Execute Manually</strong> window didn't open</td>
+<td>Your browser blocked the pop-up. Allow pop-ups for Test Manager, then open the test case and select <strong>Execute ▾</strong> → <strong>Manually</strong> again. A run started without a test set can't be re-executed, so a new manual run simply creates a new run.</td>
+</tr>
+<tr>
+<td>Your manual run stays <strong>Running</strong> in <strong>Execution</strong></td>
+<td>The assistant window was closed without <strong>Done</strong>. Start a new manual run and finish it with <strong>Done</strong> on the postcondition. Leave the old run as it is.</td>
+</tr>
+<tr>
+<td><strong>Select Automation</strong> shows an entry called <strong>TestCase</strong></td>
+<td>It's an empty default file in the trainer's package. Ignore it, and pick the test with the same name as your test case.</td>
+</tr>
+<tr>
+<td>You can't see the trainer's package in <strong>Select Automation</strong></td>
+<td>Check that <strong>Package Source</strong> is <strong>Tenant Package Feed</strong>. If the list is still empty, tell your trainer.</td>
+</tr>
+<tr>
+<td><strong>Select Automation</strong> says <strong>No results</strong> when you search for <code>UiBank.BusinessTests</code></td>
+<td>The search box matches test case names only. Type the test case name, for example <code>Over-65</code>, or use the <strong>Package</strong> filter: tick <strong>UiBank.BusinessTests</strong> and select <strong>Apply</strong>.</td>
+</tr>
+<tr>
+<td>A test case in the regression set is skipped, with no result</td>
+<td>It isn't linked to the trainer's automation. Link it as in <a href="../../module-2-hands-on-workshop/06-automate-with-studio-web/#link-your-test-cases-to-the-automated-tests">6. Automate with Studio Web</a> and check that <strong>Package Name</strong> is filled in on the test case's <strong>Automation</strong> tab.</td>
+</tr>
+<tr>
+<td><strong>Execute → Automated</strong> isn't available on the test set</td>
+<td>The set has no automated test case. Link the test cases first (step 6), then check the set in <a href="../../module-2-hands-on-workshop/07-build-and-run-the-regression-set/#configure-the-automation">7. Build and Run the Regression Set</a>.</td>
+</tr>
+<tr>
+<td>The regression run waits a long time, or runs on the shared robot</td>
+<td><strong>Configure Automation</strong> was saved with <strong>Cloud - VM Testing</strong> (or the <strong>Runtime type</strong> was left empty). On the test set, open <strong>Configure Automation</strong>, set <strong>Runtime type</strong> to <strong>Cloud - Serverless Testing</strong>, click <strong>Save</strong>, and run the set again.</td>
+</tr>
+<tr>
+<td>More than one test case failed, or a failure has no UiBank message</td>
+<td>Probably a robot error, not a UiBank defect: Test Manager records both as <strong>Failed</strong> (Orchestrator shows the job as <strong>Faulted</strong> either way). Open the failed test case log. A real UiBank failure has an assertion that quotes UiBank's page, such as <em>"Congrats! You've been approved…"</em>. A robot error has no assertion and an error such as <em>"Failed to start browser"</em>. Tell your trainer and run the set again. Don't triage a robot error as a UiBank defect.</td>
+</tr>
+<tr>
+<td>UiBank approves the over-65 applicant (<em>"Congrats! You've been approved…"</em>)</td>
+<td>That's the defect the workshop is built on, and it's expected. In a manual run, mark the step <strong>Failed</strong> and keep going. Delegate and the robots record the failure for you. It gives the NO-GO in step 9.</td>
+</tr>
+<tr>
+<td>UiBank rejects the over-65 applicant</td>
+<td>UiBank has fixed the defect, so your over-65 test case passes. Tell your trainer – they switch the class to a spare failing test and explain what changes in steps 7–9.</td>
+</tr>
+<tr>
+<td><em>"We weren't able to locate a matching loan ID"</em></td>
+<td>The loan ID doesn't exist in UiBank. In <a href="https://uibank.uipath.com" target="_blank">UiBank</a>, go to <strong>Products → Loans → Apply For A Loan</strong>, submit an application, and use the new loan ID it shows.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="report">Report<a class="headerlink" href="#report" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Execution Insights report is empty or misses your runs</td>
+<td>The imported results are three years old, so the "last 7/15/30 days" options see only today's runs. In <strong>Execution</strong>, use <strong>Generate Report</strong> → <strong>From selection</strong> (tick the results of your regression execution) or <strong>From last day</strong>.</td>
+</tr>
+<tr>
+<td>You can't find the Execution Insights report</td>
+<td>It takes about a minute. Open the <strong>Reports</strong> tab in <strong>Execution</strong>, then click the <strong>Download</strong> icon: you get a <code>.docx</code> file with a long generated name. Rename it.</td>
+</tr>
+<tr>
+<td>The Dashboard doesn't show the imported results, or you can't pick a date range</td>
+<td>The Dashboard shows <strong>Daily</strong> or <strong>Weekly</strong> results for recent weeks only, with no custom date range. Imported results never appear; today's runs do.</td>
+</tr>
+<tr>
+<td>You can't find the execution PDF</td>
+<td>Open the execution in <strong>Execution</strong>, click the download icon, and select <strong>Download Pdf</strong>.</td>
+</tr>
+<tr>
+<td>You can't find Delegate's report</td>
+<td>Delegate shows the path when it finishes. If it saved the file somewhere hard to find, ask Delegate <em>"Create a PDF of the report and copy it to my Downloads folder."</em></td>
+</tr>
+<tr>
+<td>The report numbers don't match Test Manager</td>
+<td>Make sure you're comparing the <strong>same execution</strong>: ask Delegate or chat which execution it used. A rerun of the failures updates that execution, so its numbers change after a rerun.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Still stuck?</p>
+<p>Ask your trainer, or ask Autopilot chat or Delegate, for example: <em>"Why did that last step fail, and how do I fix it?"</em> Check the answer before you act on it.</p>
+</div>
+<hr />
+<p><a class="md-button md-button--primary" href="../../">Back to Home</a> <a class="md-button" href="../../trainer-setup/">Trainer Setup (for trainers)</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../assets/js/mermaid.min.js?v=faba385a"></script>
+      
+        <script src="../../assets/js/sidebar-toggle.js?v=7be908d6"></script>
+      
+        <script src="../../assets/js/rich-copy.js?v=f90dcf6c"></script>
+      
+        <script src="../../assets/js/tabs-sync.js?v=0a2fe6bf"></script>
+      
+    
+  </body>
+</html>

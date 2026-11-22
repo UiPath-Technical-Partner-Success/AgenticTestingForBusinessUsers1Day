@@ -1,0 +1,1365 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="UiPath Test Cloud for business users – Autopilot, Delegate and test robots, from requirement to go/no-go. Instructor-led workshop.">
+      
+      
+      
+        <link rel="canonical" href="https://uipath-technical-partner-success.github.io/AgenticTestingForBusinessUsers1Day/module-2-hands-on-workshop/04-run-the-test-three-ways/">
+      
+      
+        <link rel="prev" href="../03-generate-test-cases/">
+      
+      
+        <link rel="next" href="../05-compare-the-runs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>4. Run the Test Three Ways - Agentic Testing for Business People – Hands-On Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css?v=b9661cbe">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-run-the-test-three-ways" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-header__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Testing for Business People – Hands-On Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Run the Test Three Ways
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Testing for Business People – Hands-On Workshop" class="md-nav__button md-logo" aria-label="Agentic Testing for Business People – Hands-On Workshop" data-md-component="logo">
+      
+  <img src="../../assets/images/partner-success-logo-header.png" alt="logo">
+
+    </a>
+    Agentic Testing for Business People – Hands-On Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-0-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Cloud, Autopilot and Delegate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Workshop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-import-and-meet-autopilot-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">1</span>Import Your Project and Meet Autopilot Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-evaluate-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">2</span>Evaluate the Requirement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-generate-test-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">3</span>Generate Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">4</span>Run the Test Three Ways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#three-testers-one-test-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three testers, one test case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-start-the-robot-first-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 – Start the robot first (Preview)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-run-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 – Run it yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hand-it-to-delegate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 – Hand it to Delegate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-three-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check your three runs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nice-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nice work!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-compare-the-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">5</span>Compare the Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-automate-with-studio-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">6</span>Automate with Studio Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-build-and-run-the-regression-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">7</span>Build and Run the Regression Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-read-the-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">8</span>Read the Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-decide-go-no-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="nav-num">9</span>Decide Go or No-Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    You did it!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/01-more-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Prompts to Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3-troubleshooting-and-next-steps/02-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trainer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trainer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-run-the-test-three-ways">4. Run the Test Three Ways<a class="headerlink" href="#4-run-the-test-three-ways" title="Permanent link">&para;</a></h1>
+<p class="step-meta">Leads: <span class="persona-badge persona-badge--uat">UAT</span> · Tools: <span class="tool-badge tool-badge--testmanager">Test Manager</span> <span class="tool-badge tool-badge--robot">Robot</span> <span class="tool-badge tool-badge--delegate">Delegate</span></p>
+
+<div class="flow">
+  <a class="flow-step" href="#1-start-the-robot-first-preview">Start the robot first</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#2-run-it-yourself">Run it yourself</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#3-hand-it-to-delegate">Hand it to Delegate</a>
+  <span class="flow-arrow"></span>
+  <a class="flow-step" href="#check-your-three-runs">Check your three runs</a>
+</div>
+
+<p><strong>Why it matters for you:</strong> UAT sign-off needs evidence. Here you see what a person, a desktop agent and a robot each record for the same test case, and whether all three catch the same UiBank defect.</p>
+<p>You run <strong>Submit Over-65 Request</strong>, the test case you made in <a href="../03-generate-test-cases/#name-your-over-65-test-case">3. Generate Test Cases</a>, three times: on a robot, yourself, and with Delegate.</p>
+<p>UiBank has a defect. An applicant aged 66 gets <em>Congrats! You've been approved…</em>, but the requirement says applicants over 65 must be rejected. So a correct run of this test case <strong>fails</strong>. That's the result you're looking for.</p>
+<div class="admonition warning">
+<p class="admonition-title">Start the robot first</p>
+<p>The robot is shared by the whole class and runs one test at a time. Start your robot run before anything else on this page. Its result comes in after lunch.</p>
+</div>
+<h2 id="three-testers-one-test-case">Three testers, one test case<a class="headerlink" href="#three-testers-one-test-case" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Who does the steps</th>
+<th>Where</th>
+<th>Evidence it leaves</th>
+<th>What it uses</th>
+<th>Your time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Run autonomously</strong> (Preview)</td>
+<td>Autopilot, on the trainer's shared robot</td>
+<td>A cloud machine</td>
+<td>A result for each step, screenshots, comments it writes itself, Autopilot's reasoning</td>
+<td>App Test Platform Units, from the tenant</td>
+<td>~3 min to start</td>
+</tr>
+<tr>
+<td><strong>You</strong> (Execute Manually)</td>
+<td>You</td>
+<td>Your browser</td>
+<td>Pass or fail for each step, your comments, your screenshots</td>
+<td>Your time only</td>
+<td>~10 min</td>
+</tr>
+<tr>
+<td><strong>Delegate</strong></td>
+<td>Delegate, the desktop agent</td>
+<td>Your browser, with your mouse and keyboard</td>
+<td>A result for each step, a trace for each step, a final screenshot</td>
+<td>Your AI usage allowance</td>
+<td>~10 min</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-start-the-robot-first-preview">1 – Start the robot first (Preview)<a class="headerlink" href="#1-start-the-robot-first-preview" title="Permanent link">&para;</a></h2>
+<p><strong>Run autonomously</strong> (Autonomous Test Execution) gives one manual test case to Autopilot. Autopilot reads the steps and does them in a browser on a robot, with no automation built.</p>
+<div class="admonition info">
+<p class="admonition-title">Preview</p>
+<p>Labels and behavior may change. Your tenant may show slightly different labels.</p>
+</div>
+<ol>
+<li>
+<p>Go to <strong>Test Cases</strong>. On the <strong>Submit Over-65 Request</strong> row, select <strong>⋮</strong> → <strong>Execute Autonomously</strong>. Or open the test case and select <strong>Execute ▾</strong> → <strong>Autonomously</strong>.</p>
+<p>You can also open the test case, go to the <strong>Manual Steps</strong> tab and select <strong>Run Autonomously</strong> in the right-hand panel:</p>
+<p><img alt="Run Autonomously in the Manual Steps tab" src="../../assets/images/TM%20Run%20autonomously.png" /></p>
+</li>
+<li>
+<p>The <strong>Run test autonomously</strong> (Preview) panel opens. Its banner says the feature is only for web-based UI tests. That's fine: UiBank is a web app.</p>
+</li>
+<li>
+<p>On the first screen:</p>
+<p>✅ <strong>Url</strong>: <code>https://uibank.uipath.com</code>, the UiBank home page. Your generated test case starts on the home page, so don't use the loan form's address. You can't go on without it.</p>
+<ul>
+<li>Field empty? Type <code>https://uibank.uipath.com</code>.</li>
+<li>Field already filled? Check that it shows exactly <code>https://uibank.uipath.com</code>. If not, clear the field first (select all, then delete), then type it. Typing into a filled field adds your text to the old address, and the run fails.</li>
+</ul>
+<p>The Url you type here is saved into the test case's <strong>Manual Steps</strong> → <strong>URL</strong> field and pre-filled next time. You can also set it once there.</p>
+<p>✅ <strong>Model</strong>: keep the one marked <strong>Recommended</strong>.</p>
+<p>✅ <strong>Enable live streaming</strong>: leave it off. Your trainer streams one run for the whole class.</p>
+<p>Select <strong>Next</strong>.</p>
+<p><img alt="First screen of Run test autonomously: Url, Model and Enable live streaming" src="../../assets/images/atb-04-run-autonomously-setup.jpg" /></p>
+</li>
+<li>
+<p>On the second screen:</p>
+<p>✅ <strong>Select folder</strong>: leave it as it is. It shows your project's Default Folder from step 1, <strong>ATB - Agentic Testing Workshop</strong>.</p>
+<p>✅ <strong>Runtime type</strong> – the kind of robot machine that does the run. Your trainer tells you which one to use. On the workshop tenant it's <strong>Cloud - VM Testing</strong>, the trainer's shared cloud machine, usually already selected. Don't pick a Serverless runtime: the list shows them, but Run autonomously doesn't support them.</p>
+<p>✅ <strong>Robot account</strong>: <strong>Any User/Robot account</strong>.</p>
+<p>✅ <strong>Machine template</strong>: <strong>Any machine template</strong>.</p>
+<p>Select <strong>Run</strong> – once only. Every extra click adds another run to the shared queue. Wait for the panel's progress messages instead of clicking again.</p>
+<p><img alt="Second screen of Run test autonomously: Select folder, Runtime type, Robot account and Machine template" src="../../assets/images/atb-04-run-autonomously-configure.jpg" /></p>
+</li>
+<li>
+<p>The panel shows its progress and ends with <em>Autonomous test execution job triggered.</em> You can close the panel now.</p>
+<p>In <strong>Execution</strong>, the run is named <strong>Submit Over-65 Request -</strong> followed by the date and time, and its type is <strong>Autonomous</strong>.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Waiting is normal</p>
+<p>The shared robot runs one test at a time, about 6 minutes each. The first run of the day can also wait several minutes while the cloud machine starts. With the whole class in the queue, your run may finish only after lunch. Leave it and carry on: you read its result in <a href="../05-compare-the-runs/">5. Compare the Runs</a>.</p>
+<p>If the panel shows an error, tell your trainer.</p>
+<p>A run that ends after about a minute, with step 1 <strong>Failed</strong>, didn't reach the age decision – it's not a UiBank defect. Check the test case's <strong>Manual Steps</strong> → <strong>URL</strong> field for a broken address and fix it. If <strong>Behaviour verification</strong> on step 1 says <em>"Verification could not be completed (HttpRequestException)"</em>, it was a service error. Either way, ask your trainer before you start another run – each run costs App Test Platform Units – and use the trainer's completed run in step 5.</p>
+</div>
+<p>Run autonomously uses App Test Platform Units from the tenant, not your personal AI allowance. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/running-autonomous-test-execution" target="_blank">Running Autonomous Test Execution</a>.</p>
+<h2 id="2-run-it-yourself">2 – Run it yourself<a class="headerlink" href="#2-run-it-yourself" title="Permanent link">&para;</a></h2>
+<p>You run the steps in UiBank and record each result in the <strong>manual execution assistant</strong>, Test Manager's window for manual runs. This is the core UAT skill: a person checks the app and leaves evidence.</p>
+<ol>
+<li>
+<p>Go to <strong>Test Cases</strong> and open <strong>Submit Over-65 Request</strong>. Select <strong>Execute ▾</strong> → <strong>Manually</strong> (Test Cloud only).</p>
+<p>You can also select <strong>⋮</strong> → <strong>Execute Manually</strong> on its row in <strong>Test Cases</strong>. The list sorts by <strong>Last Modified</strong>, so the row can move: check the name before you click.</p>
+<p>This starts a run of this one test case, with no test set.</p>
+<div class="admonition tip">
+<p class="admonition-title">No Execute Manually, or the window misbehaves?</p>
+<p>Create a test set with only <strong>Submit Over-65 Request</strong>, then on the set select <strong>Execute</strong> → <strong>Manually</strong>.</p>
+</div>
+<p><img alt="Test Cases list with the row menu open, showing Execute Manually and Execute Autonomously" src="../../assets/images/atb-04-row-menu-execute.jpg" /></p>
+<div class="admonition info">
+<p class="admonition-title">Allow pop-ups for Test Manager</p>
+<p>The manual execution assistant opens in a new window. If nothing opens, allow pop-ups for Test Manager in your browser, then select <strong>Execute Manually</strong> again.</p>
+</div>
+</li>
+<li>
+<p>Open <a href="https://uibank.uipath.com" target="_blank">UiBank</a> in another window, next to the assistant.</p>
+</li>
+<li>If the test case has a precondition, the state the app must be in before the test, set up UiBank as it says.</li>
+<li>Do each step in UiBank, then select <strong>Set Passed</strong> or <strong>Set Failed</strong> in the assistant. To pass several steps in a row, select <strong>Set Passed Till Here</strong>.</li>
+<li>
+<p>At the step that checks the decision, UiBank shows <em>Congrats! You've been approved…</em> for your 66-year-old applicant. Your test case expects a rejection. Select <strong>Set Failed</strong> and add a comment, for example:</p>
+<div class="highlight"><pre><span></span><code>UiBank approved a 66-year-old applicant. The requirement says applicants over 65 must be rejected.
+</code></pre></div>
+</li>
+<li>
+<p>Add evidence to the failed step: a screenshot of UiBank's approval page. Open the step's <strong>⋮</strong> menu and select <strong>Capture screen</strong>, or <strong>Upload attachment</strong> for a file. <strong>Add image from clipboard</strong> stays greyed out until you copy an image. The attachment shows as an image icon under your comment.</p>
+<div class="admonition tip">
+<p class="admonition-title">Capture doesn't work?</p>
+<p>Take a screenshot with your computer's own tool and select <strong>Upload attachment</strong>. If you can't attach a file either, describe what you saw in the comment. If capturing switches you to another tab, switch back to the assistant yourself.</p>
+</div>
+<p><img alt="Manual execution assistant with the decision step set to Failed, a tester comment and a screenshot attached" src="../../assets/images/atb-04-manual-assistant-failed.jpg" /></p>
+</li>
+<li>
+<p>The postcondition box has a <strong>Condition met</strong> checkbox, ticked by default. The postcondition says the loan is rejected, but UiBank approved it: untick <strong>Condition met</strong>. Then select <strong>Done</strong>. There's no <strong>Next</strong>: the window closes by itself.</p>
+<div class="admonition warning">
+<p class="admonition-title">Always finish with Done</p>
+<p>If you close the window without <strong>Done</strong>, the run stays <strong>Running</strong> in <strong>Execution</strong>.</p>
+</div>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Made a mistake?</p>
+<p>A run started without a test set can't be run again. Start a new <strong>Execute Manually</strong> instead. See <a href="https://docs.uipath.com/test-manager/automation-cloud/latest/user-guide/executing-test-cases-without-a-test-set" target="_blank">Executing test cases without a test set</a>.</p>
+</div>
+<h2 id="3-hand-it-to-delegate">3 – Hand it to Delegate<a class="headerlink" href="#3-hand-it-to-delegate" title="Permanent link">&para;</a></h2>
+<p><strong>Delegate</strong>, the desktop agent, runs the same steps in your browser with your mouse and keyboard. It then records the result in Test Manager. You watch, answer its questions and approve what it saves.</p>
+<p>Use the <strong>QA / Testing</strong> session you set up in <a href="../../module-0-prerequisites/#set-up-delegate">Prerequisites</a>. Delegate is generally available on Windows. On a Mac, Delegate for macOS (Preview) runs the same prompts.</p>
+<details class="tip">
+<summary>No Delegate?</summary>
+<p>Skip this part and pair with a neighbour: watch their Delegate run. Your robot run and your own run are enough for <a href="../05-compare-the-runs/">5. Compare the Runs</a>.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">It's your turn now!</p>
+<ol>
+<li>Keep only one UiBank tab open. Delegate finds the window by its title, and the prompt names UiBank.</li>
+<li>Before your first prompt, attach only the browser window with UiBank to the chat (the screen icon next to the chat box). Delegate then sees nothing else on your screen.</li>
+<li>
+<p>Find two values in Test Manager:</p>
+<p>✅ <code>&lt;PROJECT_PREFIX&gt;</code>: your project's prefix, which you typed when you imported the project in step 1.</p>
+<p>✅ <code>&lt;TEST_CASE_KEY&gt;</code>: the key of <strong>Submit Over-65 Request</strong>, in the <strong>Key</strong> column of <strong>Test Cases</strong>. A key is your prefix, a colon and a number.</p>
+</li>
+<li>
+<p>Replace both placeholders, then paste:</p>
+<div class="highlight"><pre><span></span><code>In Test Manager project &lt;PROJECT_PREFIX&gt;, run the manual test case &lt;TEST_CASE_KEY&gt; (Submit Over-65 Request). Open UiBank at https://uibank.uipath.com, follow the test case's manual steps in the browser, and check every expected result. Stop and ask me if a step is unclear. Take a screenshot of the final result page and save it to my Desktop. When you finish, push the results to Test Manager, give me the link to the execution, and explain the reason for any failed step.
+</code></pre></div>
+<p>It takes about 10 minutes. Delegate uses your mouse and keyboard, so don't touch them until it reports back. Follow its progress in the task list. If your screen locks, unlock it, and Delegate carries on.</p>
+</li>
+<li>
+<p>If Delegate asks you something, answer in plain words, as you would a colleague. For example: <em>"The field is labelled Age. Type 66 there."</em></p>
+</li>
+<li>When Delegate asks for permission to push the results to Test Manager, approve it. Read every other request before you approve it, too.</li>
+<li>Read its explanation of the failure. Does it call it a <strong>defect in UiBank</strong> or a <strong>problem with the test case</strong>?</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Delegate says it can't reach Test Manager?</p>
+<p>Your one-time connection from Prerequisites has probably expired. Repeat the sign-in in <a href="../../module-0-prerequisites/#connect-delegate-to-test-manager">Connect Delegate to Test Manager</a>, then paste the prompt again.</p>
+</div>
+<details class="tip">
+<summary>Delegate keeps retrying the failing step?</summary>
+<p>Tell it: <em>"Mark this step Failed with what you see on the screen, and carry on."</em> Still stuck? Run <strong>Submit Standard Loan Request</strong> with Delegate instead. It passes, but you still see how Delegate records a run. In the checks below and in step 5, your Delegate run is then <strong>Passed</strong> on Submit Standard Loan Request – that's expected, and the defect evidence comes from your own run and the robot's.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Think about it</p>
+<p>Did Delegate stop to ask about a step, or do something you didn't expect? The same steps feed Run autonomously now, and the automation in <a href="../06-automate-with-studio-web/">6. Automate with Studio Web</a>. An unclear step costs time for every tester, person or agent.</p>
+<p>Note the step. Don't change it yet: your robot run is still waiting and uses the same steps. You fix it in <a href="../05-compare-the-runs/">5. Compare the Runs</a>.</p>
+</div>
+<details class="info">
+<summary>Beyond running tests – Delegate across the whole manual testing cycle</summary>
+<p>Ideas to try on your own project, in your own words:</p>
+<p>✅ <strong>Find test ideas</strong> – from a requirement's acceptance criteria, or from a screenshot of a screen, including boundary and negative cases.</p>
+<p>✅ <strong>Write the steps</strong> – turn those ideas into manual test cases and link them to the requirement.</p>
+<p>✅ <strong>Run them with you</strong> – Delegate runs the steps and stops to ask when it needs a decision from you. Never paste passwords into the chat.</p>
+<p>✅ <strong>Record the results</strong> – create test results with screenshots of failed steps, and upload them to Test Manager.</p>
+<p>See <a href="https://docs.uipath.com/delegate/standalone/latest/user-guide/manual-test-execution-use-case" target="_blank">Manual test execution with Delegate</a>.</p>
+</details>
+<h2 id="check-your-three-runs">Check your three runs<a class="headerlink" href="#check-your-three-runs" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Check it</p>
+<p>Go to <strong>Execution</strong>:</p>
+<p>✅ Your own run of <strong>Submit Over-65 Request</strong> shows <strong>Failed</strong>, with your comment and your screenshot (or description) on the decision step.</p>
+<p>✅ The Delegate run shows <strong>Failed</strong>, with a result for each step and a Delegate trace attached to the steps. Delegate names it <strong>Delegate-</strong> followed by the test case name and the date. The final screenshot is on your Desktop.</p>
+<p>✅ Your robot run is listed as <strong>Submit Over-65 Request -</strong> followed by the date and time, with the type <strong>Autonomous</strong>. It's fine if it hasn't finished yet. Can't find it? Ask your trainer, who can see the queue.</p>
+</div>
+<!-- IMG: Execution list with the manual run and the Delegate run of Submit Over-65 Request, both Failed (no executor names visible) -->
+
+<h2 id="nice-work">Nice work!<a class="headerlink" href="#nice-work" title="Permanent link">&para;</a></h2>
+<p>You ran the same test case as a tester, with Delegate, and on a robot. Both finished runs caught UiBank's over-65 defect. After lunch, you compare all three.</p>
+<hr />
+<p><a class="md-button md-button--primary" href="../05-compare-the-runs/">Next → 5. Compare the Runs</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../assets/js/mermaid.min.js?v=faba385a"></script>
+      
+        <script src="../../assets/js/sidebar-toggle.js?v=7be908d6"></script>
+      
+        <script src="../../assets/js/rich-copy.js?v=f90dcf6c"></script>
+      
+        <script src="../../assets/js/tabs-sync.js?v=0a2fe6bf"></script>
+      
+    
+  </body>
+</html>
